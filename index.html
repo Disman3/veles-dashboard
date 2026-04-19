@@ -4,7 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veles Finance — Intelligence Dashboard v3</title>
+    <meta name="robots" content="noindex, nofollow">
     <style>
+        /* === PASSWORD SCREEN === */
+        #password-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #0b0e17; z-index: 99999;
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column; gap: 20px;
+        }
+        #password-screen .lock-icon {
+            width: 64px; height: 64px; border-radius: 50%;
+            background: rgba(59,130,246,0.12); display: flex;
+            align-items: center; justify-content: center;
+            font-size: 28px; margin-bottom: 8px;
+        }
+        #password-screen h2 {
+            color: #f0f2f5; font-size: 1.3rem; font-weight: 600; margin: 0;
+        }
+        #password-screen p {
+            color: rgba(240,242,245,0.55); font-size: 0.9rem; margin: 0;
+        }
+        #password-screen .pw-form {
+            display: flex; gap: 10px; margin-top: 4px;
+        }
+        #password-screen input {
+            background: #161c2a; border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px; padding: 10px 16px; color: #f0f2f5;
+            font-size: 1rem; outline: none; width: 200px;
+            transition: border-color 0.2s;
+        }
+        #password-screen input:focus {
+            border-color: #3b82f6;
+        }
+        #password-screen input.shake {
+            animation: shake 0.4s ease;
+            border-color: #ef4444;
+        }
+        #password-screen button {
+            background: #3b82f6; color: #fff; border: none;
+            border-radius: 8px; padding: 10px 24px; font-size: 0.95rem;
+            font-weight: 600; cursor: pointer; transition: background 0.2s;
+        }
+        #password-screen button:hover { background: #2563eb; }
+        #password-screen .error-msg {
+            color: #ef4444; font-size: 0.85rem; height: 20px; margin: 0;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            50% { transform: translateX(8px); }
+            75% { transform: translateX(-4px); }
+        }
+        #app-content { display: none; }
+        #app-content.unlocked { display: block; }
+        /* === END PASSWORD SCREEN === */
+
         :root {
             --bg-primary: #0b0e17;
             --bg-elevated: #10141f;
@@ -795,6 +850,20 @@
 <body>
 
 <!-- ===== HEADER ===== -->
+<!-- PASSWORD SCREEN -->
+<div id="password-screen">
+    <div class="lock-icon">🔒</div>
+    <h2>Veles Intelligence Dashboard</h2>
+    <p>Введите пароль для доступа</p>
+    <div class="pw-form">
+        <input type="password" id="pw-input" placeholder="Пароль" autofocus
+               onkeydown="if(event.key==='Enter') checkPassword()">
+        <button onclick="checkPassword()">Войти</button>
+    </div>
+    <p class="error-msg" id="pw-error"></p>
+</div>
+
+<div id="app-content">
 <header>
     <div class="header-inner">
         <div class="header-brand">
@@ -2132,6 +2201,41 @@
         btn.classList.add('active');
         // Scroll to top of content
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+</div><!-- /app-content -->
+
+<script>
+    // Simple hash check — not crypto-grade, but hides the password from casual view
+    function simpleHash(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const ch = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + ch;
+            hash |= 0;
+        }
+        return hash;
+    }
+    const EXPECTED = 1516327;  // hash of "1987"
+    function checkPassword() {
+        const input = document.getElementById('pw-input');
+        const error = document.getElementById('pw-error');
+        if (simpleHash(input.value) === EXPECTED) {
+            document.getElementById('password-screen').style.display = 'none';
+            document.getElementById('app-content').classList.add('unlocked');
+            sessionStorage.setItem('vd_auth', '1');
+        } else {
+            error.textContent = 'Неверный пароль';
+            input.classList.add('shake');
+            setTimeout(() => { input.classList.remove('shake'); error.textContent = ''; }, 1500);
+            input.value = '';
+            input.focus();
+        }
+    }
+    // Persist within session
+    if (sessionStorage.getItem('vd_auth') === '1') {
+        document.getElementById('password-screen').style.display = 'none';
+        document.getElementById('app-content').classList.add('unlocked');
     }
 </script>
 </body>
