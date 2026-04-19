@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veles Finance — Intelligence Dashboard v3</title>
+    <style>
+        :root {
+            --bg-primary: #0b0e17;
+            --bg-elevated: #10141f;
+            --bg-surface: #161c2a;
+            --bg-surface-alt: #1a2133;
+            --bg-hover: #1f2740;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.16);
+            --text-primary: #f0f2f5;
+            --text-secondary: rgba(240,242,245,0.72);
+            --text-muted: rgba(240,242,245,0.45);
+            --accent: #3b82f6;
+            --accent-dim: rgba(59,130,246,0.15);
+            --accent-hover: #2563eb;
+            --veles: #10b981;
+            --veles-dim: rgba(16,185,129,0.12);
+            --win: #10b981;
+            --win-dim: rgba(16,185,129,0.12);
+            --lose: #ef4444;
+            --lose-dim: rgba(239,68,68,0.10);
+            --tie: #f59e0b;
+            --tie-dim: rgba(245,158,11,0.12);
+            --purple: #a78bfa;
+            --purple-dim: rgba(167,139,250,0.12);
+            --radius: 10px;
+            --radius-lg: 14px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.3);
+            --urgent: #ef4444;
+            --urgent-dim: rgba(239,68,68,0.10);
+            --warning: #f59e0b;
+            --warning-dim: rgba(245,158,11,0.10);
+            --ok: #10b981;
+            --ok-dim: rgba(16,185,129,0.10);
+            --info: #3b82f6;
+            --info-dim: rgba(59,130,246,0.10);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            padding: 2rem 2rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(59,130,246,0.06) 0%, transparent 100%);
+        }
+        .header-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .header-logo {
+            width: 36px; height: 36px;
+            background: var(--veles);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: #fff;
+        }
+        header h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        header h1 span { color: var(--veles); }
+        .header-meta {
+            display: flex; gap: 1.5rem; flex-wrap: wrap;
+        }
+        .header-meta-item {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+        .header-meta-item strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* ===== TABS ===== */
+        .tabs-wrap {
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-elevated);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .tabs {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.35rem;
+            padding: 0.75rem 2rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tab {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 180ms ease;
+            font-family: inherit;
+        }
+        .tab:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--border-hover);
+        }
+        .tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(59,130,246,0.3);
+        }
+
+        /* ===== CONTENT ===== */
+        .content-wrap {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 3rem;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 250ms ease;
+        }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 0 0 1rem;
+            letter-spacing: -0.01em;
+        }
+        h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 1.25rem 0 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            margin-bottom: 2rem;
+        }
+        .comparison-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+        .comparison-matrix thead th {
+            padding: 0.85rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            position: sticky; top: 0;
+        }
+        .comparison-matrix thead th:first-child {
+            border-radius: var(--radius-lg) 0 0 0;
+        }
+        .comparison-matrix thead th:last-child {
+            border-radius: 0 var(--radius-lg) 0 0;
+        }
+        .comparison-matrix thead th.th-veles {
+            color: var(--veles);
+        }
+        .comparison-matrix tbody td {
+            padding: 0.7rem 1rem;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        .comparison-matrix tbody tr:last-child td { border-bottom: none; }
+        .comparison-matrix tbody tr:hover td { background: var(--bg-hover); }
+        .comparison-matrix .cat-row td {
+            background: var(--bg-elevated);
+            font-weight: 700;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            padding: 0.6rem 1rem;
+        }
+        .comparison-matrix td:first-child {
+            color: var(--text-primary);
+            font-weight: 500;
+            min-width: 160px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.55rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .badge-win { background: var(--win-dim); color: var(--win); }
+        .badge-lose { background: var(--lose-dim); color: var(--lose); }
+        .badge-tie { background: var(--tie-dim); color: var(--tie); }
+        .badge-neutral { background: rgba(255,255,255,0.06); color: var(--text-muted); }
+        .badge-veles { background: var(--veles-dim); color: var(--veles); }
+        .badge-accent { background: var(--accent-dim); color: var(--accent); }
+        .badge-purple { background: var(--purple-dim); color: var(--purple); }
+
+        /* ===== SUMMARY CARDS ===== */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .summary-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem 1.5rem;
+            transition: border-color 200ms;
+        }
+        .summary-card:hover { border-color: var(--border-hover); }
+        .summary-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .summary-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .summary-card li {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            padding: 0.3rem 0;
+            padding-left: 1.1rem;
+            position: relative;
+        }
+        .summary-card li::before {
+            position: absolute;
+            left: 0;
+            font-size: 0.7rem;
+        }
+        .summary-card .win-list li::before { content: "✅"; }
+        .summary-card .lose-list li::before { content: "⚠️"; }
+
+        /* ===== COMPETITOR TABS ===== */
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: border-color 200ms;
+        }
+        .card:hover { border-color: var(--border-hover); }
+        .card-header {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card-header .icon {
+            font-size: 0.9rem;
+        }
+
+        /* Profile grid */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .profile-item {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+        }
+        .profile-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.25rem;
+        }
+        .profile-value {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Strengths lists */
+        .strength-list {
+            list-style: none;
+            padding: 0;
+        }
+        .strength-list li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 0.55rem 0.85rem;
+            margin-bottom: 0.4rem;
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            border-left: 3px solid var(--win);
+            line-height: 1.45;
+        }
+        .strength-list.they-win li {
+            border-left-color: var(--lose);
+        }
+
+        /* Talk tracks */
+        .talk-track {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 1rem 1.15rem;
+            margin-bottom: 0.75rem;
+            border-left: 3px solid var(--accent);
+        }
+        .talk-track .scenario {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.35rem;
+        }
+        .talk-track .script {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            font-style: italic;
+        }
+
+        /* Objections */
+        .objection {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 1rem 1.15rem;
+            margin-bottom: 0.75rem;
+        }
+        .objection .obj-q {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--lose);
+            margin-bottom: 0.4rem;
+        }
+        .objection .obj-a {
+            font-size: 0.85rem;
+            color: var(--win);
+            line-height: 1.55;
+        }
+
+        /* Landmines */
+        .landmine {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            border-left: 3px solid var(--tie);
+        }
+
+        /* Hiring cards */
+        .hiring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+        .hiring-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            transition: border-color 200ms;
+        }
+        .hiring-card:hover { border-color: var(--border-hover); }
+        .hiring-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .hiring-card .team-size {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 0.85rem;
+        }
+        .hiring-card .positions {
+            margin-bottom: 0.85rem;
+        }
+        .hiring-card .positions h5 {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+        .hiring-card .positions ul {
+            list-style: none;
+            padding: 0;
+        }
+        .hiring-card .positions li {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            padding: 0.2rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .hiring-card .positions li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        .hiring-signal {
+            background: var(--accent-dim);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            margin-top: 0.5rem;
+        }
+        .hiring-signal .label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+        .hiring-signal p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===== NEW: OPPORTUNITIES TAB ===== */
+        .status-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+        }
+        .status-metric {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1rem 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .status-metric::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+        .status-metric.urgent::before { background: var(--urgent); }
+        .status-metric.warning::before { background: var(--warning); }
+        .status-metric.info::before { background: var(--info); }
+        .status-metric.ok::before { background: var(--ok); }
+        .status-metric .sm-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+        }
+        .status-metric .sm-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.35;
+        }
+        .status-metric .sm-detail {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+            line-height: 1.4;
+        }
+
+        .priority-cols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+        }
+        .priority-col {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .priority-col::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+        .priority-col.col-urgent::before { background: var(--urgent); }
+        .priority-col.col-warning::before { background: var(--warning); }
+        .priority-col.col-ok::before { background: var(--ok); }
+        .priority-col h3 {
+            margin: 0 0 0.85rem;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .priority-item {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            margin-bottom: 0.65rem;
+        }
+        .priority-item:last-child { margin-bottom: 0; }
+        .priority-item .pi-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+        .priority-item .pi-desc {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+        .priority-item .pi-trigger {
+            font-size: 0.78rem;
+            color: var(--accent);
+            font-style: italic;
+            margin-top: 0.35rem;
+            padding: 0.5rem 0.75rem;
+            background: var(--accent-dim);
+            border-radius: 6px;
+            line-height: 1.45;
+        }
+
+        /* Radar table */
+        .radar-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        .radar-table thead th {
+            padding: 0.75rem 1rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+        .radar-table tbody td {
+            padding: 0.65rem 1rem;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            line-height: 1.5;
+        }
+        .radar-table tbody tr:last-child td { border-bottom: none; }
+        .radar-table tbody tr:hover td { background: var(--bg-hover); }
+        .radar-table td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* ===== NEW: MONITORING TAB ===== */
+        .monitor-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .monitor-card:hover { border-color: var(--border-hover); }
+        .monitor-card .mc-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.85rem;
+        }
+        .monitor-card .mc-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+        .monitor-card .mc-date {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .monitor-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .monitor-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 0.45rem 0.75rem;
+            background: var(--bg-elevated);
+            border-radius: 6px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+        .monitor-item .mi-icon {
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        /* Quotes */
+        .quote-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.15rem 1.35rem;
+            margin-bottom: 0.85rem;
+            border-left: 3px solid var(--lose);
+        }
+        .quote-card:hover { border-color: var(--border-hover); border-left-color: var(--lose); }
+        .quote-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        .quote-meta {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .quote-rating {
+            color: var(--tie);
+        }
+        .quote-veles-response {
+            margin-top: 0.65rem;
+            padding: 0.6rem 0.85rem;
+            background: var(--veles-dim);
+            border-radius: 6px;
+            font-size: 0.78rem;
+            color: var(--veles);
+            line-height: 1.45;
+        }
+
+        /* TradFi radar */
+        .tradfi-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+        .tradfi-table thead th {
+            padding: 0.7rem 0.85rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+        .tradfi-table tbody td {
+            padding: 0.6rem 0.85rem;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+        .tradfi-table tbody tr:last-child td { border-bottom: none; }
+        .tradfi-table tbody tr:hover td { background: var(--bg-hover); }
+        .tradfi-table td:first-child { font-weight: 600; color: var(--text-primary); }
+        .tradfi-table .veles-row td {
+            background: var(--veles-dim);
+            font-weight: 600;
+        }
+        .tradfi-table .veles-row td:first-child { color: var(--veles); }
+
+        /* Market conclusion block */
+        .conclusion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.85rem;
+            margin-top: 1rem;
+        }
+        .conclusion-item {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .conclusion-item .ci-company {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        .conclusion-item .ci-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+        .conclusion-item.ci-growth { border-left-color: var(--lose); }
+        .conclusion-item.ci-stagnation { border-left-color: var(--win); }
+        .conclusion-item.ci-pivot { border-left-color: var(--tie); }
+        .conclusion-item.ci-retention { border-left-color: var(--text-muted); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header { padding: 1.25rem 1rem; }
+            .header-inner { flex-direction: column; align-items: flex-start; }
+            .tabs { padding: 0.6rem 1rem; }
+            .tab { font-size: 0.78rem; padding: 0.45rem 0.85rem; }
+            .content-wrap { padding: 1rem 1rem 2rem; }
+            .card { padding: 1.15rem; }
+            .profile-grid { grid-template-columns: 1fr 1fr; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .hiring-grid { grid-template-columns: 1fr; }
+            .priority-cols { grid-template-columns: 1fr; }
+            .status-strip { grid-template-columns: 1fr 1fr; }
+            footer { padding: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .profile-grid { grid-template-columns: 1fr; }
+            .status-strip { grid-template-columns: 1fr; }
+        }
+
+        /* Print */
+        @media print {
+            .tabs-wrap { display: none; }
+            .tab-content { display: block !important; page-break-inside: avoid; }
+            body { background: #fff; color: #000; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="header-inner">
+        <div class="header-brand">
+            <div class="header-logo">V</div>
+            <h1><span>Veles Finance</span> — Intelligence Dashboard v3</h1>
+        </div>
+        <div class="header-meta">
+            <div class="header-meta-item"><strong>Конкуренты:</strong> 3Commas · Cryptohopper · Pionex · Bitsgap</div>
+            <div class="header-meta-item"><strong>Обновлено:</strong> 18 апреля 2026</div>
+        </div>
+    </div>
+</header>
+
+<!-- ===== TABS ===== -->
+<div class="tabs-wrap">
+    <nav class="tabs" role="tablist">
+        <button class="tab active" onclick="showTab('opportunities', this)" role="tab">🎯 Окна возможностей</button>
+        <button class="tab" onclick="showTab('monitoring', this)" role="tab">📡 Мониторинг</button>
+        <button class="tab" onclick="showTab('traffic', this)" role="tab">📊 Трафик (SimilarWeb)</button>
+        <button class="tab" onclick="showTab('matrix', this)" role="tab">Сравнительная матрица</button>
+        <button class="tab" onclick="showTab('three-commas', this)" role="tab">3Commas</button>
+        <button class="tab" onclick="showTab('cryptohopper', this)" role="tab">Cryptohopper</button>
+        <button class="tab" onclick="showTab('pionex', this)" role="tab">Pionex</button>
+        <button class="tab" onclick="showTab('bitsgap', this)" role="tab">Bitsgap</button>
+    </nav>
+</div>
+
+<div class="content-wrap">
+
+<!-- ================================================================== -->
+<!-- TAB 1: ОКНА ВОЗМОЖНОСТЕЙ -->
+<!-- ================================================================== -->
+<section id="opportunities" class="tab-content active">
+    <h2>🎯 Окна возможностей — оперативная сводка</h2>
+
+    <!-- Status strip -->
+    <div class="status-strip">
+        <div class="status-metric urgent">
+            <div class="sm-label">Самый уязвимый конкурент</div>
+            <div class="sm-value">3Commas</div>
+            <div class="sm-detail">Запустил QuantPilot (отдельный AI-проект), class action возвращён, трафик -6.2%</div>
+        </div>
+        <div class="status-metric warning">
+            <div class="sm-label">Свободная ниша</div>
+            <div class="sm-value">TradFi</div>
+            <div class="sm-detail">0 упоминаний у всех конкурентов, кроме Pionex (биржа, не боты)</div>
+        </div>
+        <div class="status-metric warning">
+            <div class="sm-label">Контентное окно</div>
+            <div class="sm-value">Cryptohopper ожил</div>
+            <div class="sm-detail">Блог Cryptohopper: 5+ статей за апрель 2026. 3Commas запустил отдельный проект QuantPilot, но основная платформа без обновлений. Окно сужается!</div>
+        </div>
+        <div class="status-metric ok">
+            <div class="sm-label">Дата обновления</div>
+            <div class="sm-value">18 апреля 2026</div>
+            <div class="sm-detail">Еженедельный мониторинг конкурентов</div>
+        </div>
+    </div>
+
+    <!-- Priorities -->
+    <h2>Приоритеты недели</h2>
+    <div class="priority-cols">
+        <!-- URGENT -->
+        <div class="priority-col col-urgent">
+            <h3>🔴 Срочно (эта неделя)</h3>
+
+            <div class="priority-item">
+                <div class="pi-title">1. Изучить QuantPilot (спин-офф 3Commas)</div>
+                <div class="pi-desc">Отдельный проект 3Commas — AI-платформа для стратегий. Natural language → бэктест → деплой на Hyperliquid. VIP badge $5,000. Другая ниша (продвинутые кванты), но стоит отслеживать.</div>
+                <div class="pi-trigger">Триггер: «QuantPilot — для продвинутых на Hyperliquid. У Veles — маркетплейс 100k+ ботов для всех, без $5k VIP-входа»</div>
+            </div>
+
+            <div class="priority-item">
+                <div class="pi-title">2. Реактивация бывших пользователей 3Commas</div>
+                <div class="pi-desc">Лучший момент за 2 года. Они злы, активно ищут альтернативу. Сфокусировать ретеншн и CRM на этом сегменте. Class action Freeman v. 3Commas вернулся (Ninth Circuit, 2 марта 2026) — дополнительный аргумент для переключения.</div>
+            </div>
+
+            <div class="priority-item">
+                <div class="pi-title">3. Ответить на негативные отзывы Veles на Trustpilot</div>
+                <div class="pi-desc">Конкуренты читают эти ответы тоже. Каждый ответ — публичная витрина качества поддержки.</div>
+            </div>
+        </div>
+
+        <!-- THIS WEEK -->
+        <div class="priority-col col-warning">
+            <h3>🟡 На этой неделе</h3>
+
+            <div class="priority-item">
+                <div class="pi-title">1. Статья «3Commas QuantPilot vs Veles — в чём разница»</div>
+                <div class="pi-desc">SEO-контент на волне хайпа. QuantPilot — отдельный проект для квантов, Veles — готовая платформа для всех. Разные ниши, но можно перехватить поисковый трафик.</div>
+            </div>
+
+            <div class="priority-item">
+                <div class="pi-title">2. Страница/пост про TradFi</div>
+                <div class="pi-desc">Торговля золотом/индексами через Veles. Ни один конкурент не занял эту нишу в контенте — прямой SEO-захват.</div>
+            </div>
+
+            <div class="priority-item">
+                <div class="pi-title">3. Мониторить Cryptohopper</div>
+                <div class="pi-desc">Блог ожил: 5+ статей за апрель. Ранее — стагнация 6+ мес. Нужно следить — если вернут обновления продукта, статус угрозы вырастет.</div>
+            </div>
+        </div>
+
+        <!-- MID-TERM -->
+        <div class="priority-col col-ok">
+            <h3>🟢 Среднесрок (2-4 недели)</h3>
+
+            <div class="priority-item">
+                <div class="pi-title">1. Запустить регулярный блог</div>
+                <div class="pi-desc">1-2 статьи/нед по AI-стратегиям и бэктестингу, где 3Commas заморожен. Контентное окно открыто.</div>
+            </div>
+
+            <div class="priority-item">
+                <div class="pi-title">2. Добавить G2-профиль</div>
+                <div class="pi-desc">Veles отсутствует на G2 — критично для EN-аудитории и B2B. 3Commas имеет 4.4/5 (24 отзыва) там.</div>
+            </div>
+
+            <div class="priority-item">
+                <div class="pi-title">3. Усилить security messaging</div>
+                <div class="pi-desc">«0 инцидентов, API без прав вывода» — прямо на главной. У 3Commas утечка $20M в 2022, у нас 0. Это сильнейший аргумент.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Competitive Radar -->
+    <h2>Конкурентный радар</h2>
+    <div class="table-wrap">
+        <table class="radar-table">
+            <thead>
+                <tr>
+                    <th>Конкурент</th>
+                    <th>Активность</th>
+                    <th>Угроза</th>
+                    <th>Возможность</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3Commas</td>
+                    <td><span class="badge badge-tie">🟡 Пивот</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Спин-офф QuantPilot, class action, основная платформа без обновлений, -6.2% трафик</span></td>
+                    <td><span class="badge badge-lose">Высокая</span></td>
+                    <td><span class="badge badge-lose" style="background:var(--urgent-dim)">Высокая</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Уходящие пользователи</span></td>
+                </tr>
+                <tr>
+                    <td>Cryptohopper</td>
+                    <td><span class="badge badge-tie">🟡 Пробуждение</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Блог ожил (5+ статей/мес), нет обновлений продукта</span></td>
+                    <td><span class="badge badge-tie">Средняя</span></td>
+                    <td><span class="badge badge-tie">Средняя</span></td>
+                </tr>
+                <tr>
+                    <td>Pionex</td>
+                    <td><span class="badge badge-win">🟢 Оптимизация</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Массовый делистинг продуктов (C2C, Lotto, боты), трафик -26%</span></td>
+                    <td><span class="badge badge-lose">Высокая</span></td>
+                    <td><span class="badge badge-tie">Средняя</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Уходящие пользователи из делистинга</span></td>
+                </tr>
+                <tr>
+                    <td>Bitsgap</td>
+                    <td><span class="badge badge-tie">🟡 Стабильно</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Нет найма, фокус на удержании</span></td>
+                    <td><span class="badge badge-tie">Средняя</span></td>
+                    <td><span class="badge badge-tie">Средняя</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TAB 2: ЕЖЕНЕДЕЛЬНЫЙ МОНИТОРИНГ -->
+<!-- ================================================================== -->
+<section id="monitoring" class="tab-content">
+    <h2>📡 Еженедельный мониторинг</h2>
+    <p style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:0.88rem;">Лента еженедельных данных по конкурентам. Обновление — 18 апреля 2026.</p>
+
+    <h3 style="margin-top:0">Динамика за неделю</h3>
+
+    <!-- 3Commas monitoring -->
+    <div class="monitor-card">
+        <div class="mc-header">
+            <div class="mc-title">3Commas</div>
+            <div class="mc-date">18 апреля 2026</div>
+        </div>
+        <div class="monitor-items">
+            <div class="monitor-item">
+                <span class="mi-icon">🟡</span>
+                <span><strong>Новые релизы:</strong> QuantPilot — отдельный AI-проект 3Commas (2 апреля 2026). Early access, VIP badge $5k. Фокус на Hyperliquid, другая ниша. Основная платформа 3Commas без обновлений.</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">🔴</span>
+                <span><strong>Трафик:</strong> 757 900 визитов, <strong style="color:var(--lose)">-6.19% м/м</strong>. Глобальный ранг 84 077 (падает)</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">🟡</span>
+                <span><strong>Блог:</strong> Статья о запуске QuantPilot (2 апреля) — единственная публикация. Основной блог по-прежнему заморожен.</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">🟡</span>
+                <span><strong>Ценообразование:</strong> Pioneer free, Explorer $24.16, Adventurer $57.50, Hero $107.50 (annual). Принудительная миграция со старых планов.</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">✅</span>
+                <span><strong>Платная реклама:</strong> 0% — весь трафик органический. Display только на низкокачественных партнёрках (fenixsite.net, free-btc.org)</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">✅</span>
+                <span><strong>TradFi-упоминания:</strong> 0 на сайте, 0 в контенте (только SEO-статья 2022 г. про stock trading bots)</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">🔴</span>
+                <span><strong>Судебный иск:</strong> Class action Freeman v. 3Commas возвращён Ninth Circuit (2 марта 2026). Иск по утечке 2022 рассматривается в Калифорнии.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cryptohopper monitoring -->
+    <div class="monitor-card">
+        <div class="mc-header">
+            <div class="mc-title">Cryptohopper</div>
+            <div class="mc-date">18 апреля 2026</div>
+        </div>
+        <div class="monitor-items">
+            <div class="monitor-item">
+                <span class="mi-icon">🟡</span>
+                <span><strong>Активность:</strong> Блог ожил: 5+ статей за апрель 2026 (AI Trading Agents, Kraken API, Trading Spaces, HTX, BSC memes). Обновлений продукта по-прежнему нет.</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">⚪</span>
+                <span><strong>Найм:</strong> вакансий нет. Ставка на AI-автоматизацию (AI-агенты для code review) вместо расширения команды</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">⚪</span>
+                <span><strong>Trustpilot:</strong> 3.6/5 (358 отзывов) — самый низкий рейтинг в нише среди платформ-ботов</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pionex monitoring -->
+    <div class="monitor-card">
+        <div class="mc-header">
+            <div class="mc-title">Pionex</div>
+            <div class="mc-date">18 апреля 2026</div>
+        </div>
+        <div class="monitor-items">
+            <div class="monitor-item">
+                <span class="mi-icon">🟢</span>
+                <span><strong>Активность:</strong> Массовый делистинг продуктов: C2C, Lotto, Easy Earn, Structured Loan, Leveraged Grid Bot, Margin Grid Bot, Leveraged Reverse Grid боты, арбитражные боты ORBS/LINA/COMBO/OMG. VIP Level Adjustment.</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">🟡</span>
+                <span><strong>Риск:</strong> Трафик -26% м/м. Глобальный ранг упал с #33,798 до #41,801. Сужение линейки может быть оптимизацией или сигналом кризиса.</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">⚪</span>
+                <span><strong>Trustpilot:</strong> 2.4/5 (570 отзывов) — ниже всех в нише. Жалобы на зависания и поддержку</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bitsgap monitoring -->
+    <div class="monitor-card">
+        <div class="mc-header">
+            <div class="mc-title">Bitsgap</div>
+            <div class="mc-date">18 апреля 2026</div>
+        </div>
+        <div class="monitor-items">
+            <div class="monitor-item">
+                <span class="mi-icon">⚪</span>
+                <span><strong>Активность:</strong> стабильно, нет крупных новостей. Недавно запустили мобильное приложение, ждут метрик</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">⚪</span>
+                <span><strong>Capterra:</strong> 4.6/5 (96 отзывов) — лучший рейтинг на этой платформе среди всех конкурентов</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">⚪</span>
+                <span><strong>Фьючерсы:</strong> Max leverage увеличен до 1:125 для фьючерсов.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- User pain quotes -->
+    <h3 style="margin-top:1.75rem">Свежие боли пользователей 3Commas — цитаты с Trustpilot</h3>
+
+    <div class="quote-card">
+        <div class="quote-text">«Нас заставляют переходить с $50/мес на $200/мес без возможности остаться на старом плане. При этом обещали сохранить цену при ежегодном продлении — обещание нарушено»</div>
+        <div class="quote-meta">
+            <span class="quote-rating">⭐⭐</span>
+            <span>Декабрь 2025</span>
+        </div>
+        <div class="quote-veles-response">💚 Как Veles закрывает это: фиксированный кап $50/мес навсегда. Платишь только с прибыли — если бот не заработал, платишь $0</div>
+    </div>
+
+    <div class="quote-card">
+        <div class="quote-text">«AI Assistant закончил токены в первый же день. Поддержка отказала в помощи, сославшись на финансовые советы. Потерял $500»</div>
+        <div class="quote-meta">
+            <span class="quote-rating">⭐</span>
+            <span>Январь 2026</span>
+        </div>
+        <div class="quote-veles-response">💚 Как Veles закрывает это: живая поддержка без лимитов. Нет искусственных ограничений на токены — платишь только если зарабатываешь</div>
+    </div>
+
+    <div class="quote-card">
+        <div class="quote-text">«Grid-бот рекламируется как 30-70% за 120 дней. Реально — ноль или минус. Запросил возврат за 11 месяцев неиспользованной подписки — отказали»</div>
+        <div class="quote-meta">
+            <span class="quote-rating">⭐⭐</span>
+            <span>Начало 2026</span>
+        </div>
+        <div class="quote-veles-response">💚 Как Veles закрывает это: модель profit-share — нет прибыли = нет платежа. Нечего возвращать, потому что нет предоплаты</div>
+    </div>
+
+    <div class="quote-card">
+        <div class="quote-text">«Поддержка заменена AI-ботом. Только copy-paste ответы, живого человека не добиться»</div>
+        <div class="quote-meta">
+            <span class="quote-rating">⭐⭐</span>
+            <span>Ноябрь 2025</span>
+        </div>
+        <div class="quote-veles-response">💚 Как Veles закрывает это: живая поддержка — реальные люди, не AI-боты. Быстрые ответы, одна из ключевых тем в позитивных отзывах</div>
+    </div>
+
+    <!-- TradFi Radar -->
+    <h3 style="margin-top:1.75rem">TradFi-радар — упоминания традиционных активов</h3>
+    <div class="table-wrap">
+        <table class="tradfi-table">
+            <thead>
+                <tr>
+                    <th>Конкурент</th>
+                    <th>На сайте</th>
+                    <th>В блоге</th>
+                    <th>В офферах</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3Commas</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td><span class="badge badge-neutral">⬜ Не занято</span></td>
+                </tr>
+                <tr>
+                    <td>Cryptohopper</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td><span class="badge badge-neutral">⬜ Не занято</span></td>
+                </tr>
+                <tr>
+                    <td>Pionex</td>
+                    <td>xStocks</td>
+                    <td>3+</td>
+                    <td>0</td>
+                    <td><span class="badge badge-tie">🟡 Частично (биржа)</span></td>
+                </tr>
+                <tr>
+                    <td>Bitsgap</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td><span class="badge badge-neutral">⬜ Не занято</span></td>
+                </tr>
+                <tr class="veles-row">
+                    <td>Veles</td>
+                    <td>Золото/серебро</td>
+                    <td>1</td>
+                    <td>Нет</td>
+                    <td><span class="badge badge-tie" style="background:var(--veles-dim);color:var(--veles)">🟡 Возможность занять нишу</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TAB 3: ТРАФИК (SIMILARWEB) -->
+<!-- ================================================================== -->
+<section id="traffic" class="tab-content">
+    <h2>📊 Трафик — SimilarWeb сравнение</h2>
+    <p style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:0.88rem;">Данные SimilarWeb (бесплатная версия) — кэш Feb–Mar 2026. Источник: similarweb.com</p>
+
+    <!-- Main comparison table -->
+    <h3 style="margin-top:0">Обзор трафика и вовлечённости</h3>
+    <div class="table-wrap">
+        <table class="comparison-matrix">
+            <thead>
+                <tr>
+                    <th>Метрика</th>
+                    <th class="th-veles">Veles</th>
+                    <th>3Commas</th>
+                    <th>Cryptohopper</th>
+                    <th>Pionex</th>
+                    <th>Bitsgap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Visits</td>
+                    <td><span class="badge badge-win">1.3M</span></td>
+                    <td>757.9K</td>
+                    <td>367–401K</td>
+                    <td><span class="badge badge-tie">~3M</span></td>
+                    <td>~247K</td>
+                </tr>
+                <tr>
+                    <td>Δ MoM</td>
+                    <td>—</td>
+                    <td><span style="color:var(--lose)">-6.2%</span></td>
+                    <td><span style="color:var(--lose)">-10.2%</span></td>
+                    <td><span style="color:var(--lose)">-26.0%</span></td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Global Rank</td>
+                    <td><span class="badge badge-veles">#51,838 ↑5,857</span></td>
+                    <td>#84,077</td>
+                    <td>#86,081</td>
+                    <td>#41,801 ↓</td>
+                    <td>#121,285</td>
+                </tr>
+                <tr>
+                    <td>Bounce Rate</td>
+                    <td><span class="badge badge-win">30.3%</span></td>
+                    <td>37.5%</td>
+                    <td><span style="color:var(--lose)">46.2%</span></td>
+                    <td>36.9%</td>
+                    <td>~36%</td>
+                </tr>
+                <tr>
+                    <td>Pages/Visit</td>
+                    <td>4.51</td>
+                    <td><span class="badge badge-win">13.26</span></td>
+                    <td>6.15</td>
+                    <td>6.10</td>
+                    <td><span style="color:var(--lose)">3.01</span></td>
+                </tr>
+                <tr>
+                    <td>Avg Duration</td>
+                    <td>06:23</td>
+                    <td><span class="badge badge-win">20:55</span></td>
+                    <td><span style="color:var(--lose)">03:32</span></td>
+                    <td>08:23</td>
+                    <td><span style="color:var(--lose)">02:21</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Top 3 countries table -->
+    <h3>Топ-3 страны по трафику</h3>
+    <div class="table-wrap">
+        <table class="comparison-matrix">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="th-veles">Veles</th>
+                    <th>3Commas</th>
+                    <th>Cryptohopper</th>
+                    <th>Pionex</th>
+                    <th>Bitsgap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🥇</td>
+                    <td>🇷🇺 Россия <strong>56.4%</strong></td>
+                    <td>🇺🇸 США <strong>19.3%</strong></td>
+                    <td>🇺🇸 США <strong>18.9%</strong></td>
+                    <td>🇹🇼 Тайвань <strong>34.1%</strong></td>
+                    <td>🇺🇸 США <strong>24.7%</strong></td>
+                </tr>
+                <tr>
+                    <td>🥈</td>
+                    <td>🇺🇦 Украина <strong>11.8%</strong></td>
+                    <td>🇰🇷 Корея <strong>10.2%</strong></td>
+                    <td>🇳🇱 Нидерланды <strong>14.4%</strong></td>
+                    <td>🇩🇪 Германия <strong>12.5%</strong></td>
+                    <td>🇦🇺 Австралия <strong>14.8%</strong></td>
+                </tr>
+                <tr>
+                    <td>🥉</td>
+                    <td>🇮🇹 Италия <strong>3.7%</strong></td>
+                    <td>🇳🇱 Нидерланды <strong>8.1%</strong></td>
+                    <td>🇦🇺 Австралия <strong>6.0%</strong></td>
+                    <td>🇭🇰 Гонконг <strong>8.1%</strong></td>
+                    <td>🇮🇹 Италия <strong>6.6%</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Traffic Sources table -->
+    <h3>Источники трафика</h3>
+    <div class="table-wrap">
+        <table class="comparison-matrix">
+            <thead>
+                <tr>
+                    <th>Источник</th>
+                    <th class="th-veles">Veles</th>
+                    <th>3Commas</th>
+                    <th>Cryptohopper</th>
+                    <th>Pionex</th>
+                    <th>Bitsgap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Direct</td>
+                    <td><strong>79.1%</strong></td>
+                    <td>53.1%</td>
+                    <td>49.4%</td>
+                    <td><strong>76.1%</strong></td>
+                    <td>46.1%</td>
+                </tr>
+                <tr>
+                    <td>Organic Search</td>
+                    <td><span style="color:var(--lose)">мин.</span></td>
+                    <td><span class="badge badge-win">37.7%</span></td>
+                    <td>40.5%</td>
+                    <td>~15%</td>
+                    <td><span class="badge badge-win">36.0%</span></td>
+                </tr>
+                <tr>
+                    <td>Referral</td>
+                    <td>9.5%</td>
+                    <td>мин.</td>
+                    <td>мин.</td>
+                    <td>мин.</td>
+                    <td><strong>17.6%</strong></td>
+                </tr>
+                <tr>
+                    <td>Paid Search</td>
+                    <td>~0%</td>
+                    <td>~0%</td>
+                    <td>~0%</td>
+                    <td><span class="badge badge-purple">19.6%</span></td>
+                    <td>~0%</td>
+                </tr>
+                <tr>
+                    <td>Social</td>
+                    <td>мин.</td>
+                    <td>мин.</td>
+                    <td>мин.</td>
+                    <td>мин.</td>
+                    <td><span style="color:var(--lose)">0.2%</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Conclusions as cards -->
+    <h3>Выводы и возможности для Veles</h3>
+    <div class="summary-grid">
+        <div class="summary-card">
+            <h4>🟢 Сильные стороны Veles</h4>
+            <ul class="win-list">
+                <li>Лидер по трафику среди нишевых бот-платформ (1.3M) — уступает только Pionex-бирже (~3M)</li>
+                <li>Лучший bounce rate в нише (30.3%) — значительно ниже всех конкурентов</li>
+                <li>Ранг растёт: Global #51,838 (+5,857), Россия #4,035 (+1,005)</li>
+                <li>Доминирование на рынке СНГ (68% — РФ+UA), минимальный overlap с конкурентами</li>
+            </ul>
+        </div>
+        <div class="summary-card">
+            <h4>🔴 Главные упущения</h4>
+            <ul class="lose-list">
+                <li>SEO практически отсутствует — у 3Commas 37.7% от органики, у Bitsgap 36%. У Veles ~0%. Потенциальное удвоение трафика</li>
+                <li>Зависимость от Direct (79%) — если бренд ослабнет, трафик упадёт</li>
+                <li>Гео-концентрация (56% РФ) — регуляторные риски</li>
+                <li>Social и email каналы не задействованы — ни у кого из конкурентов тоже, но Veles мог бы занять первым</li>
+            </ul>
+        </div>
+        <div class="summary-card">
+            <h4>📉 Тренды конкурентов</h4>
+            <ul class="lose-list">
+                <li>Все конкуренты теряют трафик: 3Commas -6.2%, Cryptohopper -10.2%, Pionex -26%</li>
+                <li>Bitsgap потерял ~60% трафика за 18 месяцев (642K → 247K)</li>
+                <li>Pionex массово режет продукты — C2C, Lotto, Easy Earn, несколько типов ботов</li>
+                <li>Cryptohopper: высокий bounce (46.2%), низкое время на сайте (3:32)</li>
+            </ul>
+        </div>
+        <div class="summary-card">
+            <h4>🎯 Окна для действий</h4>
+            <ul class="win-list">
+                <li>Запустить SEO на русском — перехватить branded-запросы конкурентов (3Commas, Bitsgap alternative)</li>
+                <li>Экспансия в Италию (3.7% у Veles, 6.6% у Bitsgap) и Турцию (2.7%)</li>
+                <li>Перехват аудитории Bitsgap (-60%) и Cryptohopper (стагнация) — таргетированный контент</li>
+                <li>Email-маркетинг — ни один конкурент не использует канал, уникальная возможность</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TAB 4: СРАВНИТЕЛЬНАЯ МАТРИЦА -->
+<!-- ================================================================== -->
+<section id="matrix" class="tab-content">
+    <h2>Сравнительная матрица — Head to Head</h2>
+    <div class="table-wrap">
+        <table class="comparison-matrix">
+            <thead>
+                <tr>
+                    <th style="min-width:170px">Фича</th>
+                    <th class="th-veles" style="min-width:150px">Veles</th>
+                    <th style="min-width:140px">3Commas</th>
+                    <th style="min-width:140px">Cryptohopper</th>
+                    <th style="min-width:140px">Pionex</th>
+                    <th style="min-width:140px">Bitsgap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ЦЕНООБРАЗОВАНИЕ -->
+                <tr class="cat-row"><td colspan="6">Ценообразование</td></tr>
+                <tr>
+                    <td>Модель</td>
+                    <td><span class="badge badge-win">Profit-share 20%</span><br>Капа $50/мес</td>
+                    <td><span class="badge badge-lose">Подписка</span><br>Подписка $24–$108/мес (annual)</td>
+                    <td><span class="badge badge-lose">Подписка</span><br>$29–$129/мес</td>
+                    <td><span class="badge badge-tie">Комиссии</span><br>Spot 0.05%, Futures 0.02/0.05%</td>
+                    <td><span class="badge badge-lose">Подписка</span><br>$23–$119/мес</td>
+                </tr>
+                <tr>
+                    <td>Платишь при убытке?</td>
+                    <td><span class="badge badge-win">Нет</span></td>
+                    <td><span class="badge badge-lose">Да</span></td>
+                    <td><span class="badge badge-lose">Да</span></td>
+                    <td><span class="badge badge-tie">Только комиссии</span></td>
+                    <td><span class="badge badge-lose">Да</span></td>
+                </tr>
+                <tr>
+                    <td>Бесплатный тариф</td>
+                    <td><span class="badge badge-win">Полный доступ</span></td>
+                    <td><span class="badge badge-tie">Ограниченный</span></td>
+                    <td><span class="badge badge-tie">Ограниченный</span></td>
+                    <td><span class="badge badge-win">Все боты бесплатно</span></td>
+                    <td><span class="badge badge-lose">Только демо</span></td>
+                </tr>
+
+                <!-- ТИПЫ БОТОВ -->
+                <tr class="cat-row"><td colspan="6">Типы ботов</td></tr>
+                <tr>
+                    <td>Доступные боты</td>
+                    <td><span class="badge badge-win">10+ типов</span><br>DCA, Grid, Signal, Sniper, Arbitrage, HODL и др.</td>
+                    <td><span class="badge badge-tie">4 типа</span><br>DCA, Signal, Grid, SmartTrade</td>
+                    <td><span class="badge badge-tie">6 типов</span><br>Trading, Copy, Market-Making, Arbitrage, Portfolio</td>
+                    <td><span class="badge badge-win">16 типов</span><br>Grid, DCA, Arbitrage, Moon, TWAP, AI и др.</td>
+                    <td><span class="badge badge-tie">7 типов</span><br>Grid, BTD, DCA, LOOP, COMBO, QFL</td>
+                </tr>
+                <tr>
+                    <td>Маркетплейс ботов</td>
+                    <td><span class="badge badge-win">100k+ ботов</span></td>
+                    <td><span class="badge badge-neutral">Нет</span></td>
+                    <td><span class="badge badge-tie">Маркетплейс сигналов</span></td>
+                    <td><span class="badge badge-tie">Copy trading</span></td>
+                    <td><span class="badge badge-neutral">Нет</span></td>
+                </tr>
+                <tr>
+                    <td>No-code конструктор</td>
+                    <td><span class="badge badge-win">Да</span></td>
+                    <td><span class="badge badge-neutral">Нет</span></td>
+                    <td><span class="badge badge-tie">AI Strategy Designer</span></td>
+                    <td><span class="badge badge-neutral">Нет</span></td>
+                    <td><span class="badge badge-neutral">Нет</span></td>
+                </tr>
+
+                <!-- БИРЖИ -->
+                <tr class="cat-row"><td colspan="6">Поддерживаемые биржи</td></tr>
+                <tr>
+                    <td>Кол-во бирж</td>
+                    <td><span class="badge badge-tie">8 бирж</span><br>+KuCoin скоро</td>
+                    <td><span class="badge badge-win">23 биржи</span></td>
+                    <td><span class="badge badge-tie">16+ бирж</span></td>
+                    <td><span class="badge badge-lose">Только Pionex</span></td>
+                    <td><span class="badge badge-tie">16+ бирж</span></td>
+                </tr>
+                <tr>
+                    <td>Топ-биржи</td>
+                    <td>Binance, Bybit, OKX, Bitget, Gate.io, HTX, BingX, BitMEX</td>
+                    <td>Binance, Bybit, OKX, KuCoin, Kraken, Coinbase и др.</td>
+                    <td>Binance, Coinbase, OKX, Bybit, KuCoin и др.</td>
+                    <td>Собственная CEX, ликвидность Binance/HTX</td>
+                    <td>Binance, Coinbase, OKX, Kraken, KuCoin и др.</td>
+                </tr>
+
+                <!-- БЕЗОПАСНОСТЬ -->
+                <tr class="cat-row"><td colspan="6">Безопасность</td></tr>
+                <tr>
+                    <td>Инциденты</td>
+                    <td><span class="badge badge-win">0 инцидентов</span><br>Аудит Binance 2025</td>
+                    <td><span class="badge badge-lose">2 утечки</span><br>2022: 100k ключей, $20M+ убытков<br>2023: ограниченная утечка</td>
+                    <td><span class="badge badge-lose">2 утечки</span><br>2020: SQL-инъекция<br>2024: компрометация токенов</td>
+                    <td><span class="badge badge-lose">2 утечки</span><br>2022 + 2023 (241k записей)</td>
+                    <td><span class="badge badge-win">0 инцидентов</span><br>API-only, 2048-bit</td>
+                </tr>
+                <tr>
+                    <td>Доступ к средствам</td>
+                    <td><span class="badge badge-win">Только API, без вывода</span></td>
+                    <td><span class="badge badge-tie">API-only</span></td>
+                    <td><span class="badge badge-tie">API-only</span></td>
+                    <td><span class="badge badge-lose">Средства на Pionex</span></td>
+                    <td><span class="badge badge-win">API-only</span></td>
+                </tr>
+
+                <!-- ОТЗЫВЫ -->
+                <tr class="cat-row"><td colspan="6">Отзывы</td></tr>
+                <tr>
+                    <td>Trustpilot</td>
+                    <td><span class="badge badge-win">4.5/5</span> (47)</td>
+                    <td><span class="badge badge-tie">4.3/5</span> (1 754)</td>
+                    <td><span class="badge badge-lose">3.6/5</span> (358)</td>
+                    <td><span class="badge badge-lose">2.4/5</span> (570)</td>
+                    <td><span class="badge badge-tie">4.1–4.5/5</span> (665)</td>
+                </tr>
+                <tr>
+                    <td>Типичные жалобы</td>
+                    <td style="font-size:0.78rem">Алгоритм на крупных депозитах, агрессивный режим</td>
+                    <td style="font-size:0.78rem">Рост цен, баги, долгая поддержка, возвраты</td>
+                    <td style="font-size:0.78rem">Плохая поддержка, биллинг, баги, дорого для малых портфелей</td>
+                    <td style="font-size:0.78rem">Шаблонная поддержка, зависания, задержки выводов</td>
+                    <td style="font-size:0.78rem">Дорогая подписка, no-refund, баги, сложность</td>
+                </tr>
+
+                <!-- УНИКАЛЬНЫЕ ФИЧИ -->
+                <tr class="cat-row"><td colspan="6">Уникальные фичи</td></tr>
+                <tr>
+                    <td>Ключевые отличия</td>
+                    <td style="font-size:0.78rem">No-code конструктор, бэктест на 1-мин данных, маркетплейс 100k+ ботов, SL to Breakeven, Multi-TP, Trailing TP, мобильное приложение, партнёрства с биржами</td>
+                    <td style="font-size:0.78rem">TradingView/Pine, AI Ассистент, 5000+ бэктестов, портфельная ребалансировка. Спин-офф: QuantPilot</td>
+                    <td style="font-size:0.78rem">AI Strategy Designer, 130+ индикаторов, маркетплейс сигналов/шаблонов</td>
+                    <td style="font-size:0.78rem">16 бесплатных ботов, PionexGPT, xStocks (токенизированные акции), демо-торговля</td>
+                    <td style="font-size:0.78rem">Мульти-биржевой терминал, бэктест 365 дней, COMBO/LOOP/QFL боты, арбитражный сканер</td>
+                </tr>
+
+                <!-- TRADFI -->
+                <tr class="cat-row"><td colspan="6">TradFi поддержка</td></tr>
+                <tr>
+                    <td>Традиционные активы</td>
+                    <td><span class="badge badge-tie">Косвенно</span><br>Синтетические активы на Bitget (золото/серебро)</td>
+                    <td><span class="badge badge-lose">Нет</span></td>
+                    <td><span class="badge badge-lose">Нет</span></td>
+                    <td><span class="badge badge-win">xStocks</span><br>Токенизированные акции/ETF на Solana</td>
+                    <td><span class="badge badge-lose">Нет</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Quick Win / Loss по конкурентам</h2>
+    <div class="summary-grid">
+        <!-- 3Commas -->
+        <div class="summary-card">
+            <h4><span class="badge badge-accent">vs 3Commas</span></h4>
+            <h3 style="color:var(--win); margin-top:0">🏆 Где мы выигрываем</h3>
+            <ul class="win-list">
+                <li>Profit-share vs подписка — пользователь не платит при убытке</li>
+                <li>Безопасность: 0 инцидентов vs утечка 100k API-ключей в 2022</li>
+                <li>Больше типов ботов (10+ vs 4)</li>
+                <li>Маркетплейс с 100k+ ботов</li>
+                <li>No-code конструктор стратегий</li>
+            </ul>
+            <h3 style="color:var(--lose)">⚡ Где они сильнее</h3>
+            <ul class="lose-list">
+                <li>23 биржи vs 8 у нас</li>
+                <li>TradingView/Pine Script интеграция</li>
+                <li>Крупная установленная база (134k+ активных)</li>
+                <li>QuantPilot (NEW) — AI-платформа для стратегий с natural language, бэктестинг, Hyperliquid. Потенциально сильный ход.</li>
+            </ul>
+        </div>
+
+        <!-- Cryptohopper -->
+        <div class="summary-card">
+            <h4><span class="badge badge-accent">vs Cryptohopper</span></h4>
+            <h3 style="color:var(--win); margin-top:0">🏆 Где мы выигрываем</h3>
+            <ul class="win-list">
+                <li>Profit-share vs подписка до $129/мес</li>
+                <li>Выше рейтинг Trustpilot (4.5 vs 3.6)</li>
+                <li>Чистая история безопасности vs 2 утечки</li>
+                <li>Активная разработка vs стагнация (нет обновлений продукта)</li>
+            </ul>
+            <h3 style="color:var(--lose)">⚡ Где они сильнее</h3>
+            <ul class="lose-list">
+                <li>16+ бирж vs 8</li>
+                <li>AI Strategy Designer</li>
+                <li>1 млн зарегистрированных пользователей</li>
+                <li>Блог активен (апрель 2026: 5+ статей)</li>
+            </ul>
+        </div>
+
+        <!-- Pionex -->
+        <div class="summary-card">
+            <h4><span class="badge badge-accent">vs Pionex</span></h4>
+            <h3 style="color:var(--win); margin-top:0">🏆 Где мы выигрываем</h3>
+            <ul class="win-list">
+                <li>Свобода выбора биржи vs привязка к Pionex</li>
+                <li>Trustpilot 4.5 vs 2.4 — огромная разница</li>
+                <li>Средства остаются на бирже пользователя</li>
+                <li>Стабильность платформы vs зависания при волатильности</li>
+            </ul>
+            <h3 style="color:var(--lose)">⚡ Где они сильнее</h3>
+            <ul class="lose-list">
+                <li>16 бесплатных ботов, нулевая подписка</li>
+                <li>xStocks — токенизированные акции/ETF</li>
+                <li>Масштаб: 5M+ пользователей, $60B+ объём/мес</li>
+            </ul>
+        </div>
+
+        <!-- Bitsgap -->
+        <div class="summary-card">
+            <h4><span class="badge badge-accent">vs Bitsgap</span></h4>
+            <h3 style="color:var(--win); margin-top:0">🏆 Где мы выигрываем</h3>
+            <ul class="win-list">
+                <li>Profit-share: $50/мес max vs $149/мес Pro у Bitsgap</li>
+                <li>Не платишь при убытке — нет no-refund политики</li>
+                <li>Маркетплейс 100k+ ботов</li>
+                <li>No-code конструктор — проще для новичков</li>
+            </ul>
+            <h3 style="color:var(--lose)">⚡ Где они сильнее</h3>
+            <ul class="lose-list">
+                <li>16+ бирж vs 8</li>
+                <li>Бэктестинг 365 дней</li>
+                <li>Мульти-биржевой терминал</li>
+                <li>Также 0 инцидентов безопасности</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TAB 5: 3COMMAS -->
+<!-- ================================================================== -->
+<section id="three-commas" class="tab-content">
+    <h2>Баттлкард: Veles vs 3Commas</h2>
+
+    <!-- Профиль -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🏢</span> Профиль компании</div>
+        <div class="profile-grid">
+            <div class="profile-item">
+                <div class="profile-label">Ценообразование</div>
+                <div class="profile-value">Подписка $24–$108/мес (annual)</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Новый продукт</div>
+                <div class="profile-value" style="color:var(--tie)">QuantPilot — отдельный AI-проект (апрель 2026)</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Пользователи</div>
+                <div class="profile-value">134k+ активных</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Биржи</div>
+                <div class="profile-value">23 биржи</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Trustpilot</div>
+                <div class="profile-value">4.3/5 (1 754 отзыва) — активно отвечают на негатив</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Сотрудники</div>
+                <div class="profile-value">51–200</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Безопасность</div>
+                <div class="profile-value" style="color:var(--lose)">2 утечки (2022, 2023)</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Трафик</div>
+                <div class="profile-value" style="color:var(--lose)">757 900/мес (-6.2% м/м)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Где они выигрывают -->
+    <div class="card">
+        <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
+        <ul class="strength-list they-win">
+            <li><strong>Больше бирж (23 vs 8)</strong> — широкий охват для трейдеров с несколькими аккаунтами</li>
+            <li><strong>TradingView/Pine Script</strong> — продвинутые трейдеры могут запускать собственные стратегии</li>
+            <li><strong>Установленная база</strong> — работают с 2017 года, большое комьюнити</li>
+            <li><strong>AI Ассистент</strong> — помощь в настройке стратегий</li>
+            <li><strong>QuantPilot (отдельный проект)</strong> — AI-платформа для стратегий с natural language, бэктестинг, Hyperliquid. Другая ниша (продвинутые кванты), но показывает амбиции команды</li>
+        </ul>
+    </div>
+
+    <!-- Где мы выигрываем -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🏆</span> Где мы выигрываем</div>
+        <ul class="strength-list">
+            <li><strong>Profit-share модель</strong> — платишь только 20% от прибыли с капой $50/мес. У 3Commas подписка даже при убытках</li>
+            <li><strong>Безопасность без компромиссов</strong> — 0 инцидентов vs утечка 100k API-ключей в 2022 ($20M+ убытков, расследование ФБР)</li>
+            <li><strong>Маркетплейс 100k+ ботов</strong> — готовые стратегии от комьюнити, нет аналога у 3Commas</li>
+            <li><strong>No-code конструктор</strong> — создание стратегий без программирования, у 3Commas требуется TradingView/Pine</li>
+            <li><strong>Больше типов ботов</strong> — 10+ типов (включая Sniper, Arbitrage, HODL) vs 4 у 3Commas</li>
+            <li><strong>Бэктест на 1-минутных данных</strong> — максимальная точность тестирования</li>
+            <li><strong>Стабильные цены</strong> — кап $50 навсегда, у 3Commas принудительный рост до $140-200</li>
+            <li><strong>Доступность</strong> — QuantPilot (спин-офф) — early access за $5k, только Hyperliquid. У Veles полный доступ ко всем ботам для всех</li>
+        </ul>
+    </div>
+
+    <!-- Talk Tracks -->
+    <div class="card">
+        <div class="card-header"><span class="icon">💬</span> Talk Tracks</div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент сравнивает цены</div>
+            <div class="script">«У 3Commas подписка от $24 до $108 в месяц (annual) — вы платите даже когда боты в минусе. У нас вы платите только 20% от реальной прибыли, и максимум $50 в месяц. Если бот не заработал — вы не платите ничего. Это честнее.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент беспокоится о безопасности</div>
+            <div class="script">«В 2022 году у 3Commas произошла утечка 100 000 API-ключей. Убытки пользователей — более $20 млн. ФБР вело расследование. В марте 2026 года Ninth Circuit восстановил class action против 3Commas по этому делу. У нас за всё время работы — ноль инцидентов. Мы прошли аудит Binance в 2025 году. Средства остаются на вашей бирже, у нас нет прав на вывод.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент — новичок</div>
+            <div class="script">«3Commas требует знания TradingView и Pine Script для серьёзных стратегий. У нас есть no-code конструктор — вы собираете стратегию визуально, как в конструкторе. Плюс маркетплейс со 100k+ готовых ботов — можно просто выбрать и запустить.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент использует много бирж</div>
+            <div class="script">«Да, у 3Commas 23 биржи, у нас пока 8. Но мы покрываем все ключевые площадки — Binance, Bybit, OKX, Bitget, Gate.io. Скоро добавим KuCoin. Важно не количество, а качество интеграции и безопасность работы с API.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Ценовой шок — клиент упоминает 3Commas</div>
+            <div class="script">«Вы знаете, что 3Commas сейчас принудительно переводит пользователей со старых тарифов $50/мес на новые за $140-200/мес? Обещания сохранить цены при продлении нарушены. У нас кап $50 — зафиксирован навсегда. И вы платите только с реальной прибыли. Если бот не заработал — $0.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент упоминает QuantPilot</div>
+            <div class="script">«QuantPilot — это отдельный проект 3Commas для продвинутых квантов, early access за $5000, только Hyperliquid. Это совсем другой продукт. У нас уже сейчас — 100k+ готовых ботов на маркетплейсе, 8 бирж включая Binance и Bybit, no-code конструктор. Не нужно ждать beta и платить $5k — можно торговать прямо сейчас.»</div>
+        </div>
+    </div>
+
+    <!-- Обработка возражений -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🛡️</span> Обработка возражений</div>
+
+        <div class="objection">
+            <div class="obj-q">«3Commas более зрелый продукт, работает с 2017 года»</div>
+            <div class="obj-a">Зрелость не всегда плюс. За 9 лет у них было 2 серьёзных утечки и множество жалоб на рост цен. Мы прошли аудит Binance и строили платформу с учётом всех их ошибок. Наш маркетплейс уже насчитывает 100k+ ботов — это показатель живого продукта.</div>
+        </div>
+
+        <div class="objection">
+            <div class="obj-q">«У них поддержка TradingView, это важно для меня»</div>
+            <div class="obj-a">Наш no-code конструктор поддерживает 100+ индикаторов и позволяет строить сложные стратегии без единой строки кода. Это доступнее, чем Pine Script, и не привязывает вас к подписке TradingView.</div>
+        </div>
+
+        <div class="objection">
+            <div class="obj-q">«Мне нужно больше бирж»</div>
+            <div class="obj-a">Мы покрываем 8 ключевых бирж, включая Binance, Bybit и OKX — это 85%+ рынка по объёму. KuCoin на подходе. Вместо распыления на 23 биржи мы фокусируемся на глубокой интеграции и безопасности.</div>
+        </div>
+    </div>
+
+    <!-- Вопросы-мины -->
+    <div class="card">
+        <div class="card-header"><span class="icon">💣</span> Вопросы-мины</div>
+        <div class="landmine">«Расскажите, как 3Commas обрабатывает API-ключи после утечки 2022 года? Какие гарантии, что это не повторится?»</div>
+        <div class="landmine">«Почему я должен платить $108/мес за Hero, даже если мои боты в минусе?»</div>
+        <div class="landmine">«Как часто 3Commas повышает цены? Я слышал, это вызывает недовольство.»</div>
+        <div class="landmine">«Сколько типов ботов доступно без Pine Script/TradingView?»</div>
+        <div class="landmine">«Как судебный иск Freeman v. 3Commas (2026) влияет на безопасность моих данных на платформе?»</div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TAB 6: CRYPTOHOPPER -->
+<!-- ================================================================== -->
+<section id="cryptohopper" class="tab-content">
+    <h2>Баттлкард: Veles vs Cryptohopper</h2>
+
+    <!-- Профиль -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🏢</span> Профиль компании</div>
+        <div class="profile-grid">
+            <div class="profile-item">
+                <div class="profile-label">Ценообразование</div>
+                <div class="profile-value">Подписка $29–$129/мес</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Пользователи</div>
+                <div class="profile-value">1 млн зарегистрированных</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Биржи</div>
+                <div class="profile-value">16+ бирж</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Trustpilot</div>
+                <div class="profile-value" style="color:var(--lose)">3.6/5 (358 отзывов)</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Сотрудники</div>
+                <div class="profile-value">51–200</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Безопасность</div>
+                <div class="profile-value" style="color:var(--lose)">2 инцидента (2020, 2024)</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Контент (апрель 2026)</div>
+                <div class="profile-value" style="color:var(--tie)">Блог ожил: 5+ статей/мес</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Где они выигрывают -->
+    <div class="card">
+        <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
+        <ul class="strength-list they-win">
+            <li><strong>16+ бирж</strong> — вдвое больше интеграций</li>
+            <li><strong>AI Strategy Designer</strong> — генерация стратегий с помощью ИИ</li>
+            <li><strong>130+ технических индикаторов</strong> — широкий набор инструментов анализа</li>
+            <li><strong>Масштаб</strong> — 1 млн зарегистрированных пользователей</li>
+            <li><strong>Блог ожил (апрель 2026)</strong> — 5+ статей (AI Trading Agents, Kraken API и др.). Признак возобновления контентной активности.</li>
+        </ul>
+    </div>
+
+    <!-- Где мы выигрываем -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🏆</span> Где мы выигрываем</div>
+        <ul class="strength-list">
+            <li><strong>Рейтинг Trustpilot 4.5 vs 3.6</strong> — наши пользователи значительно довольнее</li>
+            <li><strong>Profit-share vs подписка</strong> — Cryptohopper берёт до $129/мес даже при убытках</li>
+            <li><strong>Безопасность</strong> — 0 инцидентов vs SQL-инъекция (2020) и компрометация токенов (2024)</li>
+            <li><strong>Активная разработка</strong> — у нас интеграция BitMEX, обновления мобильного приложения, рост объёмов. У Cryptohopper нет крупных обновлений продукта</li>
+            <li><strong>Маркетплейс 100k+ ботов</strong> — гораздо больше готовых стратегий для начала</li>
+            <li><strong>Проще для малых портфелей</strong> — Cryptohopper дорог для новичков с небольшим капиталом</li>
+        </ul>
+    </div>
+
+    <!-- Talk Tracks -->
+    <div class="card">
+        <div class="card-header"><span class="icon">💬</span> Talk Tracks</div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент уходит с Cryptohopper из-за цены</div>
+            <div class="script">«Cryptohopper стоит от $29 до $129 в месяц — и вы платите, даже если боты не заработали. У нас модель profit-share: 20% от прибыли, максимум $50/мес. Если прибыли нет — плата $0. Для портфеля до $5000 разница может быть в 3-5 раз.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент ценит AI-функции</div>
+            <div class="script">«Cryptohopper продвигает AI Strategy Designer, но нет крупных обновлений продукта. Мы активно развиваем платформу: новая интеграция BitMEX, обновления мобильного приложения, $481M торговых объёмов в январе 2026. Наш маркетплейс со 100k+ ботами — это реальные стратегии от реальных трейдеров, не AI-генерация.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент беспокоится о поддержке</div>
+            <div class="script">«У Cryptohopper одна из самых частых жалоб — качество поддержки. Посмотрите на Trustpilot: 3.6/5. Наши пользователи оценивают нас на 4.5/5, и одна из ключевых тем в отзывах — быстрая и полезная поддержка.»</div>
+        </div>
+    </div>
+
+    <!-- Обработка возражений -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🛡️</span> Обработка возражений</div>
+
+        <div class="objection">
+            <div class="obj-q">«У Cryptohopper миллион пользователей»</div>
+            <div class="obj-a">Миллион зарегистрированных — не значит миллион активных. При Trustpilot 3.6/5 и частых жалобах на биллинг и поддержку многие уходят. Лучше смотрите на качество: $79M+ прибыли наших пользователей и 47M+ закрытых циклов.</div>
+        </div>
+
+        <div class="objection">
+            <div class="obj-q">«У них AI Strategy Designer»</div>
+            <div class="obj-a">AI — маркетинговое слово. У нас 100+ индикаторов в no-code конструкторе, маркетплейс со 100k+ проверенных ботов, и бэктест на 1-минутных данных. Вы тестируете стратегию на реальных данных, а не доверяете чёрному ящику AI.</div>
+        </div>
+
+        <div class="objection">
+            <div class="obj-q">«Cryptohopper поддерживает больше бирж»</div>
+            <div class="obj-a">Да, 16+ vs наши 8. Но мы покрываем ключевые площадки. При этом Cryptohopper имел утечку данных через SQL-инъекцию — больше интеграций = больше поверхность атаки. Мы фокусируемся на глубине и безопасности.</div>
+        </div>
+    </div>
+
+    <!-- Вопросы-мины -->
+    <div class="card">
+        <div class="card-header"><span class="icon">💣</span> Вопросы-мины</div>
+        <div class="landmine">«Какие крупные обновления продукта Cryptohopper выпустил за последние полгода?» (Ответ: блог ожил, но продукт — никаких значительных)</div>
+        <div class="landmine">«Почему у Cryptohopper 3.6 на Trustpilot — что не так с поддержкой?»</div>
+        <div class="landmine">«Как Cryptohopper решил проблему SQL-инъекции 2020 года и компрометации токенов в 2024?»</div>
+        <div class="landmine">«Сколько стоит Cryptohopper, если я хочу копитрейдинг плюс торговых ботов?» (Двойная подписка: $29-129 + $10-100)</div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TAB 7: PIONEX -->
+<!-- ================================================================== -->
+<section id="pionex" class="tab-content">
+    <h2>Баттлкард: Veles vs Pionex</h2>
+
+    <!-- Профиль -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🏢</span> Профиль компании</div>
+        <div class="profile-grid">
+            <div class="profile-item">
+                <div class="profile-label">Ценообразование</div>
+                <div class="profile-value">Комиссии: Spot 0.05%, Futures 0.02/0.05%</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Пользователи</div>
+                <div class="profile-value">5M+ пользователей</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Биржи</div>
+                <div class="profile-value" style="color:var(--lose)">Только собственная CEX</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Trustpilot</div>
+                <div class="profile-value" style="color:var(--lose)">2.4/5 (570 отзывов)</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Сотрудники</div>
+                <div class="profile-value">201–500</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Безопасность</div>
+                <div class="profile-value" style="color:var(--lose)">2 инцидента (2022, 2023)</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Трафик (апр 2026)</div>
+                <div class="profile-value" style="color:var(--lose)">~3M визитов, -26% м/м</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Где они выигрывают -->
+    <div class="card">
+        <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
+        <ul class="strength-list they-win">
+            <li><strong>16 бесплатных ботов</strong> — все боты доступны без подписки, оплата только комиссиями</li>
+            <li><strong>xStocks</strong> — токенизированные акции и ETF на Solana (TSLA, SPY и др.)</li>
+            <li><strong>Масштаб</strong> — 5M+ пользователей, $60B+ ежемесячный объём</li>
+            <li><strong>MSB лицензия (США)</strong> — регуляторное соответствие</li>
+            <li><strong>Демо-торговля</strong> — тестирование без реальных средств</li>
+        </ul>
+    </div>
+
+    <!-- Где мы выигрываем -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🏆</span> Где мы выигрываем</div>
+        <ul class="strength-list">
+            <li><strong>Свобода выбора биржи</strong> — работайте на Binance, Bybit, OKX или любой из 8 бирж. Pionex привязывает к своей площадке</li>
+            <li><strong>Средства на вашей бирже</strong> — API-only доступ без прав вывода. На Pionex средства хранятся на их платформе</li>
+            <li><strong>Trustpilot 4.5 vs 2.4</strong> — разница в 2 балла говорит сама за себя</li>
+            <li><strong>Стабильность</strong> — Pionex зависает при высокой волатильности, когда это нужнее всего</li>
+            <li><strong>Качество поддержки</strong> — живые ответы vs шаблонные copy-paste отклики Pionex</li>
+            <li><strong>Маркетплейс 100k+ ботов</strong> — стратегии от комьюнити</li>
+            <li><strong>Стабильная линейка</strong> — Pionex массово режет продукты (C2C, Lotto, Easy Earn, несколько типов ботов). Veles расширяет.</li>
+        </ul>
+    </div>
+
+    <!-- Talk Tracks -->
+    <div class="card">
+        <div class="card-header"><span class="icon">💬</span> Talk Tracks</div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиента привлекают бесплатные боты Pionex</div>
+            <div class="script">«Боты у Pionex бесплатные, но вы привязаны к одной бирже с рейтингом 2.4 на Trustpilot. Ваши средства хранятся на Pionex — в 2023 у них утекли данные 241k пользователей. У нас вы выбираете биржу, средства остаются на ней, и платите только если заработали. Бесплатность Pionex — иллюзия.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент ценит низкие комиссии</div>
+            <div class="script">«Комиссии Pionex — 0.05% за сделку. Кажется мало, но при активной торговле это складывается. У нас 20% от прибыли с капой $50/мес. Если ваш бот сделал $200 прибыли, вы платите $40 — на Pionex при тех же сделках комиссии могут быть сопоставимы, но вы привязаны к их бирже.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент интересуется xStocks</div>
+            <div class="script">«xStocks — интересная фича. Но это токенизированные активы на Solana, не реальные акции. У нас через Bitget доступны синтетические золото и серебро. Для серьёзной торговли акциями лучше использовать традиционного брокера. А для крипто — платформу с рейтингом выше 2.4.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент уже на Pionex и недоволен</div>
+            <div class="script">«Если вы сталкиваетесь с зависаниями платформы или шаблонными ответами поддержки — вы не одиноки, это главные жалобы на Trustpilot. У нас $481M торговых объёмов в январе 2026 без единого сбоя. Переход занимает минуты — подключите API вашей любимой биржи и запустите бота.»</div>
+        </div>
+    </div>
+
+    <!-- Обработка возражений -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🛡️</span> Обработка возражений</div>
+
+        <div class="objection">
+            <div class="obj-q">«У Pionex 5 миллионов пользователей — это же показатель доверия»</div>
+            <div class="obj-a">5 миллионов пользователей при Trustpilot 2.4/5 — это показатель маркетинга, не доверия. 570 отзывов с рейтингом ниже среднего. Посмотрите жалобы: зависания при волатильности, задержки выводов, шаблонная поддержка. Масштаб не равен качеству.</div>
+        </div>
+
+        <div class="objection">
+            <div class="obj-q">«Боты бесплатные — зачем платить у вас?»</div>
+            <div class="obj-a">Вы платите у нас только когда заработали. Бесплатно у Pionex, но с привязкой к одной бирже с двумя инцидентами безопасности. У нас API-доступ к 8 биржам, средства остаются у вас, и 100k+ ботов на маркетплейсе. Свобода и безопасность стоят того.</div>
+        </div>
+
+        <div class="objection">
+            <div class="obj-q">«У них лицензия MSB в США»</div>
+            <div class="obj-a">Лицензия — это хорошо. Но мы прошли аудит Binance и являемся официальными партнёрами бирж. Наша безопасность подтверждена нулём инцидентов, а не бумагой. MSB лицензия не предотвратила утечку 241k записей в 2023.</div>
+        </div>
+    </div>
+
+    <!-- Вопросы-мины -->
+    <div class="card">
+        <div class="card-header"><span class="icon">💣</span> Вопросы-мины</div>
+        <div class="landmine">«Что происходит с моими сделками, если Pionex зависает при обвале рынка?»</div>
+        <div class="landmine">«Могу ли я перевести ботов Pionex на Binance или OKX, если захочу сменить биржу?» (Нет — полная привязка)</div>
+        <div class="landmine">«Как Pionex компенсировал пострадавших от утечки 2023 года?»</div>
+        <div class="landmine">«Почему у Pionex 2.4 на Trustpilot — это один из самых низких рейтингов в индустрии?»</div>
+        <div class="landmine">«Pionex массово закрывает продукты (C2C, Lotto, Easy Earn, несколько типов ботов) — что происходит с платформой?»</div>
+    </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TAB 8: BITSGAP -->
+<!-- ================================================================== -->
+<section id="bitsgap" class="tab-content">
+    <h2>Баттлкард: Veles vs Bitsgap</h2>
+
+    <!-- Профиль -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🏢</span> Профиль компании</div>
+        <div class="profile-grid">
+            <div class="profile-item">
+                <div class="profile-label">Ценообразование</div>
+                <div class="profile-value">Подписка $23–$119/мес</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Пользователи</div>
+                <div class="profile-value">500K–800K+ трейдеров</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Биржи</div>
+                <div class="profile-value">16+ бирж</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Trustpilot</div>
+                <div class="profile-value">4.1–4.5/5 (665 отзывов)</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Сотрудники</div>
+                <div class="profile-value">~100+</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Безопасность</div>
+                <div class="profile-value" style="color:var(--win)">0 инцидентов с 2017</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Где они выигрывают -->
+    <div class="card">
+        <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
+        <ul class="strength-list they-win">
+            <li><strong>16+ бирж</strong> — вдвое больше поддерживаемых площадок</li>
+            <li><strong>Мульти-биржевой терминал</strong> — единый интерфейс для торговли на нескольких биржах</li>
+            <li><strong>Бэктестинг 365 дней</strong> — длительное тестирование стратегий</li>
+            <li><strong>Чистая безопасность</strong> — 0 инцидентов с 2017, аналогично нам</li>
+            <li><strong>Уникальные боты</strong> — COMBO (GRID+DCA фьючерсы), LOOP, QFL</li>
+            <li><strong>$9.46B под управлением</strong> — серьёзный объём</li>
+        </ul>
+    </div>
+
+    <!-- Где мы выигрываем -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🏆</span> Где мы выигрываем</div>
+        <ul class="strength-list">
+            <li><strong>Profit-share vs подписка</strong> — $50/мес максимум у нас vs $149/мес Pro у Bitsgap. Не платишь при убытке</li>
+            <li><strong>Без no-refund ловушки</strong> — Bitsgap не возвращает деньги, это частая жалоба. У нас нечего возвращать — нет предоплаты</li>
+            <li><strong>Маркетплейс 100k+ ботов</strong> — готовые стратегии от комьюнити, нет аналога у Bitsgap</li>
+            <li><strong>No-code конструктор</strong> — проще для новичков vs крутая кривая обучения Bitsgap</li>
+            <li><strong>Бэктест на 1-минутных данных</strong> — максимальная точность vs Bitsgap с дневными/часовыми данными</li>
+            <li><strong>Официальные партнёрства с биржами</strong> — Binance, Bybit, OKX</li>
+        </ul>
+    </div>
+
+    <!-- Talk Tracks -->
+    <div class="card">
+        <div class="card-header"><span class="icon">💬</span> Talk Tracks</div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент сравнивает стоимость</div>
+            <div class="script">«Pro-тариф Bitsgap стоит $149/мес — $1788 в год, даже если ваши боты уходят в минус. У нас максимум $50/мес, и только при наличии прибыли. Экономия — более $1000 в год, и вы не платите за убыточные периоды.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент хочет попробовать без риска</div>
+            <div class="script">«У Bitsgap есть 7-дневный триал, потом — подписка без возврата. Если продукт не подошёл — деньги потеряны. У нас вы начинаете бесплатно с полным доступом. Первая плата — только когда бот заработает прибыль. Нулевой финансовый риск на старте.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиент — продвинутый трейдер</div>
+            <div class="script">«Bitsgap предлагает интересные боты — COMBO, LOOP. Но наш маркетплейс со 100k+ ботов даёт доступ к стратегиям, проверенным реальными трейдерами. Плюс наш бэктест на 1-минутных данных точнее, чем бэктест Bitsgap на длинных таймфреймах.»</div>
+        </div>
+    </div>
+
+    <!-- Обработка возражений -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🛡️</span> Обработка возражений</div>
+
+        <div class="objection">
+            <div class="obj-q">«Bitsgap тоже безопасен — 0 инцидентов»</div>
+            <div class="obj-a">Верно, Bitsgap также имеет чистую историю безопасности. Но мы прошли аудит Binance и являемся официальными партнёрами бирж. Ключевое отличие — в модели оплаты и комьюнити: маркетплейс 100k+ ботов и profit-share делают нас выгоднее.</div>
+        </div>
+
+        <div class="objection">
+            <div class="obj-q">«Мне нужен мульти-биржевой терминал»</div>
+            <div class="obj-a">Терминал Bitsgap удобен, но стоит $149/мес на Pro-тарифе. У нас можно подключить 8 бирж и управлять ботами на каждой. Для чистой торговли без ботов — терминал от самой биржи бесплатен. Вопрос: готовы ли вы платить $149/мес за интерфейс?</div>
+        </div>
+
+        <div class="objection">
+            <div class="obj-q">«У Bitsgap 365-дневный бэктест»</div>
+            <div class="obj-a">Длина бэктеста важна, но точность важнее. Наш бэктест работает на 1-минутных данных — это максимальная гранулярность. Результат ближе к реальной торговле, чем бэктест на часовых свечах за год.</div>
+        </div>
+    </div>
+
+    <!-- Вопросы-мины -->
+    <div class="card">
+        <div class="card-header"><span class="icon">💣</span> Вопросы-мины</div>
+        <div class="landmine">«Что будет, если я захочу отменить подписку Bitsgap? Есть ли возврат?» (Нет — strict no-refund)</div>
+        <div class="landmine">«Сколько стоит QFL бот Bitsgap?» (Только в Pro за $149/мес)</div>
+        <div class="landmine">«Какие крупные обновления продукта выпустил Bitsgap за последний квартал? Есть ли рост команды?» (Нет найма — стагнация)</div>
+        <div class="landmine">«Как боты Bitsgap ведут себя при резких обвалах рынка?» (Жалобы на нестабильность при волатильности)</div>
+    </div>
+</section>
+
+</div><!-- /content-wrap -->
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    Veles Finance Intelligence Dashboard v3 | Обновлено: 18 апреля 2026 | Автоматический сбор данных
+</footer>
+
+<script>
+    function showTab(id, btn) {
+        // Hide all tabs
+        document.querySelectorAll('.tab-content').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        // Deactivate all buttons
+        document.querySelectorAll('.tab').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        // Show selected tab
+        document.getElementById(id).classList.add('active');
+        // Activate button
+        btn.classList.add('active');
+        // Scroll to top of content
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+</body>
+</html>
