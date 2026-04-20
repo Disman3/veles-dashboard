@@ -60,6 +60,59 @@
         #app-content.unlocked { display: block; }
         /* === END PASSWORD SCREEN === */
 
+        /* === LANDING AUDIT TABLES === */
+        .table-scroll {
+            overflow-x: auto;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            margin-bottom: 1.5rem;
+        }
+        .table-scroll table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 860px;
+        }
+        .table-scroll thead th {
+            padding: 1rem 1.25rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            background: var(--bg-elevated);
+            border-bottom: 2px solid var(--border);
+            text-align: left;
+            position: sticky;
+            top: 0;
+            white-space: nowrap;
+        }
+        .table-scroll tbody td {
+            padding: 1rem 1.25rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.65;
+        }
+        .table-scroll tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .table-scroll tbody tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+        .table-scroll tbody td:first-child {
+            color: var(--text-primary);
+            font-weight: 600;
+            min-width: 150px;
+            white-space: nowrap;
+        }
+        .table-scroll tbody td strong {
+            color: var(--text-primary);
+        }
+        /* === END LANDING AUDIT TABLES === */
+
         :root {
             --bg-primary: #0b0e17;
             --bg-elevated: #10141f;
@@ -2074,7 +2127,7 @@
     <p style="color:rgba(240,242,245,0.6); margin-bottom:1.5rem">20 апреля 2026 · Как конкуренты подают ключевые преимущества на своих главных страницах вс. макет Veles</p>
 
     <!-- ===== СРАВНИТЕЛЬНАЯ ТАБЛИЦА: SECURITY ===== -->
-    <h3 style="margin-top:0.5rem">🔒 Безопасность на лендинге</h3>
+    <h3 style="margin-top:1.5rem; margin-bottom:0.75rem">🔒 Безопасность на лендинге</h3>
     <div class="table-scroll">
     <table>
         <thead><tr>
@@ -2117,7 +2170,7 @@
     </div>
 
     <!-- ===== СРАВНИТЕЛЬНАЯ ТАБЛИЦА: NO-CODE ===== -->
-    <h3 style="margin-top:2rem">🛠 No-code / Простота создания стратегий</h3>
+    <h3 style="margin-top:2.5rem; margin-bottom:0.75rem">🛠 No-code / Простота создания стратегий</h3>
     <div class="table-scroll">
     <table>
         <thead><tr>
@@ -2160,7 +2213,7 @@
     </div>
 
     <!-- ===== СРАВНИТЕЛЬНАЯ ТАБЛИЦА: TRADFI ===== -->
-    <h3 style="margin-top:2rem">🏦 TradFi на лендингах</h3>
+    <h3 style="margin-top:2.5rem; margin-bottom:0.75rem">🏦 TradFi на лендингах</h3>
     <div class="table-scroll">
     <table>
         <thead><tr>
@@ -2196,7 +2249,7 @@
     </div>
 
     <!-- ===== ДОПОЛНИТЕЛЬНОЕ СРАВНЕНИЕ ===== -->
-    <h3 style="margin-top:2rem">🎯 Дополнительное сравнение лендингов</h3>
+    <h3 style="margin-top:2.5rem; margin-bottom:0.75rem">🎯 Дополнительное сравнение лендингов</h3>
     <div class="table-scroll">
     <table>
         <thead><tr>
@@ -2254,7 +2307,7 @@
     </div>
 
     <!-- ===== ВЫВОДЫ ===== -->
-    <h3 style="margin-top:2rem">💡 Ключевые выводы для макета Veles</h3>
+    <h3 style="margin-top:2.5rem; margin-bottom:0.75rem">💡 Ключевые выводы для макета Veles</h3>
     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1rem;">
         <div class="card" style="border-left:3px solid var(--lose)">
             <div class="card-header"><span class="icon">🔒</span> Security: добавить цифру</div>
