@@ -513,6 +513,119 @@
             border-left: 3px solid var(--tie);
         }
 
+        /* SWOT Grid */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .swot-grid { grid-template-columns: 1fr; }
+        }
+        .swot-quad {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 1rem 1.15rem;
+            border-left: 3px solid var(--border);
+        }
+        .swot-quad.s { border-left-color: var(--win); }
+        .swot-quad.w { border-left-color: var(--lose); }
+        .swot-quad.o { border-left-color: #4F8EF7; }
+        .swot-quad.t { border-left-color: var(--tie); }
+        .swot-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+        }
+        .swot-title.s { color: var(--win); }
+        .swot-title.w { color: var(--lose); }
+        .swot-title.o { color: #4F8EF7; }
+        .swot-title.t { color: var(--tie); }
+        .swot-list {
+            margin: 0;
+            padding-left: 1.1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .swot-list li { margin-bottom: 0.45rem; }
+        .swot-list li strong { color: var(--text-primary); font-weight: 600; }
+
+        /* Strategic priority blocks */
+        .priority-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.4rem 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            border-left: 4px solid var(--win);
+        }
+        .priority-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--win);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.6rem;
+            vertical-align: middle;
+        }
+        .priority-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        .priority-body {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+        .priority-body ul { margin: 0.5rem 0; padding-left: 1.3rem; }
+        .priority-body li { margin-bottom: 0.3rem; }
+        .priority-metric {
+            display: inline-block;
+            margin-top: 0.7rem;
+            padding: 0.35rem 0.7rem;
+            background: rgba(76, 175, 80, 0.12);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--win);
+            font-weight: 600;
+        }
+
+        /* Killer-argument cards */
+        .killer-card {
+            background: linear-gradient(135deg, rgba(76,175,80,0.06), rgba(79,142,247,0.04));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.1rem 1.3rem;
+            margin-bottom: 0.85rem;
+        }
+        .killer-quote {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+        .killer-evidence {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
         /* Hiring cards */
         .hiring-grid {
             display: grid;
@@ -942,6 +1055,7 @@
         <button class="tab" onclick="showTab('pionex', this)" role="tab">Pionex</button>
         <button class="tab" onclick="showTab('landing-audit', this)" role="tab">🌐 Сайт конкурентов</button>
         <button class="tab" onclick="showTab('bitsgap', this)" role="tab">Bitsgap</button>
+        <button class="tab" onclick="showTab('strategy', this)" role="tab">🎯 Стратегические выводы</button>
     </nav>
 </div>
 
@@ -1814,6 +1928,51 @@
         </ul>
     </div>
 
+    <!-- SWOT-анализ -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ 3Commas</div>
+        <div class="swot-grid">
+            <div class="swot-quad s">
+                <div class="swot-title s">Strengths</div>
+                <ul class="swot-list">
+                    <li><strong>220k+ зарегистрированных</strong> — сетевой эффект, brand recognition</li>
+                    <li><strong>7 типов ботов</strong> + QuantPilot (агентный AI, апрель 2026)</li>
+                    <li><strong>TradingView + Pine Script</strong> — захват аудитории техналитиков</li>
+                    <li><strong>Asset Manager $223/мес</strong> — заход в institutional с whitelabel</li>
+                    <li><strong>QuantPilot Lifetime VIP $5 000</strong> — high-ticket premium-ставка</li>
+                </ul>
+            </div>
+            <div class="swot-quad w">
+                <div class="swot-title w">Weaknesses</div>
+                <ul class="swot-list">
+                    <li><strong>3 инцидента за 4 года</strong> (2022 — утечка 100k API-ключей, $15–20M убытков; 2023; 2026 — несанкционированные сделки)</li>
+                    <li><strong>Class action Freeman v. 3Commas</strong> восстановлен 9th Circuit 2 марта 2026</li>
+                    <li><strong>Скрытый лимит AI 1M токенов/мес</strong> — исчерпывается за один день</li>
+                    <li><strong>Агрессивный рост цен</strong> — Pro с $50 принудительно на $140; Demo отменён 20.11.2025</li>
+                    <li><strong>Futures только с $50</strong>; Write API только с $140 — реальный функционал недёшев</li>
+                </ul>
+            </div>
+            <div class="swot-quad o">
+                <div class="swot-title o">Opportunities for Veles</div>
+                <ul class="swot-list">
+                    <li><strong>Миграционный поток</strong> — недовольные ростом цен и class action готовы переходить</li>
+                    <li><strong>Educational gap</strong> — CoinBureau: «not suitable for beginners» → ниша для Veles</li>
+                    <li><strong>AI для новичков</strong> — QuantPilot для advanced; entry-level сегмент свободен</li>
+                    <li><strong>Атака на Starter $20</strong> — 5 ботов + 1 биржа = слабый оффер</li>
+                </ul>
+            </div>
+            <div class="swot-quad t">
+                <div class="swot-title t">Threats</div>
+                <ul class="swot-list">
+                    <li><strong>Brand dominance в Google</strong> — №1 по большинству «crypto trading bot» запросов</li>
+                    <li><strong>TradingView lock-in</strong> — пользователи с Pine Script-стратегиями не уйдут без триггера</li>
+                    <li><strong>QuantPilot agentic AI</strong> — может консолидировать advanced segment</li>
+                    <li><strong>Asset Manager для школ</strong> — угроза partnership-pipeline Veles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Talk Tracks -->
     <div class="card">
         <div class="card-header"><span class="icon">💬</span> Talk Tracks</div>
@@ -1946,6 +2105,50 @@
         </ul>
     </div>
 
+    <!-- SWOT-анализ -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Cryptohopper</div>
+        <div class="swot-grid">
+            <div class="swot-quad s">
+                <div class="swot-title s">Strengths</div>
+                <ul class="swot-list">
+                    <li><strong>Marketplace 2140+ шаблонов</strong> + Copy Bots, App Store 5823+ отзывов</li>
+                    <li><strong>3-day free trial без карты</strong> + Pioneer бесплатно навсегда</li>
+                    <li><strong>Strategy Designer 130+ индикаторов</strong> + drag-and-drop (обновлён 2026)</li>
+                    <li><strong>Official Partner</strong> статус OKX, Binance, KuCoin, Coinbase Advanced</li>
+                    <li><strong>Algorithmic Intelligence</strong> — автовыбор лучшей стратегии</li>
+                </ul>
+            </div>
+            <div class="swot-quad w">
+                <div class="swot-title w">Weaknesses</div>
+                <ul class="swot-list">
+                    <li><strong>Trustpilot 3.6/5</strong> — худший среди SaaS-конкурентов; жалобы: «H bot не торгует месяцами»</li>
+                    <li><strong>$900+ потеряно</strong> — 7 месяцев платежей без единой сделки (цитата Trustpilot)</li>
+                    <li><strong>Misleading pricing</strong> — «15 bots» = 1 бот с 15 парами; Ц не вкл. НДС: Explorer реально $37.26 в ЕС</li>
+                    <li><strong>Marketplace = убыточные стратегии</strong> — потеря 50% капитала от купленных стратегий</li>
+                    <li><strong>AI = rule-based optimizer</strong>, не настоящий LLM — маркетинг вводит в заблуждение</li>
+                </ul>
+            </div>
+            <div class="swot-quad o">
+                <div class="swot-title o">Opportunities for Veles</div>
+                <ul class="swot-list">
+                    <li><strong>«Бот не работает»</strong> — onboarding-гарантия «работает в первый день»</li>
+                    <li><strong>Разочарованные в Marketplace</strong> — потеряли 50%, ищут образование</li>
+                    <li><strong>Ниже $50/мес</strong> — Hero в ЕС = $163.56/мес; простой продукт ниже цены</li>
+                    <li><strong>Контент-атака</strong> — «Почему сигналы Cryptohopper не работают» → SEO-трафик</li>
+                </ul>
+            </div>
+            <div class="swot-quad t">
+                <div class="swot-title t">Threats</div>
+                <ul class="swot-list">
+                    <li><strong>Экосистема Marketplace</strong> — инфлюенсеры привязаны через доход</li>
+                    <li><strong>Copy Trading lock-in</strong> — switching cost высок</li>
+                    <li><strong>Affiliate Program</strong> — ежемесячные комиссии; Veles нужен конкурентный referral</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Talk Tracks -->
     <div class="card">
         <div class="card-header"><span class="icon">💬</span> Talk Tracks</div>
@@ -2061,6 +2264,52 @@
             <li><strong>Маркетплейс 100k+ ботов</strong> — стратегии от комьюнити</li>
             <li><strong>Стабильная линейка</strong> — Pionex массово режет продукты (C2C, Lotto, Easy Earn, несколько типов ботов). Veles расширяет.</li>
         </ul>
+    </div>
+
+    <!-- SWOT-анализ -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Pionex</div>
+        <div class="swot-grid">
+            <div class="swot-quad s">
+                <div class="swot-title s">Strengths</div>
+                <ul class="swot-list">
+                    <li><strong>16+ бесплатных ботов</strong> — нулевая доплата за автоматизацию; спот-комиссия 0.05% (дешевле Binance/OKX)</li>
+                    <li><strong>Объём $1.3 млрд/сутки</strong> — агрегация Binance+HTX; глубина ордербука</li>
+                    <li><strong>Mobile 4.3/5</strong> (10.7K отзывов), 1M+ скачиваний — лучшее мобильное приложение</li>
+                    <li><strong>xStocks / RWA</strong> — 30+ токенизированных акций (Tesla, S&P 500), фьючерсы на платину/палладий</li>
+                    <li><strong>MiCA + AMF паспорт</strong> (Ireland Ltd), MSB-лицензия в 41 штате США</li>
+                    <li><strong>Telegram 96 675 подписчиков</strong> — крупнейшее community в нише</li>
+                </ul>
+            </div>
+            <div class="swot-quad w">
+                <div class="swot-title w">Weaknesses</div>
+                <ul class="swot-list">
+                    <li><strong>Trustpilot 2.4/5</strong> — худший в группе; жалобы на задержки выводов, заморозку аккаунтов, шаблонные ответы</li>
+                    <li><strong>«Призрачные ликвидации» окт 2025</strong> — Mark Price SOL $159, BNB $934 (цен не было на рынке); Pionex отрицал; 12 часов простоя</li>
+                    <li><strong>Массовый делистинг</strong> — 10+ продуктов за 2 года (Leveraged Grid, C2C, Prop Traders, Arbitrage). $3 300 заблокировано 3+ недели</li>
+                    <li><strong>AMF blacklist (Франция)</strong> апр 2025; Philippines SEC warning авг 2025; multi-state consent order США</li>
+                    <li><strong>Нет нативного бэктестера</strong> — только Pine Script через TradingView</li>
+                    <li><strong>PionexGPT слабый</strong> — GPT-3.5, не GPT-4; Signal Bot только фьючерсы</li>
+                </ul>
+            </div>
+            <div class="swot-quad o">
+                <div class="swot-title o">Opportunities for Veles</div>
+                <ul class="swot-list">
+                    <li><strong>Доверие как дефицит</strong> — 2.4/5 → аудитория активно ищет альтернативы</li>
+                    <li><strong>Образовательный вакуум</strong> — Pionex даёт инструмент, но не учит механике</li>
+                    <li><strong>Регуляторная нестабильность</strong> — AMF blacklist + SEC warning → отток ЕС/Азии</li>
+                    <li><strong>«Призрачные ликвидации» как вирусный контент</strong> — кейс для маркетинга</li>
+                </ul>
+            </div>
+            <div class="swot-quad t">
+                <div class="swot-title t">Threats</div>
+                <ul class="swot-list">
+                    <li><strong>Zero cost entry</strong> — боты бесплатно, конкурировать по цене напрямую невозможно</li>
+                    <li><strong>96k Telegram-подписчиков</strong> — если запустят образовательный контент, перекроют SEO Veles</li>
+                    <li><strong>RWA/xStocks тракция</strong> — «крипта + традиционные рынки» как единое окно</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <!-- Talk Tracks -->
@@ -2400,6 +2649,52 @@
         </ul>
     </div>
 
+    <!-- SWOT-анализ -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Bitsgap</div>
+        <div class="swot-grid">
+            <div class="swot-quad s">
+                <div class="swot-title s">Strengths</div>
+                <ul class="swot-list">
+                    <li><strong>Чистейший security record с 2016</strong> — 0 инцидентов за 10 лет; 2048-bit шифрование, API lock</li>
+                    <li><strong>20 Demo-ботов с виртуальным $100k USDT</strong> — лучший онбординг без лимита по времени</li>
+                    <li><strong>800K+ пользователей, $9.46 млрд AUM</strong> — крупнейший пул активов в сегменте</li>
+                    <li><strong>DEX-поддержка</strong> — Aster, Evedex; non-custodial без KYC (уникально)</li>
+                    <li><strong>Capterra 4.6/5</strong> (96 отзывов) — самый высокий рейтинг среди конкурентов</li>
+                    <li><strong>AI Portfolio Mode (Pro)</strong> — первый на рынке (сент 2024); Bot Analytics Dashboard</li>
+                </ul>
+            </div>
+            <div class="swot-quad w">
+                <div class="swot-title w">Weaknesses</div>
+                <ul class="swot-list">
+                    <li><strong>Слабое мобильное приложение</strong> — Android 3.3/5 (135 отзывов); хуже Pionex в 30+ раз</li>
+                    <li><strong>Нет Enterprise/Asset Manager тарифа</strong> — потолок Pro $119/мес; упущенный B2B</li>
+                    <li><strong>Backtest Basic — 30 дней</strong> — крайне мало для серьёзного тестирования</li>
+                    <li><strong>Telegram News 3 316 подписчиков</strong> при 800K юзеров — penetration 0.4%</li>
+                    <li><strong>Нет TradingView/Pine Script сигналов</strong> — теряют сегмент техналитиков</li>
+                    <li><strong>Рост цен +20–25% с 2021</strong>; strict no-refund политика</li>
+                </ul>
+            </div>
+            <div class="swot-quad o">
+                <div class="swot-title o">Opportunities for Veles</div>
+                <ul class="swot-list">
+                    <li><strong>Пересечение аудиторий</strong> — Bitsgap = retail trader / passive automation, та же ЦА что у Veles</li>
+                    <li><strong>Мобильный gap</strong> — Veles с сильным мобильным онбордингом перехватит аудиторию</li>
+                    <li><strong>Нет образовательного слоя</strong> — partnership «Bitsgap = инструмент, Veles = обучение»</li>
+                    <li><strong>Реферальное пространство</strong> — слабое Telegram-community = поле для Veles-инфлюенсеров</li>
+                </ul>
+            </div>
+            <div class="swot-quad t">
+                <div class="swot-title t">Threats</div>
+                <ul class="swot-list">
+                    <li><strong>«Самая чистая» репутация в нише</strong> — Capterra 4.6/5 + Trustpilot 4.1/5 + 0 инцидентов</li>
+                    <li><strong>7-дневный Pro trial без карты</strong> — лучший trial-оффер в сегменте, высокий conversion</li>
+                    <li><strong>AI Portfolio Mode</strong> — может быть «достаточным», чтобы пользователь не искал обучение</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Talk Tracks -->
     <div class="card">
         <div class="card-header"><span class="icon">💬</span> Talk Tracks</div>
@@ -2450,11 +2745,189 @@
     </div>
 </section>
 
+<!-- ================================================================== -->
+<!-- TAB 9: СТРАТЕГИЧЕСКИЕ ВЫВОДЫ -->
+<!-- ================================================================== -->
+<section id="strategy" class="tab-content">
+    <h2>Стратегические выводы по конкурентам — май 2026</h2>
+
+    <!-- TL;DR -->
+    <div class="card">
+        <div class="card-header"><span class="icon">📌</span> TL;DR — ключевые выводы</div>
+        <ul class="strength-list">
+            <li><strong>Никто из 4 конкурентов не имеет образовательного слоя</strong> — основной difференциатор Veles. 3Commas явно пишет «not for beginners»; Pionex/Cryptohopper/Bitsgap — pure tools.</li>
+            <li><strong>3 из 4 имеют серьёзные security/repute проблемы</strong> — 3Commas (3 инцидента + class action), Cryptohopper (Trustpilot 3.6/5), Pionex (Trustpilot 2.4/5 + AMF blacklist). Bitsgap — исключение.</li>
+            <li><strong>Окно в мае–июле 2026</strong> — активный отток с 3Commas (class action) и Cryptohopper («бот не торгует»). Пик возможностей для миграционных офферов.</li>
+            <li><strong>AI-гонка ускоряется</strong> — QuantPilot, AI Portfolio Mode, PionexGPT. Через 12–18 месяцев AI = table stakes. Veles нужна своя AI-позиция.</li>
+        </ul>
+    </div>
+
+    <!-- ТОП-5 приоритетов -->
+    <div class="card">
+        <div class="card-header"><span class="icon">⚡</span> ТОП-5 приоритетных действий (ranked by impact)</div>
+
+        <div class="priority-card">
+            <div class="priority-title"><span class="priority-num">1</span>Контент-серия «Почему боты не работают» — SEO + acquisition</div>
+            <div class="priority-body">
+                У всех 4 конкурентов есть системные боли, которые Veles может раскрыть через образовательный контент:
+                <ul>
+                    <li><strong>3Commas</strong>: скрытые лимиты AI (1M токенов = 500–1000 запросов)</li>
+                    <li><strong>Cryptohopper</strong>: бот молчит месяцами, $900+ потрачено впустую</li>
+                    <li><strong>Pionex</strong>: «призрачные ликвидации» SOL по $159 (октябрь 2025)</li>
+                    <li><strong>Bitsgap</strong>: backtest 30 дней на Basic = ложная уверенность</li>
+                </ul>
+                Позиционирует Veles как «честный голос», а не очередной инструмент.
+                <span class="priority-metric">Метрика: органический трафик +30% за 3 месяца</span>
+            </div>
+        </div>
+
+        <div class="priority-card">
+            <div class="priority-title"><span class="priority-num">2</span>Миграционный оффер для аудитории 3Commas и Cryptohopper</div>
+            <div class="priority-body">
+                3Commas повышает цены + class action (март 2026); Cryptohopper Trustpilot 3.6/5. Это активный отток — альтернативы ищут прямо сейчас.
+                <ul>
+                    <li>Landing «Переходите с 3Commas/Cryptohopper — первые 2 месяца со скидкой 50%»</li>
+                    <li>Retargeting на Reddit r/3Commas_io и r/CryptoHopper</li>
+                    <li>Партнёрство с инфлюенсерами, освещающими скандалы</li>
+                </ul>
+                <span class="priority-metric">Метрика: CAC ≤ $20 (с текущих $27–28); ROAS guardrail > 3.5</span>
+            </div>
+        </div>
+
+        <div class="priority-card">
+            <div class="priority-title"><span class="priority-num">3</span>Захватить нишу «образование + инструмент»</div>
+            <div class="priority-body">
+                Все 4 конкурента — pure trading tools без обучающего слоя. Позиционирование Veles: <strong>«Первая платформа, которая учит вас торговать, а не просто автоматизирует торговлю»</strong>.
+                <span class="priority-metric">Метрика: NPS > 50; early churn 1го месяца с 10–16% → &lt; 7%</span>
+            </div>
+        </div>
+
+        <div class="priority-card">
+            <div class="priority-title"><span class="priority-num">4</span>Атаковать мобильную аудиторию Pionex через Telegram</div>
+            <div class="priority-body">
+                Pionex — 96 675 Telegram-подписчиков, но без образовательного контента. Bitsgap — 3 316 подписчиков при 800K юзеров. Большой gap.
+                <ul>
+                    <li>Telegram-инфлюенсеры с контентом об ошибках пользователей Pionex/Bitsgap → Veles</li>
+                    <li>Серия мини-курсов: «7 ошибок пользователей Grid Bot» → lead generation</li>
+                    <li>CPA-партнёрства с крипто-Telegram каналами (15K–30K) — core канал Veles</li>
+                </ul>
+                <span class="priority-metric">Метрика: +500 новых юзеров/мес из Telegram; CAC ≤ $15</span>
+            </div>
+        </div>
+
+        <div class="priority-card">
+            <div class="priority-title"><span class="priority-num">5</span>Восстановить LTV до $160+ через product-led onboarding</div>
+            <div class="priority-body">
+                Текущий early churn 10–16% в первый месяц. Инсайт из SWOT: пользователи уходят «не понимаю что происходит». Onboarding должен закрыть это:
+                <ul>
+                    <li><strong>Day 1</strong>: «Ваш первый бот» — guided setup за 10 минут</li>
+                    <li><strong>Day 3</strong>: «Почему ваш бот ещё не торгует» — превентивный FAQ (боль №1 Cryptohopper)</li>
+                    <li><strong>Day 7</strong>: «Ваши первые результаты» — осмысленный отчёт</li>
+                    <li><strong>Day 14</strong>: «Что делать при выходе из диапазона» — retain перед кризисом</li>
+                </ul>
+                <span class="priority-metric">Метрика: early churn &lt; 7%; LTV $155–160 (с $107–142)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Свободные ниши -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🎯</span> Свободные ниши (где конкуренты слабы)</div>
+        <ul class="strength-list">
+            <li><strong>Образовательный слой при торговых инструментах</strong> — ни у одного из 4 конкурентов. 3Commas избегает новичков, Cryptohopper Marketplace создаёт иллюзию простоты, Pionex и Bitsgap — pure tools.</li>
+            <li><strong>Русскоязычный рынок СНГ</strong> — все 4 конкурента англоязычны с частичной русской локализацией. Полноценной СНГ-стратегии нет ни у кого.</li>
+            <li><strong>Прозрачность vs «чёрный ящик»</strong> — конкуренты продают обещание («бот зарабатывает»), не объясняя механику. Ниша «честного» продукта с объяснением рисков свободна.</li>
+            <li><strong>Education-first onboarding</strong> — ни у кого нет guided первых 30 дней. Первый бот запускается «как придётся» → высокий churn.</li>
+            <li><strong>Сегмент $10–20/мес с реальным функционалом</strong> — Cryptohopper Pioneer без автоматизации, 3Commas Starter $20 = 5 ботов, Pionex — кастодиальный риск, Bitsgap Basic $23 — бэктест 30 дней. Качественный продукт за $15–20 — незанятая позиция.</li>
+        </ul>
+    </div>
+
+    <!-- Угрозы рынка -->
+    <div class="card">
+        <div class="card-header"><span class="icon">⚠️</span> Угрозы рынка (12–18 месяцев)</div>
+        <ul class="strength-list they-win">
+            <li><strong>AI-гонка</strong> — 3Commas QuantPilot, Bitsgap AI Portfolio Mode, PionexGPT. Через 12–18 месяцев AI = table stakes. Veles должен сформулировать AI-позицию.</li>
+            <li><strong>QuantPilot $5 000 Lifetime VIP</strong> — 3Commas тестирует premium-сегмент. Сигнал: поляризация рынка на cheap/free vs premium AI.</li>
+            <li><strong>RWA-экспансия Pionex</strong> — xStocks, платина, палладий. Если токенизированные активы станут mainstream — пересечение с ЦА Veles.</li>
+            <li><strong>Регуляторное давление</strong> — MiCA, Philippines SEC, AMF blacklist. Оффшорные платформы будут вынуждены перестраиваться.</li>
+            <li><strong>Рост CAC в платном</strong> — ROAS Veles просел до 2.7–2.9x. Конкуренты с аффилиаткой перегревают аукцион.</li>
+        </ul>
+    </div>
+
+    <!-- Killer-аргументы -->
+    <div class="card">
+        <div class="card-header"><span class="icon">💥</span> Killer-аргументы Veles (готовые формулировки)</div>
+
+        <div class="killer-card">
+            <div class="killer-quote">«Мы единственные, кто объясняет, а не просто автоматизирует»</div>
+            <div class="killer-evidence">Против позиционирования всех 4 конкурентов как pure tools. 3Commas: «not suitable for beginners» → Veles: «designed for beginners who want to become confident».</div>
+        </div>
+
+        <div class="killer-card">
+            <div class="killer-quote">«Ваши деньги на вашей бирже — мы не хранили чужих API и не теряли их»</div>
+            <div class="killer-evidence">3Commas: 3 инцидента (2022, 2023, 2026), class action. Cryptohopper: 2 инцидента (2020, 2024). Pionex: кастодиальная биржа. Только Bitsgap с чистой записью.</div>
+        </div>
+
+        <div class="killer-card">
+            <div class="killer-quote">«Один месяц с Veles заменяет 7 месяцев платежей за молчащий бот»</div>
+            <div class="killer-evidence">Прямая отсылка к цитате с Trustpilot Cryptohopper: «7 months, 0 trades, $900 wasted». Эффективный conversion-copy для landing pages.</div>
+        </div>
+
+        <div class="killer-card">
+            <div class="killer-quote">«Мы не прячем лимиты в мелкий шрифт»</div>
+            <div class="killer-evidence">Против 3Commas (скрытый лимит 1M токенов AI), Cryptohopper (НДС не включён, «15 ботов» = 15 пар одного бота), Pionex (10-дневный фриз ACH).</div>
+        </div>
+
+        <div class="killer-card">
+            <div class="killer-quote">«Сообщество, которое отвечает на вопросы, а не чат с объявлениями»</div>
+            <div class="killer-evidence">Bitsgap Telegram: 3 316 подписчиков при 800K+ юзеров (0.4% penetration). Cryptohopper: задержки поддержки до 1 недели. Veles: живое сообщество с экспертами = loyalty driver.</div>
+        </div>
+    </div>
+
+    <!-- Позиционирование по конкурентам -->
+    <div class="card">
+        <div class="card-header"><span class="icon">🧭</span> Как Veles позиционируется против каждого</div>
+        <div class="table-scroll">
+        <table>
+            <thead>
+                <tr><th>Конкурент</th><th>Главный рычаг Veles</th><th>Сегмент для атаки</th><th>Горизонт</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>3Commas</strong></td>
+                    <td>Безопасность + profit-share вместо подписки</td>
+                    <td>Недовольные ростом цен Pro $50→$140; жертвы class action</td>
+                    <td>0–3 мес (пик окна)</td>
+                </tr>
+                <tr>
+                    <td><strong>Cryptohopper</strong></td>
+                    <td>Образование + гарантия «бот работает»</td>
+                    <td>«$900 потрачено впустую»; покупавшие убыточные стратегии</td>
+                    <td>0–6 мес</td>
+                </tr>
+                <tr>
+                    <td><strong>Pionex</strong></td>
+                    <td>Свобода биржи + обучение механике ботов</td>
+                    <td>Пострадавшие от «призрачных ликвидаций»; русскоязычные пользователи</td>
+                    <td>3–12 мес</td>
+                </tr>
+                <tr>
+                    <td><strong>Bitsgap</strong></td>
+                    <td>Образование как layer; партнёрство, а не лобовая атака</td>
+                    <td>Мобильная аудитория (Android 3.3/5); Telegram-сегмент</td>
+                    <td>6–12 мес</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</section>
+
 </div><!-- /content-wrap -->
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    Veles Finance Intelligence Dashboard v3 | Обновлено: 18 апреля 2026 | Автоматический сбор данных
+    Veles Finance Intelligence Dashboard v3 | Обновлено: 13 мая 2026 | Конкурентная разведка + SWOT
 </footer>
 
 <script>
