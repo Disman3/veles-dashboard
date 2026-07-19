@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veles Finance — Intelligence Dashboard v3</title>
+    <title>Veles Finance — Intelligence Dashboard v3.2</title>
     <meta name="robots" content="noindex, nofollow">
     <style>
         /* === PASSWORD SCREEN === */
@@ -112,6 +112,21 @@
             color: var(--text-primary);
         }
         /* === END LANDING AUDIT TABLES === */
+
+        /* === COMPACT SOURCE LINKS === */
+        .src {
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            vertical-align: super;
+            line-height: 0;
+            margin-left: 3px;
+            white-space: nowrap;
+            opacity: 0.85;
+        }
+        .src:hover { opacity: 1; text-decoration: underline; }
+        /* === END COMPACT SOURCE LINKS === */
 
         :root {
             --bg-primary: #0b0e17;
@@ -1034,11 +1049,11 @@
     <div class="header-inner">
         <div class="header-brand">
             <div class="header-logo">V</div>
-            <h1><span>Veles Finance</span> — Intelligence Dashboard v3.1</h1>
+            <h1><span>Veles Finance</span> — Intelligence Dashboard v3.2</h1>
         </div>
         <div class="header-meta">
             <div class="header-meta-item"><strong>Конкуренты:</strong> 3Commas · Cryptohopper · Pionex · Bitsgap · WunderTrading · Coinrule</div>
-            <div class="header-meta-item"><strong>Обновлено:</strong> 24 июня 2026</div>
+            <div class="header-meta-item"><strong>Обновлено:</strong> 19 июля 2026</div>
         </div>
     </div>
 </header>
@@ -1072,24 +1087,24 @@
     <!-- Status strip -->
     <div class="status-strip">
         <div class="status-metric urgent">
-            <div class="sm-label">Самый уязвимый конкурент</div>
-            <div class="sm-value">3Commas</div>
-            <div class="sm-detail">Запустил QuantPilot (отдельный AI-проект), class action возвращён, трафик -6.2%</div>
+            <div class="sm-label">Приоритетная угроза</div>
+            <div class="sm-value">WunderTrading + Bitsgap</div>
+            <div class="sm-detail">Единственные с полной RU-локализацией. WunderTrading — MCP Server из беты в GA (угроза High<a class="src" href="https://wundertrading.com/en/pricing" target="_blank" rel="noopener noreferrer">источник</a>); Bitsgap — DEX/Hyperliquid + RU-блог (Medium-High)</div>
+        </div>
+        <div class="status-metric warning">
+            <div class="sm-label">Сдвиг рынка</div>
+            <div class="sm-value">Agentic AI</div>
+            <div class="sm-detail">Robinhood (10 июля<a class="src" href="https://cryptorank.io/news/feed/13d7b-robinhood-crypto-ai-trading-us-customers" target="_blank" rel="noopener noreferrer">источник</a>) и Kraken (11 июля<a class="src" href="https://www.cryptopolitan.com/kraken-rebuild-app-around-ai-trading-agents/" target="_blank" rel="noopener noreferrer">источник</a>) вывели AI-агентов в розницу; 3Commas QuantPilot, Cryptohopper MCP, Coinrule Agentic Mode, WunderTrading MCP GA</div>
         </div>
         <div class="status-metric warning">
             <div class="sm-label">Свободная ниша</div>
-            <div class="sm-value">TradFi</div>
-            <div class="sm-detail">0 упоминаний у всех конкурентов, кроме Pionex (биржа, не боты)</div>
-        </div>
-        <div class="status-metric warning">
-            <div class="sm-label">Контентное окно</div>
-            <div class="sm-value">Cryptohopper ожил</div>
-            <div class="sm-detail">Блог Cryptohopper: 5+ статей за апрель 2026. 3Commas запустил отдельный проект QuantPilot, но основная платформа без обновлений. Окно сужается!</div>
+            <div class="sm-value">RU-обучение под AI / RWA</div>
+            <div class="sm-detail">Никто из 6 не даёт русскоязычного объяснения новых AI-инструментов и токенизированных активов США (Pionex, Coinrule расширяются в акции/ETF)</div>
         </div>
         <div class="status-metric ok">
             <div class="sm-label">Дата обновления</div>
-            <div class="sm-value">24 июня 2026</div>
-            <div class="sm-detail">Еженедельный мониторинг конкурентов</div>
+            <div class="sm-value">19 июля 2026</div>
+            <div class="sm-detail">Конкурентная разведка по 6 игрокам</div>
         </div>
     </div>
 
@@ -1101,14 +1116,14 @@
             <h3>🔴 Срочно (эта неделя)</h3>
 
             <div class="priority-item">
-                <div class="pi-title">1. Изучить QuantPilot (спин-офф 3Commas)</div>
-                <div class="pi-desc">Отдельный проект 3Commas — AI-платформа для стратегий. Natural language → бэктест → деплой на Hyperliquid. VIP badge $5,000. Другая ниша (продвинутые кванты), но стоит отслеживать.</div>
-                <div class="pi-trigger">Триггер: «QuantPilot — для продвинутых на Hyperliquid. У Veles — маркетплейс 100k+ ботов для всех, без $5k VIP-входа»</div>
+                <div class="pi-title">1. RU-гайд: MCP/AI-агенты + безопасность API</div>
+                <div class="pi-desc">Рынок ушёл в agentic AI: WunderTrading вывел MCP Server из беты в GA<a class="src" href="https://wundertrading.com/en/pricing" target="_blank" rel="noopener noreferrer">источник</a>, Cryptohopper форсирует MCP<a class="src" href="https://www.cryptohopper.com/features/mcp-server" target="_blank" rel="noopener noreferrer">источник</a>, 3Commas — QuantPilot. Никто не объясняет это по-русски. Гайд «как безопасно подключить AI-агента к бирже» + акцент на API без прав вывода.</div>
+                <div class="pi-trigger">Триггер: «AI-агент — это удобно, но он получает доступ к вашему API. У Veles ключи без прав вывода и понятная RU-инструкция»</div>
             </div>
 
             <div class="priority-item">
                 <div class="pi-title">2. Реактивация бывших пользователей 3Commas</div>
-                <div class="pi-desc">Лучший момент за 2 года. Они злы, активно ищут альтернативу. Сфокусировать ретеншн и CRM на этом сегменте. Class action Freeman v. 3Commas вернулся (Ninth Circuit, 2 марта 2026) — дополнительный аргумент для переключения.</div>
+                <div class="pi-desc">3Commas увёл фокус в отдельный agentic-проект QuantPilot (early access, Lifetime VIP $5,000<a class="src" href="https://quantpilot.io/" target="_blank" rel="noopener noreferrer">источник</a>) — основная платформа без крупных обновлений. Сфокусировать ретеншн и CRM на ушедшем сегменте.</div>
             </div>
 
             <div class="priority-item">
@@ -1122,18 +1137,18 @@
             <h3>🟡 На этой неделе</h3>
 
             <div class="priority-item">
-                <div class="pi-title">1. Статья «3Commas QuantPilot vs Veles — в чём разница»</div>
-                <div class="pi-desc">SEO-контент на волне хайпа. QuantPilot — отдельный проект для квантов, Veles — готовая платформа для всех. Разные ниши, но можно перехватить поисковый трафик.</div>
+                <div class="pi-title">1. Кампания-сравнение vs Bitsgap и WunderTrading</div>
+                <div class="pi-desc">Единственные два конкурента с полной RU-локализацией — прямые угрозы за русскоязычную аудиторию. Запустить сравнительный образовательный контент с инфлюенсерами. Держать метрики в гайдрейлах: CAC ≤ $27–28, ROAS ≥ 3.5, LTV/CAC ≥ 4, ранний отток < 10%.</div>
             </div>
 
             <div class="priority-item">
-                <div class="pi-title">2. Страница/пост про TradFi</div>
-                <div class="pi-desc">Торговля золотом/индексами через Veles. Ни один конкурент не занял эту нишу в контенте — прямой SEO-захват.</div>
+                <div class="pi-title">2. RU-контент: токенизированные акции США</div>
+                <div class="pi-desc">Pionex ушёл в брокера RWA — 280+ инструментов, токенизированные акции/ETF, до 50x<a class="src" href="https://www.pionex.com/blog/pionex-tokenized-equities/" target="_blank" rel="noopener noreferrer">источник</a>; Coinrule добавил 7 stock-брокеров. Объяснить тренд по-русски — свободная ниша.</div>
             </div>
 
             <div class="priority-item">
-                <div class="pi-title">3. Мониторить Cryptohopper</div>
-                <div class="pi-desc">Блог ожил: 5+ статей за апрель. Ранее — стагнация 6+ мес. Нужно следить — если вернут обновления продукта, статус угрозы вырастет.</div>
+                <div class="pi-title">3. Мониторить Cryptohopper MCP и Bitsgap DEX</div>
+                <div class="pi-desc">Cryptohopper запустил MCP Server + Trading API (26 июня, страница обновлена 8 июля); Bitsgap идёт в DEX (Evedex/AsterDEX, QFL, Hyperliquid). Если наберут темп — статус угрозы вырастет.</div>
             </div>
         </div>
 
@@ -1143,7 +1158,7 @@
 
             <div class="priority-item">
                 <div class="pi-title">1. Запустить регулярный блог</div>
-                <div class="pi-desc">1-2 статьи/нед по AI-стратегиям и бэктестингу, где 3Commas заморожен. Контентное окно открыто.</div>
+                <div class="pi-desc">1-2 статьи/нед по AI-стратегиям, бэктестингу и снижению рисков сложных AI-инструментов. Контентное окно на RU-рынке открыто.</div>
             </div>
 
             <div class="priority-item">
@@ -1153,7 +1168,7 @@
 
             <div class="priority-item">
                 <div class="pi-title">3. Усилить security messaging</div>
-                <div class="pi-desc">«0 инцидентов, API без прав вывода» — прямо на главной. У 3Commas утечка $20M в 2022, у нас 0. Это сильнейший аргумент.</div>
+                <div class="pi-desc">«0 инцидентов, API без прав вывода» — прямо на главной. Особенно актуально на фоне AI-агентов, которым нужен доступ к ключам. Сильнейший аргумент.</div>
             </div>
         </div>
     </div>
@@ -1172,28 +1187,40 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>3Commas</td>
-                    <td><span class="badge badge-tie">🟡 Пивот</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Спин-офф QuantPilot, class action, основная платформа без обновлений, -6.2% трафик</span></td>
+                    <td>WunderTrading</td>
+                    <td><span class="badge badge-lose">🔴 Agentic AI</span><br><span style="font-size:0.78rem;color:var(--text-muted)">MCP Server из беты в GA, Hyperliquid без подписки (builder fee 0.035%), полная RU-локализация</span></td>
                     <td><span class="badge badge-lose">Высокая</span></td>
+                    <td><span class="badge badge-tie">Средняя</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Полный MCP только на Premium</span></td>
+                </tr>
+                <tr>
+                    <td>Bitsgap</td>
+                    <td><span class="badge badge-tie">🟡 DEX + RU</span><br><span style="font-size:0.78rem;color:var(--text-muted)">DEX (Evedex/AsterDEX), QFL-бот, Hyperliquid на подходе, RU-блог, 800K+ трейдеров</span></td>
+                    <td><span class="badge badge-tie">Выше средней</span></td>
+                    <td><span class="badge badge-tie">Средняя</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Премиум-AI только на Pro $149, жалобы на биллинг</span></td>
+                </tr>
+                <tr>
+                    <td>3Commas</td>
+                    <td><span class="badge badge-tie">🟡 Пивот в AI</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Отдельный agentic-проект QuantPilot, основная платформа без крупных обновлений</span></td>
+                    <td><span class="badge badge-tie">Средняя</span></td>
                     <td><span class="badge badge-lose" style="background:var(--urgent-dim)">Высокая</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Уходящие пользователи</span></td>
                 </tr>
                 <tr>
                     <td>Cryptohopper</td>
-                    <td><span class="badge badge-tie">🟡 Пробуждение</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Блог ожил (5+ статей/мес), нет обновлений продукта</span></td>
+                    <td><span class="badge badge-tie">🟡 Форсирует MCP</span><br><span style="font-size:0.78rem;color:var(--text-muted)">MCP Server + Trading API для AI-агентов (26 июня), 11 бирж, реструктуризация тарифов</span></td>
                     <td><span class="badge badge-tie">Средняя</span></td>
+                    <td><span class="badge badge-tie">Средняя</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Нет RU-продукта, высокий порог сложности</span></td>
+                </tr>
+                <tr>
+                    <td>Coinrule</td>
+                    <td><span class="badge badge-tie">🟡 Agentic Mode</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Agentic Mode + AI Cloud + AI Credits, 20+ бирж и 7 stock-брокеров, DeFi on-chain</span></td>
                     <td><span class="badge badge-tie">Средняя</span></td>
+                    <td><span class="badge badge-tie">Средняя</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Нет RU-поддержки</span></td>
                 </tr>
                 <tr>
                     <td>Pionex</td>
-                    <td><span class="badge badge-win">🟢 Оптимизация</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Массовый делистинг продуктов (C2C, Lotto, боты), трафик -26%</span></td>
-                    <td><span class="badge badge-lose">Высокая</span></td>
-                    <td><span class="badge badge-tie">Средняя</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Уходящие пользователи из делистинга</span></td>
-                </tr>
-                <tr>
-                    <td>Bitsgap</td>
-                    <td><span class="badge badge-tie">🟡 Стабильно</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Нет найма, фокус на удержании</span></td>
-                    <td><span class="badge badge-tie">Средняя</span></td>
-                    <td><span class="badge badge-tie">Средняя</span></td>
+                    <td><span class="badge badge-win">🟢 Пивот в RWA</span><br><span style="font-size:0.78rem;color:var(--text-muted)">Брокер токен. акций/ETF (280+ инстр., до 50x), Pionex Card, 24/7 NVDA/TSLA, 16 ботов</span></td>
+                    <td><span class="badge badge-neutral">Ниже средней</span></td>
+                    <td><span class="badge badge-tie">Средняя</span><br><span style="font-size:0.78rem;color:var(--text-muted)">RWA — стратегический сигнал рынка</span></td>
                 </tr>
             </tbody>
         </table>
@@ -1205,44 +1232,36 @@
 <!-- ================================================================== -->
 <section id="monitoring" class="tab-content">
     <h2>📡 Еженедельный мониторинг</h2>
-    <p style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:0.88rem;">Лента еженедельных данных по конкурентам. Обновление — 18 апреля 2026.</p>
+    <p style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:0.88rem;">Лента ключевых изменений по конкурентам. Обновление — 19 июля 2026. Приведены только подтверждённые факты из отчёта; неподтверждённые метрики трафика помечены как n.a.</p>
 
-    <h3 style="margin-top:0">Динамика за неделю</h3>
+    <h3 style="margin-top:0">Ключевые изменения</h3>
 
     <!-- 3Commas monitoring -->
     <div class="monitor-card">
         <div class="mc-header">
             <div class="mc-title">3Commas</div>
-            <div class="mc-date">18 апреля 2026</div>
+            <div class="mc-date">19 июля 2026</div>
         </div>
         <div class="monitor-items">
             <div class="monitor-item">
                 <span class="mi-icon">🟡</span>
-                <span><strong>Новые релизы:</strong> QuantPilot — отдельный AI-проект 3Commas (2 апреля 2026). Early access, VIP badge $5k. Фокус на Hyperliquid, другая ниша. Основная платформа 3Commas без обновлений.</span>
+                <span><strong>QuantPilot (agentic AI):</strong> natural-language, AI Research, Hyperliquid Terminal, QuantPilot Arena. Early access, Lifetime VIP $5,000; тарифы «финализируются». <a class="src" href="https://3commas.io/quantpilot" target="_blank" rel="noopener noreferrer">источник</a></span>
             </div>
             <div class="monitor-item">
-                <span class="mi-icon">🔴</span>
-                <span><strong>Трафик:</strong> 757 900 визитов, <strong style="color:var(--lose)">-6.19% м/м</strong>. Глобальный ранг 84 077 (падает)</span>
+                <span class="mi-icon">⚪</span>
+                <span><strong>Ценообразование:</strong> $20 / $50 / $140 в месяц (годовые $15 / $40 / $110), Custom от $223. <a class="src" href="https://3commas.io/pricing" target="_blank" rel="noopener noreferrer">источник</a></span>
             </div>
             <div class="monitor-item">
-                <span class="mi-icon">🟡</span>
-                <span><strong>Блог:</strong> Статья о запуске QuantPilot (2 апреля) — единственная публикация. Основной блог по-прежнему заморожен.</span>
+                <span class="mi-icon">⚪</span>
+                <span><strong>Масштаб:</strong> 118 000+ активных участников; 15+ бирж (Binance, Bybit, OKX, Coinbase).</span>
             </div>
             <div class="monitor-item">
-                <span class="mi-icon">🟡</span>
-                <span><strong>Ценообразование:</strong> Pioneer free, Explorer $24.16, Adventurer $57.50, Hero $107.50 (annual). Принудительная миграция со старых планов.</span>
+                <span class="mi-icon">⚪</span>
+                <span><strong>Trustpilot:</strong> 4.3/5 (~2K отзывов, снимок 08.01.2026). Трафик — n.a.</span>
             </div>
             <div class="monitor-item">
-                <span class="mi-icon">✅</span>
-                <span><strong>Платная реклама:</strong> 0% — весь трафик органический. Display только на низкокачественных партнёрках (fenixsite.net, free-btc.org)</span>
-            </div>
-            <div class="monitor-item">
-                <span class="mi-icon">✅</span>
-                <span><strong>TradFi-упоминания:</strong> 0 на сайте, 0 в контенте (только SEO-статья 2022 г. про stock trading bots)</span>
-            </div>
-            <div class="monitor-item">
-                <span class="mi-icon">🔴</span>
-                <span><strong>Судебный иск:</strong> Class action Freeman v. 3Commas возвращён Ninth Circuit (2 марта 2026). Иск по утечке 2022 рассматривается в Калифорнии.</span>
+                <span class="mi-icon">⚪</span>
+                <span><strong>Безопасность:</strong> исторические инциденты (утечка 2022) — не новые события; учитывать как исторический контекст.</span>
             </div>
         </div>
     </div>
@@ -1251,20 +1270,20 @@
     <div class="monitor-card">
         <div class="mc-header">
             <div class="mc-title">Cryptohopper</div>
-            <div class="mc-date">18 апреля 2026</div>
+            <div class="mc-date">19 июля 2026</div>
         </div>
         <div class="monitor-items">
             <div class="monitor-item">
+                <span class="mi-icon">🔴</span>
+                <span><strong>MCP Server + Trading API:</strong> запуск 26 июня, страница продукта обновлена 8 июля. Интеграция с Claude/Cursor, orderbook, wall detection. Технологическая угроза растёт. <a class="src" href="https://www.cryptohopper.com/features/mcp-server" target="_blank" rel="noopener noreferrer">источник</a></span>
+            </div>
+            <div class="monitor-item">
                 <span class="mi-icon">🟡</span>
-                <span><strong>Активность:</strong> Блог ожил: 5+ статей за апрель 2026 (AI Trading Agents, Kraken API, Trading Spaces, HTX, BSC memes). Обновлений продукта по-прежнему нет.</span>
+                <span><strong>Ценообразование:</strong> реструктуризация «$9.99–$99.99/мес» (Explorer $9.99, Custom $99.99); средние планы не подтверждены. <a class="src" href="https://www.cryptohopper.com/pricing" target="_blank" rel="noopener noreferrer">источник</a></span>
             </div>
             <div class="monitor-item">
                 <span class="mi-icon">⚪</span>
-                <span><strong>Найм:</strong> вакансий нет. Ставка на AI-автоматизацию (AI-агенты для code review) вместо расширения команды</span>
-            </div>
-            <div class="monitor-item">
-                <span class="mi-icon">⚪</span>
-                <span><strong>Trustpilot:</strong> 3.6/5 (358 отзывов) — самый низкий рейтинг в нише среди платформ-ботов</span>
+                <span><strong>Масштаб:</strong> 11 бирж без лимита по аккаунтам; пользователи — n.a. Trustpilot 3.6/5 (358 отзывов, снимок 01.09.2025).</span>
             </div>
         </div>
     </div>
@@ -1273,20 +1292,20 @@
     <div class="monitor-card">
         <div class="mc-header">
             <div class="mc-title">Pionex</div>
-            <div class="mc-date">18 апреля 2026</div>
+            <div class="mc-date">19 июля 2026</div>
         </div>
         <div class="monitor-items">
             <div class="monitor-item">
                 <span class="mi-icon">🟢</span>
-                <span><strong>Активность:</strong> Массовый делистинг продуктов: C2C, Lotto, Easy Earn, Structured Loan, Leveraged Grid Bot, Margin Grid Bot, Leveraged Reverse Grid боты, арбитражные боты ORBS/LINA/COMBO/OMG. VIP Level Adjustment.</span>
+                <span><strong>Пивот в RWA:</strong> токенизированные US-акции/ETF (280+ инструментов, до 50x, ~6–7 июля), 24/7 NVDA/SPCX/TSLA (23 июня), SKHX ADR-кампания (1 июля). <a class="src" href="https://www.pionex.com/blog/tokenized-stocks" target="_blank" rel="noopener noreferrer">источник</a></span>
             </div>
             <div class="monitor-item">
-                <span class="mi-icon">🟡</span>
-                <span><strong>Риск:</strong> Трафик -26% м/м. Глобальный ранг упал с #33,798 до #41,801. Сужение линейки может быть оптимизацией или сигналом кризиса.</span>
+                <span class="mi-icon">🟢</span>
+                <span><strong>Pionex Card:</strong> запуск 22 июня, кэшбэк до 5%. TON→GRAM swap (24–29 июня). Сбой из-за Cloudflare (инфраструктурный).</span>
             </div>
             <div class="monitor-item">
                 <span class="mi-icon">⚪</span>
-                <span><strong>Trustpilot:</strong> 2.4/5 (570 отзывов) — ниже всех в нише. Жалобы на зависания и поддержку</span>
+                <span><strong>Модель/масштаб:</strong> без подписки (spot 0.05%/0.05%, futures 0.02%/0.05%), 16 встроенных ботов; 430+ монет, 500+ пар, 24h объём ~$1.22B. Trustpilot 2.4/5 (570 отзывов, снимок 26.10.2025). Пользователи — n.a.</span>
             </div>
         </div>
     </div>
@@ -1295,26 +1314,70 @@
     <div class="monitor-card">
         <div class="mc-header">
             <div class="mc-title">Bitsgap</div>
-            <div class="mc-date">18 апреля 2026</div>
+            <div class="mc-date">19 июля 2026</div>
         </div>
         <div class="monitor-items">
             <div class="monitor-item">
-                <span class="mi-icon">⚪</span>
-                <span><strong>Активность:</strong> стабильно, нет крупных новостей. Недавно запустили мобильное приложение, ждут метрик</span>
+                <span class="mi-icon">🔴</span>
+                <span><strong>DEX-стратегия:</strong> интеграции Evedex и AsterDEX, QFL-бот, Hyperliquid на подходе. 17+ бирж. <a class="src" href="https://bitsgap.com/supported-exchanges" target="_blank" rel="noopener noreferrer">источник</a></span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">🔴</span>
+                <span><strong>RU-локализация:</strong> bitsgap.com/ru, RU-блог и хелпдеск — прямая конкуренция за русскоязычную аудиторию. <a class="src" href="https://bitsgap.com/ru" target="_blank" rel="noopener noreferrer">источник</a></span>
             </div>
             <div class="monitor-item">
                 <span class="mi-icon">⚪</span>
-                <span><strong>Capterra:</strong> 4.6/5 (96 отзывов) — лучший рейтинг на этой платформе среди всех конкурентов</span>
+                <span><strong>Масштаб/цены:</strong> 800 000+ трейдеров, $9.46B под управлением; Free/$29/$69/$149 (год. экономия $72/$168/$360). AI Portfolio Mode только на Pro. Trustpilot 665 отзывов (снимок 19.02.2026; рейтинг n.a.).</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- WunderTrading monitoring -->
+    <div class="monitor-card">
+        <div class="mc-header">
+            <div class="mc-title">WunderTrading</div>
+            <div class="mc-date">19 июля 2026</div>
+        </div>
+        <div class="monitor-items">
+            <div class="monitor-item">
+                <span class="mi-icon">🔴</span>
+                <span><strong>MCP Server — GA:</strong> вышел из беты; полный набор только на Premium, demo на младших тарифах. Threat High. <a class="src" href="https://wundertrading.com/en/mcp" target="_blank" rel="noopener noreferrer">источник</a></span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">🔴</span>
+                <span><strong>RU-поддержка + низкая цена:</strong> Free/$4.95/$19.95/$39.95/$89.95 (годовая до 25%); прямая борьба за русскоязычную аудиторию.</span>
             </div>
             <div class="monitor-item">
                 <span class="mi-icon">⚪</span>
-                <span><strong>Фьючерсы:</strong> Max leverage увеличен до 1:125 для фьючерсов.</span>
+                <span><strong>Масштаб:</strong> 210K+ трейдеров, 70K+ ботов, $1B+ за 30д, 18+ бирж; Hyperliquid без подписки (builder fee 0.035%). Trustpilot 4.0/5 (128 отзывов, wunderbit.co).</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coinrule monitoring -->
+    <div class="monitor-card">
+        <div class="mc-header">
+            <div class="mc-title">Coinrule</div>
+            <div class="mc-date">19 июля 2026</div>
+        </div>
+        <div class="monitor-items">
+            <div class="monitor-item">
+                <span class="mi-icon">🟡</span>
+                <span><strong>Agentic Mode + AI Cloud:</strong> AI-агенты на платных тарифах; AI Credits 500 / 5 000 / 50 000, overage $0.02/кредит на cloud.coinrule.com. <a class="src" href="https://cloud.coinrule.com" target="_blank" rel="noopener noreferrer">источник</a></span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">⚪</span>
+                <span><strong>Мультиактив:</strong> 20+ крипто + 7 фондовых брокеров + DeFi on-chain (Hyperliquid/Base/Arbitrum). Ценообразование Starter Free / $29.99 / $59.99 / Fund $749.</span>
+            </div>
+            <div class="monitor-item">
+                <span class="mi-icon">⚪</span>
+                <span><strong>Масштаб:</strong> 402 368 аккаунтов; стратегии 1 742 913 (для обучения AI) vs 1 395 960 (счётчик на сайте) — расхождение. Trustpilot 4.3/5 (140 отзывов, снимок 14.02.2025). RU не поддерживается.</span>
             </div>
         </div>
     </div>
 
     <!-- User pain quotes -->
-    <h3 style="margin-top:1.75rem">Свежие боли пользователей 3Commas — цитаты с Trustpilot</h3>
+    <h3 style="margin-top:1.75rem">Боли пользователей 3Commas — исторические цитаты с Trustpilot</h3>
 
     <div class="quote-card">
         <div class="quote-text">«Нас заставляют переходить с $50/мес на $200/мес без возможности остаться на старом плане. При этом обещали сохранить цену при ежегодном продлении — обещание нарушено»</div>
@@ -1382,10 +1445,10 @@
                 </tr>
                 <tr>
                     <td>Pionex</td>
-                    <td>xStocks</td>
+                    <td>Токен. акции/ETF (280+)</td>
                     <td>3+</td>
-                    <td>0</td>
-                    <td><span class="badge badge-tie">🟡 Частично (биржа)</span></td>
+                    <td>24/7 NVDA/SPCX/TSLA</td>
+                    <td><span class="badge badge-lose">🟢 Активно (пивот в RWA)</span></td>
                 </tr>
                 <tr>
                     <td>Bitsgap</td>
@@ -1393,6 +1456,13 @@
                     <td>0</td>
                     <td>0</td>
                     <td><span class="badge badge-neutral">⬜ Не занято</span></td>
+                </tr>
+                <tr>
+                    <td>Coinrule</td>
+                    <td>7 фондовых брокеров</td>
+                    <td>—</td>
+                    <td>Акции/ETF</td>
+                    <td><span class="badge badge-tie">🟡 Кросс-рынок</span></td>
                 </tr>
                 <tr class="veles-row">
                     <td>Veles</td>
@@ -1628,6 +1698,98 @@
 <!-- TAB 4: СРАВНИТЕЛЬНАЯ МАТРИЦА -->
 <!-- ================================================================== -->
 <section id="matrix" class="tab-content">
+    <h2>Общие KPI по 6 конкурентам</h2>
+    <p style="color:var(--text-secondary); margin-bottom:1rem; font-size:0.85rem;">Сводка по всем 6 игрокам на 19 июля 2026. «n.a.» = не подтверждено первичным источником. Даты у Trustpilot — дата снимка страницы в кэше, а не «свежесть» рейтинга.</p>
+    <div class="table-wrap">
+        <table class="comparison-matrix">
+            <thead>
+                <tr>
+                    <th style="min-width:150px">Критерий</th>
+                    <th style="min-width:150px">3Commas</th>
+                    <th style="min-width:150px">Cryptohopper</th>
+                    <th style="min-width:150px">Pionex</th>
+                    <th style="min-width:150px">Bitsgap</th>
+                    <th style="min-width:150px">WunderTrading</th>
+                    <th style="min-width:150px">Coinrule</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pricing (мес.)</td>
+                    <td style="font-size:0.78rem">$20 / $50 / $140; годовые $15/$40/$110; Custom от $223<a class="src" href="https://3commas.io/pricing" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">«$9.99–$99.99/мес» (реструктуризация); Explorer $9.99, Custom $99.99; истор. $29/$69/$129<a class="src" href="https://www.cryptohopper.com/pricing" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">Подписки нет; spot 0.05%/0.05%, futures 0.02%/0.05%<a class="src" href="https://help.pionex.com/en/articles/14993683-pionex-trading-fee-overview" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">Free / $29 / $69 / $149; годовые −$72/−$168/−$360<a class="src" href="https://bitsgap.com/pricing" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">Free / $4.95 / $19.95 / $39.95 / $89.95; год. до 25%<a class="src" href="https://wundertrading.com/en/pricing" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">Starter Free / $29.99 / $59.99 / Fund $749<a class="src" href="https://coinrule.com/pricing.html" target="_blank" rel="noopener noreferrer">источник</a></td>
+                </tr>
+                <tr>
+                    <td>Масштаб (users)</td>
+                    <td>118,000+ активных<a class="src" href="https://3commas.io/" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td><span class="badge badge-neutral">n.a.</span></td>
+                    <td><span class="badge badge-neutral">n.a.</span></td>
+                    <td>800,000+ трейдеров<a class="src" href="https://bitsgap.com/" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>210K+ трейдеров<a class="src" href="https://wundertrading.com/en/about" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>402,368 аккаунтов<a class="src" href="https://www.prnewswire.com/news-releases/coinrule-trains-ai-on-1-7-million-trading-strategies-expands-to-stocks--etfs-via-7-new-brokers-302697536.html" target="_blank" rel="noopener noreferrer">источник</a></td>
+                </tr>
+                <tr>
+                    <td>Масштаб (боты/объём)</td>
+                    <td><span class="badge badge-neutral">n.a.</span> заверенных</td>
+                    <td><span class="badge badge-neutral">n.a.</span></td>
+                    <td>16 ботов; 24h объём ~$1.22B<a class="src" href="https://coinmarketcap.com/exchanges/pionex/" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>$9.46B под управлением<a class="src" href="https://bitsgap.com/" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>70K+ ботов; $1B+ 30-дн. объём<a class="src" href="https://wundertrading.com/en/about" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">1,742,913 стратегий (обучение AI) / 1,395,960 (homepage)<a class="src" href="https://coinrule.com/" target="_blank" rel="noopener noreferrer">источник</a></td>
+                </tr>
+                <tr>
+                    <td>Coverage</td>
+                    <td>15+ бирж<a class="src" href="https://3commas.io/blog/3commas-launches-quantpilot" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>11 бирж<a class="src" href="https://www.cryptohopper.com/features/exchanges" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">Своя биржа; 430+ монет, 500+ пар + токен. акции/ETF<a class="src" href="https://coinmarketcap.com/exchanges/pionex/" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>17+ бирж, вкл. DEX Evedex/AsterDEX<a class="src" href="https://bitsgap.com/" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>18+ бирж, вкл. Hyperliquid<a class="src" href="https://coingape.com/best-crypto-trading-bots/" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>20+ бирж + 7 брокеров акций<a class="src" href="https://coinrule.com/" target="_blank" rel="noopener noreferrer">источник</a></td>
+                </tr>
+                <tr>
+                    <td>Trustpilot (снимок)</td>
+                    <td>4.3/5, ~2K (08.01.2026)<a class="src" href="https://www.trustpilot.com/review/3commas.io" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>3.6/5, 358 (01.09.2025)<a class="src" href="https://www.trustpilot.com/review/cryptohopper.com" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>2.4/5, 570 (26.10.2025)<a class="src" href="https://www.trustpilot.com/review/pionex.com" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>665 отзывов (19.02.2026; рейтинг n.a.)<a class="src" href="https://www.trustpilot.com/review/bitsgap.com" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>4.0/5, 128<a class="src" href="https://www.trustpilot.com/review/wunderbit.co?page=2" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td>4.3/5, 140 (14.02.2025)<a class="src" href="https://www.trustpilot.com/review/coinrule.com" target="_blank" rel="noopener noreferrer">источник</a></td>
+                </tr>
+                <tr>
+                    <td>AI / MCP</td>
+                    <td style="font-size:0.78rem">QuantPilot (agentic AI, natural-language, AI Research)<a class="src" href="https://3commas.io/blog/3commas-launches-quantpilot" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">MCP Server (Claude/Cursor); MCP+API «AI-агенты»<a class="src" href="https://www.cryptohopper.com/features/cryptohopper-mcp" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">AI-стратегии/copy в ботах; своего MCP нет</td>
+                    <td style="font-size:0.78rem">AI Assistant + AI Portfolio Mode; MCP нет<a class="src" href="https://bitsgap.com/pricing" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">MCP Server (GA в Premium); AI Trading Bot<a class="src" href="https://wundertrading.com/en/pricing" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td style="font-size:0.78rem">Agentic Mode + AI Cloud + AI Credits<a class="src" href="https://coinrule.com/pricing.html" target="_blank" rel="noopener noreferrer">источник</a></td>
+                </tr>
+                <tr>
+                    <td>RU support</td>
+                    <td><span class="badge badge-neutral">Нет</span></td>
+                    <td><span class="badge badge-neutral">Нет</span></td>
+                    <td><span class="badge badge-neutral">Нет</span></td>
+                    <td><span class="badge badge-lose">Да — RU-блог/хелпдеск</span><a class="src" href="https://bitsgap.com/ru/blog/torghuitie-fiuchiersami-evedex-na-bitsgap-novaia-era-dietsientralizovannoi-torghovli" target="_blank" rel="noopener noreferrer">источник</a></td>
+                    <td><span class="badge badge-lose">Да — RU-локализация</span></td>
+                    <td><span class="badge badge-neutral">Нет</span></td>
+                </tr>
+                <tr>
+                    <td>Threat level</td>
+                    <td><span class="badge badge-tie">Средняя</span></td>
+                    <td><span class="badge badge-tie">Средняя</span></td>
+                    <td><span class="badge badge-neutral">Ниже средней</span></td>
+                    <td><span class="badge badge-tie">Выше средней</span></td>
+                    <td><span class="badge badge-lose">Высокая</span></td>
+                    <td><span class="badge badge-tie">Средняя</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <h2>Сравнительная матрица — Head to Head</h2>
     <div class="table-wrap">
         <table class="comparison-matrix">
@@ -1647,10 +1809,10 @@
                 <tr>
                     <td>Модель</td>
                     <td><span class="badge badge-win">Profit-share 20%</span><br>Капа $50/мес</td>
-                    <td><span class="badge badge-lose">Подписка</span><br>Подписка $24–$108/мес (annual)</td>
-                    <td><span class="badge badge-lose">Подписка</span><br>$29–$129/мес</td>
+                    <td><span class="badge badge-lose">Подписка</span><br>$20/$50/$140 (год. $15/$40/$110)</td>
+                    <td><span class="badge badge-lose">Подписка</span><br>«$9.99–$99.99» (реструктуризация)</td>
                     <td><span class="badge badge-tie">Комиссии</span><br>Spot 0.05%, Futures 0.02/0.05%</td>
-                    <td><span class="badge badge-lose">Подписка</span><br>$23–$119/мес</td>
+                    <td><span class="badge badge-lose">Подписка</span><br>Free/$29/$69/$149</td>
                 </tr>
                 <tr>
                     <td>Платишь при убытке?</td>
@@ -1701,18 +1863,18 @@
                 <tr>
                     <td>Кол-во бирж</td>
                     <td><span class="badge badge-tie">8 бирж</span><br>+KuCoin скоро</td>
-                    <td><span class="badge badge-win">23 биржи</span></td>
-                    <td><span class="badge badge-tie">16+ бирж</span></td>
+                    <td><span class="badge badge-win">15+ бирж</span></td>
+                    <td><span class="badge badge-lose">11 бирж</span><a class="src" href="https://www.cryptohopper.com/features/exchanges" target="_blank" rel="noopener noreferrer">источник</a></td>
                     <td><span class="badge badge-lose">Только Pionex</span></td>
-                    <td><span class="badge badge-tie">16+ бирж</span></td>
+                    <td><span class="badge badge-tie">17+ бирж</span></td>
                 </tr>
                 <tr>
                     <td>Топ-биржи</td>
                     <td>Binance, Bybit, OKX, Bitget, Gate.io, HTX, BingX, BitMEX</td>
                     <td>Binance, Bybit, OKX, KuCoin, Kraken, Coinbase и др.</td>
-                    <td>Binance, Coinbase, OKX, Bybit, KuCoin и др.</td>
+                    <td>Crypto.com, KuCoin, Coinbase Advanced, OKX, Binance, Kraken, HTX и др.</td>
                     <td>Собственная CEX, ликвидность Binance/HTX</td>
-                    <td>Binance, Coinbase, OKX, Kraken, KuCoin и др.</td>
+                    <td>Binance, Coinbase, OKX, Kraken, KuCoin + DEX Evedex/AsterDEX</td>
                 </tr>
 
                 <!-- БЕЗОПАСНОСТЬ -->
@@ -1737,12 +1899,12 @@
                 <!-- ОТЗЫВЫ -->
                 <tr class="cat-row"><td colspan="6">Отзывы</td></tr>
                 <tr>
-                    <td>Trustpilot</td>
+                    <td>Trustpilot <span style="font-size:0.72rem;color:var(--text-muted)">(снимок)</span></td>
                     <td><span class="badge badge-win">4.5/5</span> (47)</td>
-                    <td><span class="badge badge-tie">4.3/5</span> (1 754)</td>
+                    <td><span class="badge badge-tie">4.3/5</span> (~2K)</td>
                     <td><span class="badge badge-lose">3.6/5</span> (358)</td>
                     <td><span class="badge badge-lose">2.4/5</span> (570)</td>
-                    <td><span class="badge badge-tie">4.1–4.5/5</span> (665)</td>
+                    <td><span class="badge badge-neutral">n.a.</span> (665)</td>
                 </tr>
                 <tr>
                     <td>Типичные жалобы</td>
@@ -1758,9 +1920,9 @@
                 <tr>
                     <td>Ключевые отличия</td>
                     <td style="font-size:0.78rem">No-code конструктор, бэктест на 1-мин данных, маркетплейс 100k+ ботов, SL to Breakeven, Multi-TP, Trailing TP, мобильное приложение, партнёрства с биржами</td>
-                    <td style="font-size:0.78rem">TradingView/Pine, AI Ассистент, 5000+ бэктестов, портфельная ребалансировка. Спин-офф: QuantPilot</td>
-                    <td style="font-size:0.78rem">AI Strategy Designer, 130+ индикаторов, маркетплейс сигналов/шаблонов</td>
-                    <td style="font-size:0.78rem">16 бесплатных ботов, PionexGPT, xStocks (токенизированные акции), демо-торговля</td>
+                    <td style="font-size:0.78rem">TradingView/Pine, AI Ассистент, 5000+ бэктестов, портфельная ребалансировка. Пивот в agentic AI: QuantPilot</td>
+                    <td style="font-size:0.78rem">MCP Server + Trading API для AI-агентов, AI Strategy Designer, маркетплейс сигналов</td>
+                    <td style="font-size:0.78rem">16 бесплатных ботов, Pionex Card, токенизированные акции США/ETF (280+ инстр., до 50x), 24/7 NVDA/TSLA</td>
                     <td style="font-size:0.78rem">Мульти-биржевой терминал, бэктест 365 дней, COMBO/LOOP/QFL боты, арбитражный сканер</td>
                 </tr>
 
@@ -1793,10 +1955,10 @@
             </ul>
             <h3 style="color:var(--lose)">⚡ Где они сильнее</h3>
             <ul class="lose-list">
-                <li>23 биржи vs 8 у нас</li>
+                <li>15+ бирж vs 8 у нас</li>
                 <li>TradingView/Pine Script интеграция</li>
-                <li>Крупная установленная база (134k+ активных)</li>
-                <li>QuantPilot (NEW) — AI-платформа для стратегий с natural language, бэктестинг, Hyperliquid. Потенциально сильный ход.</li>
+                <li>Крупная база: 118,000+ активных участников</li>
+                <li>QuantPilot — agentic AI-платформа с natural language, AI Research, Hyperliquid. Потенциально сильный ход.</li>
             </ul>
         </div>
 
@@ -1805,17 +1967,17 @@
             <h4><span class="badge badge-accent">vs Cryptohopper</span></h4>
             <h3 style="color:var(--win); margin-top:0">🏆 Где мы выигрываем</h3>
             <ul class="win-list">
-                <li>Profit-share vs подписка до $129/мес</li>
+                <li>Profit-share vs подписка (реструктуризация цен)</li>
                 <li>Выше рейтинг Trustpilot (4.5 vs 3.6)</li>
                 <li>Чистая история безопасности vs 2 утечки</li>
-                <li>Активная разработка vs стагнация (нет обновлений продукта)</li>
+                <li>RU-продукт и обучение vs только EN + высокий порог сложности</li>
             </ul>
             <h3 style="color:var(--lose)">⚡ Где они сильнее</h3>
             <ul class="lose-list">
-                <li>16+ бирж vs 8</li>
-                <li>AI Strategy Designer</li>
-                <li>1 млн зарегистрированных пользователей</li>
-                <li>Блог активен (апрель 2026: 5+ статей)</li>
+                <li>MCP Server + Trading API для AI-агентов (26 июня)</li>
+                <li>AI Strategy Designer, маркетплейс сигналов</li>
+                <li>11 бирж vs 8 (без лимита аккаунтов)</li>
+                <li>Форсируют agentic-AI как продуктовое направление</li>
             </ul>
         </div>
 
@@ -1832,8 +1994,9 @@
             <h3 style="color:var(--lose)">⚡ Где они сильнее</h3>
             <ul class="lose-list">
                 <li>16 бесплатных ботов, нулевая подписка</li>
-                <li>xStocks — токенизированные акции/ETF</li>
-                <li>Масштаб: 5M+ пользователей, $60B+ объём/мес</li>
+                <li>Пивот в RWA: токен. акции США/ETF (280+ инстр., до 50x), Pionex Card</li>
+                <li>24/7 торговля NVDA/SPCX/TSLA</li>
+                <li>24h объём ~$1.22B, 430+ монет, 500+ пар</li>
             </ul>
         </div>
 
@@ -1849,9 +2012,9 @@
             </ul>
             <h3 style="color:var(--lose)">⚡ Где они сильнее</h3>
             <ul class="lose-list">
-                <li>16+ бирж vs 8</li>
-                <li>Бэктестинг 365 дней</li>
-                <li>Мульти-биржевой терминал</li>
+                <li>17+ бирж vs 8, включая DEX (Evedex/AsterDEX)</li>
+                <li>800K+ трейдеров, $9.46B под управлением</li>
+                <li>RU-локализация — прямой конкурент за RU-аудиторию</li>
                 <li>Также 0 инцидентов безопасности</li>
             </ul>
         </div>
@@ -1870,23 +2033,23 @@
         <div class="profile-grid">
             <div class="profile-item">
                 <div class="profile-label">Ценообразование</div>
-                <div class="profile-value">Подписка $24–$108/мес (annual)</div>
+                <div class="profile-value">$20/$50/$140 (год. $15/$40/$110); Custom от $223<a class="src" href="https://3commas.io/pricing" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Новый продукт</div>
-                <div class="profile-value" style="color:var(--tie)">QuantPilot — отдельный AI-проект (апрель 2026)</div>
+                <div class="profile-value" style="color:var(--tie)">QuantPilot — agentic AI (natural-language, AI Research, Hyperliquid, Arena)<a class="src" href="https://3commas.io/blog/3commas-launches-quantpilot" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Пользователи</div>
-                <div class="profile-value">134k+ активных</div>
+                <div class="profile-value">118,000+ активных участников<a class="src" href="https://3commas.io/" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Биржи</div>
-                <div class="profile-value">23 биржи</div>
+                <div class="profile-value">15+ бирж (Binance, Bybit, OKX, Coinbase)</div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Trustpilot</div>
-                <div class="profile-value">4.3/5 (1 754 отзыва) — активно отвечают на негатив</div>
+                <div class="profile-value">4.3/5 (~2K, снимок 08.01.2026)<a class="src" href="https://www.trustpilot.com/review/3commas.io" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Сотрудники</div>
@@ -1894,11 +2057,11 @@
             </div>
             <div class="profile-item">
                 <div class="profile-label">Безопасность</div>
-                <div class="profile-value" style="color:var(--lose)">2 утечки (2022, 2023)</div>
+                <div class="profile-value" style="color:var(--lose)">Историч. утечка API-ключей (2022)</div>
             </div>
             <div class="profile-item">
-                <div class="profile-label">Трафик</div>
-                <div class="profile-value" style="color:var(--lose)">757 900/мес (-6.2% м/м)</div>
+                <div class="profile-label">Угроза для Veles</div>
+                <div class="profile-value" style="color:var(--tie)">Medium — пивот в agentic AI</div>
             </div>
         </div>
     </div>
@@ -1907,11 +2070,11 @@
     <div class="card">
         <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
         <ul class="strength-list they-win">
-            <li><strong>Больше бирж (23 vs 8)</strong> — широкий охват для трейдеров с несколькими аккаунтами</li>
+            <li><strong>Больше бирж (15+ vs 8)</strong> — широкий охват для трейдеров с несколькими аккаунтами</li>
             <li><strong>TradingView/Pine Script</strong> — продвинутые трейдеры могут запускать собственные стратегии</li>
-            <li><strong>Установленная база</strong> — работают с 2017 года, большое комьюнити</li>
-            <li><strong>AI Ассистент</strong> — помощь в настройке стратегий</li>
-            <li><strong>QuantPilot (отдельный проект)</strong> — AI-платформа для стратегий с natural language, бэктестинг, Hyperliquid. Другая ниша (продвинутые кванты), но показывает амбиции команды</li>
+            <li><strong>Установленная база</strong> — работают с 2017 года, 118,000+ активных участников</li>
+            <li><strong>AI Ассистent</strong> — помощь в настройке стратегий</li>
+            <li><strong>QuantPilot (agentic AI)</strong> — natural-language стратегии, AI Research, Hyperliquid Terminal, QuantPilot Arena. Пивот команды в agentic-AI, задаёт новый стандарт рынка</li>
         </ul>
     </div>
 
@@ -1925,52 +2088,51 @@
             <li><strong>No-code конструктор</strong> — создание стратегий без программирования, у 3Commas требуется TradingView/Pine</li>
             <li><strong>Больше типов ботов</strong> — 10+ типов (включая Sniper, Arbitrage, HODL) vs 4 у 3Commas</li>
             <li><strong>Бэктест на 1-минутных данных</strong> — максимальная точность тестирования</li>
-            <li><strong>Стабильные цены</strong> — кап $50 навсегда, у 3Commas принудительный рост до $140-200</li>
-            <li><strong>Доступность</strong> — QuantPilot (спин-офф) — early access за $5k, только Hyperliquid. У Veles полный доступ ко всем ботам для всех</li>
+            <li><strong>Стабильные цены</strong> — кап $50, только с прибыли. У 3Commas подписка $20–$140/мес + Custom от $223 даже при убытке</li>
+            <li><strong>Доступность</strong> — QuantPilot всё ещё в early access (тарифы «finalize», Lifetime VIP $5,000), фокус на Hyperliquid. У Veles полный доступ ко всем ботам для всех уже сейчас</li>
         </ul>
     </div>
 
     <!-- SWOT-анализ -->
     <div class="card">
-        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ 3Commas <span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено июнь 2026</span></div>
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ 3Commas <span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено 19 июля 2026</span></div>
         <div class="swot-grid">
             <div class="swot-quad s">
                 <div class="swot-title s">Strengths</div>
                 <ul class="swot-list">
-                    <li><strong>QuantPilot Arena Season 1</strong> (май 2026) — бэктест-соревнование с призовым фондом $3 000 USDC, финал ~20 июня</li>
-                    <li><strong>SSO-интеграция QuantPilot ↔ 3Commas</strong> — единый логин, выравнивание экосистемы</li>
-                    <li><strong>134–220k пользователей</strong> — brand recognition, лидер по Google-выдаче</li>
-                    <li><strong>QuanScript</strong> — собственный язык стратегий (аналог Pine Script с исполнением)</li>
-                    <li><strong>7 типов ботов</strong> + TradingView/Pine Script интеграция</li>
+                    <li><strong>QuantPilot (agentic AI)</strong> — natural-language стратегии, AI Research, Hyperliquid Terminal, QuantPilot Arena (запуск 2 апреля 2026)</li>
+                    <li><strong>118,000+ активных участников</strong> — brand recognition, лидер по Google-выдаче</li>
+                    <li><strong>Зрелый набор ботов</strong> — DCA / Grid / Signal / SmartTrade</li>
+                    <li><strong>TradingView / Pine Script</strong> интеграция + AI Assistant</li>
+                    <li><strong>15+ бирж</strong> — Binance, Bybit, OKX, Coinbase</li>
                 </ul>
             </div>
             <div class="swot-quad w">
                 <div class="swot-title w">Weaknesses</div>
                 <ul class="swot-list">
-                    <li><strong>Трафик −24.7% в апреле</strong> — визиты упали до 236k; бренд теряет видимость</li>
-                    <li><strong>Class action Freeman v. 3Commas</strong> — на remand в District Court после разворота 9th Circuit 2 марта 2026; неразрешён</li>
-                    <li><strong>3 инцидента</strong> (2022 — утечка 100k API ключей, $15–20M; 2023; 2026 — несанкционированные сделки)</li>
-                    <li><strong>«Short-time discount» паттерн</strong> — жалобы на Trustpilot: $200→$60 на 3 дня без предупреждения</li>
-                    <li><strong>QuantPilot без цены</strong> — коммерческий запуск июнь 2026, но тарифы не объявлены; Lifetime VIP $5k исчез</li>
-                    <li><strong>CEX-биржи QuantPilot — только август–сентябрь 2026</strong>; пока только Hyperliquid</li>
+                    <li><strong>Исторический репутационный шлейф</strong> — утечка API-ключей 2022 ($20M+); аргумент доверия для миграции</li>
+                    <li><strong>QuantPilot без публичного pricing</strong> — тарифы всё ещё «finalize», доступен Lifetime VIP $5,000</li>
+                    <li><strong>Нет полноценного RU-продукта</strong> — сайт EN</li>
+                    <li><strong>Основная платформа без крупных обновлений</strong> — центр тяжести смещён в отдельный QuantPilot</li>
+                    <li><strong>Trustpilot 4.3/5</strong> — активно отвечают на негатив, но встречаются жалобы на ценовые практики</li>
                 </ul>
             </div>
             <div class="swot-quad o">
                 <div class="swot-title o">Opportunities for Veles</div>
                 <ul class="swot-list">
-                    <li><strong>Окно «discount fatigue»</strong> — флеш-скидки раздражают базу → оффер «фиксированная цена навсегда»</li>
-                    <li><strong>Pre-launch QuantPilot</strong> — окно в июне до коммерческого запуска взять spotlight на своём AI</li>
-                    <li><strong>Снижение трафика — поле для SEO-захвата</strong> ключевых запросов</li>
-                    <li><strong>Class action неразрешён</strong> — миграционный оффер «вывод без судебных рисков» всё ещё актуален</li>
+                    <li><strong>Реактивация ушедших</strong> — фокус QuantPilot оставил основную базу без внимания</li>
+                    <li><strong>RU-обучение по agentic-ботам</strong> — объяснить QuantPilot/AI-агентов на русском (свободная ниша)</li>
+                    <li><strong>SEO-захват</strong> ключевых запросов вокруг AI-стратегий</li>
+                    <li><strong>Оффер доверия/безопасности</strong> — «0 инцидентов, API без прав вывода» на фоне историч. утечки</li>
                 </ul>
             </div>
             <div class="swot-quad t">
                 <div class="swot-title t">Threats</div>
                 <ul class="swot-list">
-                    <li><strong>QuantPilot коммерческий запуск — июнь 2026</strong>; CEX — август–сентябрь; окно для реакции сужается</li>
-                    <li><strong>QuanScript экосистема</strong> — если community подхватит — это новый lock-in посильнее Pine Script</li>
-                    <li><strong>Arena как конверсия-механика</strong> — соревнования втягивают инфлюенсеров, перетягивая контент-экосистему</li>
-                    <li><strong>SSO + Arena</strong> — сигнал о консолидации экосистемы 3Commas (была фрагментирована)</li>
+                    <li><strong>Agentic AI как новый стандарт</strong> — поднимает планку контента и ожиданий розницы</li>
+                    <li><strong>Удешевление доступа к AI-стратегиям</strong> — если QuantPilot выйдет из early access для розницы</li>
+                    <li><strong>QuantPilot Arena</strong> — соревнования втягивают инфлюенсеров, перетягивая контент-экосистему</li>
+                    <li><strong>Сильный бренд</strong> — узнаваемость 3Commas удерживает органический трафик</li>
                 </ul>
             </div>
         </div>
@@ -1982,7 +2144,7 @@
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент сравнивает цены</div>
-            <div class="script">«У 3Commas подписка от $24 до $108 в месяц (annual) — вы платите даже когда боты в минусе. У нас вы платите только 20% от реальной прибыли, и максимум $50 в месяц. Если бот не заработал — вы не платите ничего. Это честнее.»</div>
+            <div class="script">«У 3Commas подписка $20/$50/$140 в месяц (годовые $15/$40/$110), а топ-план Custom — от $223. Вы платите даже когда боты в минусе. У нас вы платите только 20% от реальной прибыли, максимум $50 в месяц. Если бот не заработал — вы не платите ничего. Это честнее.»</div>
         </div>
 
         <div class="talk-track">
@@ -1997,17 +2159,17 @@
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент использует много бирж</div>
-            <div class="script">«Да, у 3Commas 23 биржи, у нас пока 8. Но мы покрываем все ключевые площадки — Binance, Bybit, OKX, Bitget, Gate.io. Скоро добавим KuCoin. Важно не количество, а качество интеграции и безопасность работы с API.»</div>
+            <div class="script">«Да, у 3Commas 15+ бирж, у нас пока 8. Но мы покрываем все ключевые площадки — Binance, Bybit, OKX, Bitget, Gate.io. Скоро добавим KuCoin. Важно не количество, а качество интеграции и безопасность работы с API.»</div>
         </div>
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Ценовой шок — клиент упоминает 3Commas</div>
-            <div class="script">«Вы знаете, что 3Commas сейчас принудительно переводит пользователей со старых тарифов $50/мес на новые за $140-200/мес? Обещания сохранить цены при продлении нарушены. У нас кап $50 — зафиксирован навсегда. И вы платите только с реальной прибыли. Если бот не заработал — $0.»</div>
+            <div class="script">«У 3Commas подписка $20/$50/$140 в месяц, а топ-план Custom — от $223. Вы платите даже при убытке. У нас кап $50, и вы платите только с реальной прибыли. Если бот не заработал — $0.»</div>
         </div>
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент упоминает QuantPilot</div>
-            <div class="script">«QuantPilot — это отдельный проект 3Commas для продвинутых квантов, early access за $5000, только Hyperliquid. Это совсем другой продукт. У нас уже сейчас — 100k+ готовых ботов на маркетплейсе, 8 бирж включая Binance и Bybit, no-code конструктор. Не нужно ждать beta и платить $5k — можно торговать прямо сейчас.»</div>
+            <div class="script">«QuantPilot — это отдельный agentic-AI-проект 3Commas: natural-language стратегии, AI Research, пока фокус на Hyperliquid. Он всё ещё в early access, тарифы не финализированы, доступен Lifetime VIP за $5,000. У нас уже сейчас — 100k+ готовых ботов на маркетплейсе, 8 бирж включая Binance и Bybit, no-code конструктор. Плюс мы объясняем работу AI-инструментов на русском — не нужно разбираться в англоязычной бете.»</div>
         </div>
     </div>
 
@@ -2027,7 +2189,7 @@
 
         <div class="objection">
             <div class="obj-q">«Мне нужно больше бирж»</div>
-            <div class="obj-a">Мы покрываем 8 ключевых бирж, включая Binance, Bybit и OKX — это 85%+ рынка по объёму. KuCoin на подходе. Вместо распыления на 23 биржи мы фокусируемся на глубокой интеграции и безопасности.</div>
+            <div class="obj-a">Мы покрываем 8 ключевых бирж, включая Binance, Bybit и OKX — это 85%+ рынка по объёму. KuCoin на подходе. Вместо распыления на 15+ бирж мы фокусируемся на глубокой интеграции и безопасности.</div>
         </div>
     </div>
 
@@ -2035,10 +2197,10 @@
     <div class="card">
         <div class="card-header"><span class="icon">💣</span> Вопросы-мины</div>
         <div class="landmine">«Расскажите, как 3Commas обрабатывает API-ключи после утечки 2022 года? Какие гарантии, что это не повторится?»</div>
-        <div class="landmine">«Почему я должен платить $108/мес за Hero, даже если мои боты в минусе?»</div>
-        <div class="landmine">«Как часто 3Commas повышает цены? Я слышал, это вызывает недовольство.»</div>
+        <div class="landmine">«Почему я должен платить $140/мес за топ-план (или Custom от $223), даже если мои боты в минусе?»</div>
+        <div class="landmine">«Когда QuantPilot выйдет из early access и появятся публичные тарифы, кроме Lifetime VIP $5,000?»</div>
         <div class="landmine">«Сколько типов ботов доступно без Pine Script/TradingView?»</div>
-        <div class="landmine">«Как судебный иск Freeman v. 3Commas (2026) влияет на безопасность моих данных на платформе?»</div>
+        <div class="landmine">«Основная платформа 3Commas получает обновления или всё ушло в QuantPilot?»</div>
     </div>
 </section>
 
@@ -2054,19 +2216,19 @@
         <div class="profile-grid">
             <div class="profile-item">
                 <div class="profile-label">Ценообразование</div>
-                <div class="profile-value">Подписка $29–$129/мес</div>
+                <div class="profile-value">«$9.99–$99.99/мес» (реструктуризация)<a class="src" href="https://www.cryptohopper.com/pricing" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Пользователи</div>
-                <div class="profile-value">1 млн зарегистрированных</div>
+                <div class="profile-value">n.a. (не заявлено на офиц. страницах)</div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Биржи</div>
-                <div class="profile-value">16+ бирж</div>
+                <div class="profile-value">11 бирж (без лимита аккаунтов)<a class="src" href="https://www.cryptohopper.com/features/exchanges" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Trustpilot</div>
-                <div class="profile-value" style="color:var(--lose)">3.6/5 (358 отзывов)</div>
+                <div class="profile-value" style="color:var(--lose)">3.6/5 (358, снимок 01.09.2025)<a class="src" href="https://www.trustpilot.com/review/cryptohopper.com" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Сотрудники</div>
@@ -2074,11 +2236,11 @@
             </div>
             <div class="profile-item">
                 <div class="profile-label">Безопасность</div>
-                <div class="profile-value" style="color:var(--lose)">2 инцидента (2020, 2024)</div>
+                <div class="profile-value" style="color:var(--lose)">Историч. инциденты (2020, 2024)</div>
             </div>
             <div class="profile-item">
-                <div class="profile-label">Контент (апрель 2026)</div>
-                <div class="profile-value" style="color:var(--tie)">Блог ожил: 5+ статей/мес</div>
+                <div class="profile-label">AI / MCP</div>
+                <div class="profile-value" style="color:var(--tie)">MCP Server + Trading API (26 июня)<a class="src" href="https://www.cryptohopper.com/features/cryptohopper-mcp" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
         </div>
     </div>
@@ -2087,11 +2249,10 @@
     <div class="card">
         <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
         <ul class="strength-list they-win">
-            <li><strong>16+ бирж</strong> — вдвое больше интеграций</li>
+            <li><strong>MCP Server + Trading API</strong> — end-to-end AI-агенты (Claude/Cursor, orderbook, wall detection); самый глубокий MCP-стек среди классических ботов</li>
             <li><strong>AI Strategy Designer</strong> — генерация стратегий с помощью ИИ</li>
-            <li><strong>130+ технических индикаторов</strong> — широкий набор инструментов анализа</li>
-            <li><strong>Масштаб</strong> — 1 млн зарегистрированных пользователей</li>
-            <li><strong>Блог ожил (апрель 2026)</strong> — 5+ статей (AI Trading Agents, Kraken API и др.). Признак возобновления контентной активности.</li>
+            <li><strong>11 бирж без лимита аккаунтов</strong> — можно подключить неограниченно площадок</li>
+            <li><strong>Marketplace + копитрейдинг</strong> — маркетплейс сигналов/шаблонов</li>
         </ul>
     </div>
 
@@ -2100,55 +2261,53 @@
         <div class="card-header"><span class="icon">🏆</span> Где мы выигрываем</div>
         <ul class="strength-list">
             <li><strong>Рейтинг Trustpilot 4.5 vs 3.6</strong> — наши пользователи значительно довольнее</li>
-            <li><strong>Profit-share vs подписка</strong> — Cryptohopper берёт до $129/мес даже при убытках</li>
+            <li><strong>Profit-share vs подписка</strong> — Cryptohopper берёт плату даже при убытках (цены в реструктуризации, $9.99–$99.99)</li>
             <li><strong>Безопасность</strong> — 0 инцидентов vs SQL-инъекция (2020) и компрометация токенов (2024)</li>
-            <li><strong>Активная разработка</strong> — у нас интеграция BitMEX, обновления мобильного приложения, рост объёмов. У Cryptohopper нет крупных обновлений продукта</li>
+            <li><strong>RU-продукт и обучение</strong> — у Cryptohopper только EN и высокий порог сложности; MCP/AI-агенты рассчитаны на разработчиков</li>
             <li><strong>Маркетплейс 100k+ ботов</strong> — гораздо больше готовых стратегий для начала</li>
-            <li><strong>Проще для малых портфелей</strong> — Cryptohopper дорог для новичков с небольшим капиталом</li>
+            <li><strong>Проще для малых портфелей</strong> — Cryptohopper дорог и сложен для новичков с небольшим капиталом</li>
         </ul>
     </div>
 
     <!-- SWOT-анализ -->
     <div class="card">
-        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Cryptohopper <span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено июнь 2026</span></div>
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Cryptohopper <span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено 19 июля 2026</span></div>
         <div class="swot-grid">
             <div class="swot-quad s">
                 <div class="swot-title s">Strengths</div>
                 <ul class="swot-list">
-                    <li><strong>Market Data MCP Server</strong> (27 мая 2026) — первый в нише инструмент для подключения Claude/Cursor/AI-агентов к live-данным</li>
-                    <li><strong>Marketplace 2140+ шаблонов</strong> + Copy Bots; крупнейший marketplace для OKX (офиц. MEXC)</li>
-                    <li><strong>3-day free trial без карты</strong> + Pioneer бесплатно навсегда</li>
-                    <li><strong>Kraken-интеграция усилена</strong> — HYPE staking 2.2% APY, CFTC perpetual futures, tokenized IPO (xStocks), Flexline</li>
-                    <li><strong>Strategy Designer 130+ индикаторов</strong> + Algorithmic Intelligence (автовыбор стратегии)</li>
+                    <li><strong>MCP Server + Trading API</strong> (26 июня) — end-to-end AI-агенты; продуктовая страница обновлена 8 июля</li>
+                    <li><strong>Самый глубокий MCP/AI-агентный стек</strong> среди классических ботов (Claude/Cursor, orderbook, wall detection)</li>
+                    <li><strong>Marketplace + копитрейдинг</strong> — сигналы и шаблоны</li>
+                    <li><strong>11 бирж без лимита</strong> на подключаемые аккаунты</li>
                 </ul>
             </div>
             <div class="swot-quad w">
                 <div class="swot-title w">Weaknesses</div>
                 <ul class="swot-list">
-                    <li><strong>Trustpilot 3.6/5 — без движения</strong> (358 отзывов); паттерн «бот не торгует» сохраняется</li>
-                    <li><strong>НОВЫЙ риск: задержки affiliate payouts</strong> (coinspot.io, 2 июня 2026) — бьёт по основному acquisition-каналу</li>
-                    <li><strong>$900+ потеряно</strong> — 7 мес платежей без единой сделки (цитата Trustpilot)</li>
-                    <li><strong>BTC −21% drawdown</strong> (3 июня, до $65 389) — в такие периоды исторически взрывают жалобы</li>
-                    <li><strong>Misleading pricing</strong> — «15 bots» = 1 бот с 15 парами; Explorer в ЕС $37.26 (VAT)</li>
-                    <li><strong>AI = rule-based optimizer</strong>, не LLM — маркетинг вводит в заблуждение (MCP для внешних AI)</li>
+                    <li><strong>Trustpilot 3.6/5</strong> (358, снимок 01.09.2025) — паттерн жалоб на поддержку</li>
+                    <li><strong>Непрозрачная ценовая сетка</strong> — реструктуризация $9.99–$99.99, конкретные средние тарифы не рендерятся</li>
+                    <li><strong>Нет полноценного RU-продукта</strong> — только EN</li>
+                    <li><strong>Высокий порог сложности</strong> — MCP/AI-агенты рассчитаны на технических пользователей</li>
+                    <li><strong>Users/volume не публикуются</strong> на офиц. страницах (n.a.)</li>
                 </ul>
             </div>
             <div class="swot-quad o">
                 <div class="swot-title o">Opportunities for Veles</div>
                 <ul class="swot-list">
-                    <li><strong>Affiliate-бунт → канал для набора</strong> — недовольные выплатами инфлюенсеры ищут новых партнёров</li>
-                    <li><strong>BTC drawdown</strong> — момент, когда пользователи «пересматривают» инструменты. Окно migration-оффера</li>
-                    <li><strong>MCP = ответ разработчикам</strong>, не рознице — Veles может взять своё retail-positioning</li>
-                    <li><strong>Контент-атака</strong> — «Почему сигналы Cryptohopper не работают» → SEO-трафик</li>
+                    <li><strong>RU-гайд «MCP и AI-агенты простыми словами»</strong> + чек-лист безопасности API-ключей</li>
+                    <li><strong>Тема доверия/безопасности</strong> — играем на слабом Trustpilot конкурента</li>
+                    <li><strong>MCP = ответ разработчикам</strong>, не рознице — Veles берёт retail-positioning на RU-рынке</li>
+                    <li><strong>SEO-контент</strong> — «как безопасно подключить AI-агента к бирже»</li>
                 </ul>
             </div>
             <div class="swot-quad t">
                 <div class="swot-title t">Threats</div>
                 <ul class="swot-list">
-                    <li><strong>Trade-Execution MCP на roadmap</strong> (конец 2026) — если взлетит, Cryptohopper станет default-бэкендом для AI-агентов</li>
-                    <li><strong>Developer-pivot</strong> — блог сдвинулся к AI/dev-контенту; перепозиционирование бренда</li>
-                    <li><strong>Kraken-бундл</strong> (HYPE staking + perp + xStocks) — «одно окно для всех рынков» угрожает ЦА Veles</li>
-                    <li><strong>Copy Trading lock-in</strong> — switching cost высок; экосистема Marketplace удерживает инфлюенсеров</li>
+                    <li><strong>MCP-стек задаёт новый уровень</strong> сложности и ожиданий рынка от «бота»</li>
+                    <li><strong>Developer/AI-pivot</strong> — перепозиционирование бренда вокруг AI-агентов</li>
+                    <li><strong>MCP + Trading API</strong> — если взлетит, Cryptohopper станет бэкендом для AI-агентов</li>
+                    <li><strong>Marketplace lock-in</strong> — экосистема удерживает инфлюенсеров</li>
                 </ul>
             </div>
         </div>
@@ -2160,12 +2319,12 @@
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент уходит с Cryptohopper из-за цены</div>
-            <div class="script">«Cryptohopper стоит от $29 до $129 в месяц — и вы платите, даже если боты не заработали. У нас модель profit-share: 20% от прибыли, максимум $50/мес. Если прибыли нет — плата $0. Для портфеля до $5000 разница может быть в 3-5 раз.»</div>
+            <div class="script">«Cryptohopper сейчас перестраивает тарифы: официально диапазон $9.99–$99.99/мес, конкретные средние планы на странице не отображаются. И вы платите, даже если боты не заработали. У нас модель profit-share: 20% от прибыли, максимум $50/мес. Если прибыли нет — плата $0.»</div>
         </div>
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент ценит AI-функции</div>
-            <div class="script">«Cryptohopper продвигает AI Strategy Designer, но нет крупных обновлений продукта. Мы активно развиваем платформу: новая интеграция BitMEX, обновления мобильного приложения, $481M торговых объёмов в январе 2026. Наш маркетплейс со 100k+ ботами — это реальные стратегии от реальных трейдеров, не AI-генерация.»</div>
+            <div class="script">«Cryptohopper форсирует MCP-сервер и Trading API для AI-агентов — это мощно, но рассчитано на разработчиков: нужно подключать внешний AI (Claude/Cursor) и разбираться в API. У нас no-code конструктор, маркетплейс со 100k+ готовых ботов и объяснение AI-инструментов на русском. Мощь AI без технического порога.»</div>
         </div>
 
         <div class="talk-track">
@@ -2179,28 +2338,28 @@
         <div class="card-header"><span class="icon">🛡️</span> Обработка возражений</div>
 
         <div class="objection">
-            <div class="obj-q">«У Cryptohopper миллион пользователей»</div>
-            <div class="obj-a">Миллион зарегистрированных — не значит миллион активных. При Trustpilot 3.6/5 и частых жалобах на биллинг и поддержку многие уходят. Лучше смотрите на качество: $79M+ прибыли наших пользователей и 47M+ закрытых циклов.</div>
+            <div class="obj-q">«У Cryptohopper огромная база пользователей»</div>
+            <div class="obj-a">Cryptohopper не публикует число активных пользователей на официальных страницах — это n.a. При Trustpilot 3.6/5 и частых жалобах на биллинг и поддержку многие уходят. Лучше смотрите на качество: $79M+ прибыли наших пользователей и 47M+ закрытых циклов.</div>
         </div>
 
         <div class="objection">
-            <div class="obj-q">«У них AI Strategy Designer»</div>
-            <div class="obj-a">AI — маркетинговое слово. У нас 100+ индикаторов в no-code конструкторе, маркетплейс со 100k+ проверенных ботов, и бэктест на 1-минутных данных. Вы тестируете стратегию на реальных данных, а не доверяете чёрному ящику AI.</div>
+            <div class="obj-q">«У них MCP-сервер и AI-агенты»</div>
+            <div class="obj-a">Да, Cryptohopper делает мощный MCP-стек, но он для разработчиков: нужно подключать внешний AI и разбираться в API. У нас 100+ индикаторов в no-code конструкторе, маркетплейс со 100k+ проверенных ботов, бэктест на 1-минутных данных — и русскоязычное объяснение AI-инструментов. Мощь без технического порога.</div>
         </div>
 
         <div class="objection">
             <div class="obj-q">«Cryptohopper поддерживает больше бирж»</div>
-            <div class="obj-a">Да, 16+ vs наши 8. Но мы покрываем ключевые площадки. При этом Cryptohopper имел утечку данных через SQL-инъекцию — больше интеграций = больше поверхность атаки. Мы фокусируемся на глубине и безопасности.</div>
+            <div class="obj-a">У Cryptohopper 11 бирж, у нас 8 ключевых. Но мы покрываем основные площадки. При этом у Cryptohopper была утечка данных через SQL-инъекцию — больше интеграций = больше поверхность атаки. Мы фокусируемся на глубине и безопасности.</div>
         </div>
     </div>
 
     <!-- Вопросы-мины -->
     <div class="card">
         <div class="card-header"><span class="icon">💣</span> Вопросы-мины</div>
-        <div class="landmine">«Какие крупные обновления продукта Cryptohopper выпустил за последние полгода?» (Ответ: блог ожил, но продукт — никаких значительных)</div>
+        <div class="landmine">«Почему официальный сайт показывает диапазон $9.99–$99.99, но конкретные средние тарифы не отображаются?»</div>
         <div class="landmine">«Почему у Cryptohopper 3.6 на Trustpilot — что не так с поддержкой?»</div>
         <div class="landmine">«Как Cryptohopper решил проблему SQL-инъекции 2020 года и компрометации токенов в 2024?»</div>
-        <div class="landmine">«Сколько стоит Cryptohopper, если я хочу копитрейдинг плюс торговых ботов?» (Двойная подписка: $29-129 + $10-100)</div>
+        <div class="landmine">«Нужны ли технические навыки и внешний AI (Claude/Cursor), чтобы реально использовать MCP-сервер?»</div>
     </div>
 </section>
 
@@ -2216,31 +2375,35 @@
         <div class="profile-grid">
             <div class="profile-item">
                 <div class="profile-label">Ценообразование</div>
-                <div class="profile-value">Комиссии: Spot 0.05%, Futures 0.02/0.05%</div>
+                <div class="profile-value">Подписки нет; spot 0.05%/0.05%, futures 0.02%/0.05%<a class="src" href="https://help.pionex.com/en/articles/14993683-pionex-trading-fee-overview" target="_blank" rel="noopener noreferrer">источник</a></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Пивот (2026)</div>
+                <div class="profile-value" style="color:var(--tie)">Брокер RWA: токен. акции США/ETF + Pionex Card<a class="src" href="https://rwatimes.substack.com/p/pionex-launches-tokenized-us-equities" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Пользователи</div>
-                <div class="profile-value">5M+ пользователей</div>
+                <div class="profile-value">n.a. (офиц. не заявлено)</div>
             </div>
             <div class="profile-item">
-                <div class="profile-label">Биржи</div>
-                <div class="profile-value" style="color:var(--lose)">Только собственная CEX</div>
+                <div class="profile-label">Охват</div>
+                <div class="profile-value" style="color:var(--lose)">Своя CEX; 430+ монет, 500+ пар<a class="src" href="https://coinmarketcap.com/exchanges/pionex/" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Trustpilot</div>
-                <div class="profile-value" style="color:var(--lose)">2.4/5 (570 отзывов)</div>
-            </div>
-            <div class="profile-item">
-                <div class="profile-label">Сотрудники</div>
-                <div class="profile-value">201–500</div>
+                <div class="profile-value" style="color:var(--lose)">2.4/5 (570, снимок 26.10.2025)<a class="src" href="https://www.trustpilot.com/review/pionex.com" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Безопасность</div>
-                <div class="profile-value" style="color:var(--lose)">2 инцидента (2022, 2023)</div>
+                <div class="profile-value" style="color:var(--lose)">Историч. инциденты; средства на Pionex</div>
             </div>
             <div class="profile-item">
-                <div class="profile-label">Трафик (апр 2026)</div>
-                <div class="profile-value" style="color:var(--lose)">~3M визитов, -26% м/м</div>
+                <div class="profile-label">24h объём</div>
+                <div class="profile-value">~$1.22B<a class="src" href="https://coinmarketcap.com/exchanges/pionex/" target="_blank" rel="noopener noreferrer">источник</a></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Угроза для Veles</div>
+                <div class="profile-value" style="color:var(--ok)">Medium-Low (RWA — стратег. сигнал)</div>
             </div>
         </div>
     </div>
@@ -2249,11 +2412,11 @@
     <div class="card">
         <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
         <ul class="strength-list they-win">
-            <li><strong>16 бесплатных ботов</strong> — все боты доступны без подписки, оплата только комиссиями</li>
-            <li><strong>xStocks</strong> — токенизированные акции и ETF на Solana (TSLA, SPY и др.)</li>
-            <li><strong>Масштаб</strong> — 5M+ пользователей, $60B+ ежемесячный объём</li>
-            <li><strong>MSB лицензия (США)</strong> — регуляторное соответствие</li>
-            <li><strong>Демо-торговля</strong> — тестирование без реальных средств</li>
+            <li><strong>16 встроенных ботов</strong> — все боты доступны без подписки, оплата только комиссиями (spot 0.05%)</li>
+            <li><strong>Пивот в RWA</strong> — токенизированные акции США/ETF/сырьё: 280+ инструментов, до 50x, ликвидность xStocks/Ondo (~6–7 июля)</li>
+            <li><strong>Pionex Card</strong> — USDT-дебетовая карта, кэшбэк до 5% (22 июня)</li>
+            <li><strong>24/7 торговля NVDA/SPCX/TSLA</strong> — доступ к акциям в режиме 24/7 (23 июня)</li>
+            <li><strong>Масштаб биржи</strong> — 24h объём ~$1.22B, 430+ монет, 500+ пар; MSB-лицензия (США)</li>
         </ul>
     </div>
 
@@ -2267,52 +2430,50 @@
             <li><strong>Стабильность</strong> — Pionex зависает при высокой волатильности, когда это нужнее всего</li>
             <li><strong>Качество поддержки</strong> — живые ответы vs шаблонные copy-paste отклики Pionex</li>
             <li><strong>Маркетплейс 100k+ ботов</strong> — стратегии от комьюнити</li>
-            <li><strong>Стабильная линейка</strong> — Pionex массово режет продукты (C2C, Lotto, Easy Earn, несколько типов ботов). Veles расширяет.</li>
+            <li><strong>RU-обучение под новые инструменты</strong> — Pionex ушёл в токенизированные акции/RWA, но не объясняет их русскоязычной аудитории. Veles может занять эту нишу.</li>
         </ul>
     </div>
 
     <!-- SWOT-анализ -->
     <div class="card">
-        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Pionex <span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено июнь 2026</span></div>
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Pionex <span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено 19 июля 2026</span></div>
         <div class="swot-grid">
             <div class="swot-quad s">
                 <div class="swot-title s">Strengths</div>
                 <ul class="swot-list">
-                    <li><strong>Pre-IPO фьючерсы SpaceX (21 мая) + OpenAI (26 мая)</strong> — революционный «ранний доступ до IPO» триггер</li>
-                    <li><strong>xStocks 30+ → 80+ токенов</strong> («портфель Трампа», 18 мая); интеграция с Ondo Stocks; 220+ спот</li>
-                    <li><strong>Pionex № 1 для US tokenized stocks</strong> — по майским обзорам</li>
-                    <li><strong>Webot (US) 41 → 48 штатов</strong> — расширение лицензии MSB</li>
-                    <li><strong>16+ бесплатных ботов</strong>, спот 0.05%; объём $1.3 млрд/сутки</li>
-                    <li><strong>Mobile 4.3/5</strong> — лучшее мобильное приложение в нише</li>
+                    <li><strong>Пивот в брокера RWA</strong> — токенизированные акции США/ETF/сырьё: 280+ инструментов, до 50x, ликвидность xStocks/Ondo (~6–7 июля)</li>
+                    <li><strong>Pionex Card</strong> — USDT-дебетовая карта, кэшбэк до 5% (22 июня)</li>
+                    <li><strong>24/7 торговля NVDA/SPCX/TSLA</strong> (23 июня); кампания SKHX ADR (1 июля)</li>
+                    <li><strong>16 встроенных ботов</strong>, spot 0.05%; 24h объём ~$1.22B, 430+ монет, 500+ пар</li>
+                    <li><strong>Бесплатные боты + низкая комиссия</strong>, mobile-first</li>
                 </ul>
             </div>
             <div class="swot-quad w">
                 <div class="swot-title w">Weaknesses</div>
                 <ul class="swot-list">
-                    <li><strong>Telegram − 66%: 96 675 → 32 783</strong> (проверка Telemetr) — массовая чистка фейков или реальный отток</li>
-                    <li><strong>Pre-IPO фьючерсы — регуляторный риск</strong> — BVI оффшор без брокерской лицензии SpaceX/OpenAI</li>
-                    <li><strong>Futures Moon Bot обман</strong> — «без комиссий», но фактически 20% от grid profit + 20% от trend PnL (Reddit, 3 июня)</li>
-                    <li><strong>Trustpilot 2.4/5 — без движения</strong>; жалобы на выводы, заморозки</li>
-                    <li><strong>Webot в США taker 0.5% vs 0.05%</strong> — в 10× дороже; иллюзия доступности</li>
-                    <li><strong>AMF blacklist активен</strong>; PionexGPT не обновлялся — всё ещё GPT-3.5</li>
+                    <li><strong>Trustpilot 2.4/5</strong> (570, снимок 26.10.2025) — самый низкий в наборе; жалобы на поддержку и восстановление ошибочных депозитов</li>
+                    <li><strong>Нет полноценного RU-фокуса</strong> — топ-страны Тайвань/Германия/Гонконг</li>
+                    <li><strong>Регуляторная сложность</strong> токенизированных акций</li>
+                    <li><strong>Средства хранятся на Pionex</strong> — не API-only</li>
+                    <li><strong>Операционные риски</strong> — делистинг TON и своп в GRAM (24–29 июня); сбой из-за Cloudflare</li>
                 </ul>
             </div>
             <div class="swot-quad o">
                 <div class="swot-title o">Opportunities for Veles</div>
                 <ul class="swot-list">
-                    <li><strong>Moon Bot exposé</strong> — «Как Pionex скрывает 20% комиссию» → вирусный контент</li>
-                    <li><strong>SpaceX/OpenAI fomo → risk education</strong> — «Почему pre-IPO синтетика не равна акциям»</li>
-                    <li><strong>Telegram − 66%</strong> — вакуум community; время заходить с вертикальным контентом</li>
+                    <li><strong>RU-контент про токенизированные акции США</strong> — нейтральный RU-объяснитель новых инструментов (на примере Pionex)</li>
                     <li><strong>Образовательный вакуум</strong> — Pionex даёт инструменты, но не учит механике</li>
+                    <li><strong>Тема доверия/поддержки</strong> — играем на слабом Trustpilot (2.4)</li>
+                    <li><strong>RWA-образование для RU-аудитории</strong> — свободная ниша</li>
                 </ul>
             </div>
             <div class="swot-quad t">
                 <div class="swot-title t">Threats</div>
                 <ul class="swot-list">
-                    <li><strong>Pre-IPO + xStocks 80+ — «всё в одном»</strong>; если выдержит регуляторов, это сильнейший выбор для РФ/СНГ</li>
-                    <li><strong>Webot 48 штатов</strong> — сигнал о серьёзном заходе в US-юрисдикцию</li>
-                    <li><strong>Zero cost entry</strong> — конкурировать по цене напрямую невозможно</li>
-                    <li><strong>Ondo Stocks интеграция</strong> — если RWA станут mainstream, Pionex первый на рынке</li>
+                    <li><strong>RWA стратегически важен</strong> — если токенизированные акции станут mainstream, Pionex один из первых на рынке</li>
+                    <li><strong>Zero-cost entry</strong> — конкурировать по цене напрямую сложно</li>
+                    <li><strong>Расширение классов активов</strong> — карта + акции; риск, если придёт в СНГ</li>
+                    <li><strong>Прямой риск Medium-Low</strong>, но RWA-пивот — сигнал направления всего рынка</li>
                 </ul>
             </div>
         </div>
@@ -2333,13 +2494,13 @@
         </div>
 
         <div class="talk-track">
-            <div class="scenario">Сценарий: Клиент интересуется xStocks</div>
-            <div class="script">«xStocks — интересная фича. Но это токенизированные активы на Solana, не реальные акции. У нас через Bitget доступны синтетические золото и серебро. Для серьёзной торговли акциями лучше использовать традиционного брокера. А для крипто — платформу с рейтингом выше 2.4.»</div>
+            <div class="scenario">Сценарий: Клиент интересуется токенизированными акциями</div>
+            <div class="script">«Pionex сильно вложился в токенизированные акции США — 280+ инструментов, до 50x плеча. Но это токенизированные активы, не реальные акции, и с ними своя регуляторная сложность. Мы помогаем разобраться в этих новых инструментах на русском и объясняем риски. Для крипто-ботов важно ещё и доверие — у Pionex Trustpilot 2.4.»</div>
         </div>
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент уже на Pionex и недоволен</div>
-            <div class="script">«Если вы сталкиваетесь с зависаниями платформы или шаблонными ответами поддержки — вы не одиноки, это главные жалобы на Trustpilot. У нас $481M торговых объёмов в январе 2026 без единого сбоя. Переход занимает минуты — подключите API вашей любимой биржи и запустите бота.»</div>
+            <div class="script">«Если вы сталкиваетесь со сбоями (например, недавний инцидент из-за Cloudflare) или шаблонными ответами поддержки — вы не одиноки, это главные жалобы на Trustpilot (2.4/5). Плюс средства хранятся на самой Pionex. У нас API-доступ без прав вывода — средства остаются на вашей бирже. Переход занимает минуты.»</div>
         </div>
     </div>
 
@@ -2348,8 +2509,8 @@
         <div class="card-header"><span class="icon">🛡️</span> Обработка возражений</div>
 
         <div class="objection">
-            <div class="obj-q">«У Pionex 5 миллионов пользователей — это же показатель доверия»</div>
-            <div class="obj-a">5 миллионов пользователей при Trustpilot 2.4/5 — это показатель маркетинга, не доверия. 570 отзывов с рейтингом ниже среднего. Посмотрите жалобы: зависания при волатильности, задержки выводов, шаблонная поддержка. Масштаб не равен качеству.</div>
+            <div class="obj-q">«У Pionex огромная база пользователей — это же показатель доверия»</div>
+            <div class="obj-a">Pionex не раскрывает число активных пользователей на официальном сайте — вторичные оценки в 5–8M не подтверждены. А вот Trustpilot 2.4/5 (570 отзывов) виден всем: жалобы на поддержку, восстановление ошибочных депозитов, недавний сбой из-за Cloudflare. Масштаб маркетинга не равен качеству.</div>
         </div>
 
         <div class="objection">
@@ -2370,7 +2531,8 @@
         <div class="landmine">«Могу ли я перевести ботов Pionex на Binance или OKX, если захочу сменить биржу?» (Нет — полная привязка)</div>
         <div class="landmine">«Как Pionex компенсировал пострадавших от утечки 2023 года?»</div>
         <div class="landmine">«Почему у Pionex 2.4 на Trustpilot — это один из самых низких рейтингов в индустрии?»</div>
-        <div class="landmine">«Pionex массово закрывает продукты (C2C, Lotto, Easy Earn, несколько типов ботов) — что происходит с платформой?»</div>
+        <div class="landmine">«Токенизированные акции США — это реальные акции или синтетика? Какие регуляторные и налоговые риски у RWA-инструментов Pionex?»</div>
+        <div class="landmine">«Что было с делистингом TON и свопом в GRAM — как это затронуло запущенных ботов?»</div>
     </div>
 </section>
 
@@ -2604,27 +2766,35 @@
         <div class="profile-grid">
             <div class="profile-item">
                 <div class="profile-label">Ценообразование</div>
-                <div class="profile-value">Подписка $23–$119/мес</div>
+                <div class="profile-value">Free / $29 / $69 / $149 (год. экон. $72/$168/$360)<a class="src" href="https://bitsgap.com/pricing" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Пользователи</div>
-                <div class="profile-value">500K–800K+ трейдеров</div>
+                <div class="profile-value">800,000+ трейдеров<a class="src" href="https://bitsgap.com/" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Биржи</div>
-                <div class="profile-value">16+ бирж</div>
+                <div class="profile-value">17+ бирж (вкл. DEX Evedex/AsterDEX)<a class="src" href="https://bitsgap.com/" target="_blank" rel="noopener noreferrer">источник</a></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Под управлением</div>
+                <div class="profile-value">$9.46B<a class="src" href="https://bitsgap.com/" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Trustpilot</div>
-                <div class="profile-value">4.1–4.5/5 (665 отзывов)</div>
+                <div class="profile-value">665 отзывов (снимок 19.02.2026; рейтинг n.a.)<a class="src" href="https://www.trustpilot.com/review/bitsgap.com" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
-                <div class="profile-label">Сотрудники</div>
-                <div class="profile-value">~100+</div>
+                <div class="profile-label">RU-локализация</div>
+                <div class="profile-value" style="color:var(--lose)">Да — RU-блог/хелпдеск<a class="src" href="https://bitsgap.com/ru/blog/torghuitie-fiuchiersami-evedex-na-bitsgap-novaia-era-dietsientralizovannoi-torghovli" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Безопасность</div>
                 <div class="profile-value" style="color:var(--win)">0 инцидентов с 2017</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Угроза для Veles</div>
+                <div class="profile-value" style="color:var(--tie)">Medium-High (RU + DEX)</div>
             </div>
         </div>
     </div>
@@ -2633,12 +2803,12 @@
     <div class="card">
         <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
         <ul class="strength-list they-win">
-            <li><strong>16+ бирж</strong> — вдвое больше поддерживаемых площадок</li>
+            <li><strong>17+ бирж, включая DEX</strong> — интеграции Evedex и AsterDEX; non-custodial торговля <a class="src" href="https://bitsgap.com/supported-exchanges" target="_blank" rel="noopener noreferrer">источник</a></li>
+            <li><strong>DEX-стратегия</strong> — QFL-бот, поддержка Hyperliquid на подходе; лидер по non-custodial направлению</li>
+            <li><strong>RU-локализация</strong> — bitsgap.com/ru, RU-блог и хелпдеск; прямая конкуренция за русскоязычную аудиторию <a class="src" href="https://bitsgap.com/ru" target="_blank" rel="noopener noreferrer">источник</a></li>
             <li><strong>Мульти-биржевой терминал</strong> — единый интерфейс для торговли на нескольких биржах</li>
-            <li><strong>Бэктестинг 365 дней</strong> — длительное тестирование стратегий</li>
-            <li><strong>Чистая безопасность</strong> — 0 инцидентов с 2017, аналогично нам</li>
-            <li><strong>Уникальные боты</strong> — COMBO (GRID+DCA фьючерсы), LOOP, QFL</li>
-            <li><strong>$9.46B под управлением</strong> — серьёзный объём</li>
+            <li><strong>AI Assistant + AI Portfolio Mode</strong> — AI на всех платных тарифах, Portfolio Mode только на Pro $149</li>
+            <li><strong>800K+ трейдеров, $9.46B под управлением</strong> — крупнейший пул активов в сегменте <a class="src" href="https://bitsgap.com" target="_blank" rel="noopener noreferrer">источник</a></li>
         </ul>
     </div>
 
@@ -2657,47 +2827,45 @@
 
     <!-- SWOT-анализ -->
     <div class="card">
-        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Bitsgap<span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено июнь 2026</span></div>
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Bitsgap<span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено 19 июля 2026</span></div>
         <div class="swot-grid">
             <div class="swot-quad s">
                 <div class="swot-title s">Strengths</div>
                 <ul class="swot-list">
-                    <li><strong>Чистейший security record с 2016</strong> — 0 инцидентов за 10 лет; 2048-bit шифрование, API lock</li>
-                    <li><strong>20 Demo-ботов с виртуальным $100k USDT</strong> — лучший онбординг без лимита по времени</li>
-                    <li><strong>800K+ пользователей, $9.46 млрд AUM</strong> — крупнейший пул активов в сегменте (без изменений с мая)</li>
-                    <li><strong>DEX-поддержка — 17 интеграций</strong>; Aster, Evedex; non-custodial без KYC (уникально)</li>
-                    <li><strong>Capterra 4.6/5</strong> (96 отзывов) — самый высокий рейтинг среди конкурентов</li>
-                    <li><strong>AI Portfolio Mode (Pro)</strong> — первый на рынке (сент 2024); Bot Analytics Dashboard</li>
+                    <li><strong>800K+ трейдеров, $9.46B под управлением</strong> — крупнейший пул активов в сегменте</li>
+                    <li><strong>DEX-стратегия — 17+ бирж</strong>; интеграции Evedex, AsterDEX; QFL-бот; Hyperliquid на подходе</li>
+                    <li><strong>RU-локализация</strong> — bitsgap.com/ru, RU-блог и хелпдеск; прямая конкуренция за нашу аудиторию</li>
+                    <li><strong>AI Assistant + AI Portfolio Mode</strong> — AI на всех платных тарифах, Portfolio Mode на Pro</li>
+                    <li><strong>Чистая история безопасности</strong> — 0 подтверждённых инцидентов</li>
                 </ul>
             </div>
             <div class="swot-quad w">
                 <div class="swot-title w">Weaknesses</div>
                 <ul class="swot-list">
-                    <li><strong style="color:var(--accent-orange);">⚠️ Annual-pricing +22% (июнь 2026)</strong> — Basic $23→$28, Advanced $55→$67, Pro $119→$146/мес; monthly без изменений</li>
-                    <li><strong style="color:var(--accent-orange);">📉 Trustpilot 4.1 → 3.9</strong> (649 отзывов) — рейтинг просел впервые за год</li>
-                    <li><strong style="color:var(--accent-orange);">📱 Android app не обновлялся 11 месяцев</strong> — с июля 2025; продукт явно заморожен</li>
-                    <li><strong>Слабое мобильное приложение</strong> — Android 3.3/5 (135 отзывов); хуже Pionex в 30+ раз</li>
-                    <li><strong>Telegram News ~2 874 подписчиков</strong> (было 3 316 в мае) — penetration падает</li>
-                    <li><strong>Нет Enterprise/Asset Manager тарифа</strong>; нет TradingView/Pine Script; strict no-refund</li>
+                    <li><strong>Премиум-AI только на Pro $149/мес</strong> — AI Portfolio Mode недоступен на младших тарифах</li>
+                    <li><strong>Жалобы на биллинг</strong> — агрессивные demo-звонки, strict no-refund политика</li>
+                    <li><strong>Trustpilot: рейтинг n.a.</strong> — 665 отзывов (снимок 19.02.2026), числовой рейтинг не подтверждён</li>
+                    <li><strong>Нет TradingView / Pine Script</strong> — ограничение для продвинутых трейдеров</li>
+                    <li><strong>Подписка вне зависимости от результата</strong> — платишь $149/мес даже при убыточных ботах</li>
                 </ul>
             </div>
             <div class="swot-quad o">
                 <div class="swot-title o">Opportunities for Veles</div>
                 <ul class="swot-list">
-                    <li><strong>🆕 Annual price shock</strong> — пользователи, привязанные к скидке за год, увидят +22% при renewal — идеальный момент для миграционного оффера</li>
+                    <li><strong>RU-контрпозиционирование</strong> — «Bitsgap = инструмент, Veles = инструмент + обучение на русском»</li>
+                    <li><strong>Образовательный слой</strong> — гайды по DEX/AI под русскоязычную аудиторию, которую Bitsgap не обучает</li>
+                    <li><strong>AI за $149 — барьер</strong> — оффер «premium-AI-функции без Pro-подписки $149/мес»</li>
                     <li><strong>Пересечение аудиторий</strong> — Bitsgap = retail trader / passive automation, та же ЦА что у Veles</li>
-                    <li><strong>Мобильный gap углубляется</strong> — 11 месяцев без обновлений Android = окно для перехвата</li>
-                    <li><strong>Падение Trustpilot</strong> — первые сигналы недовольства, можно усиливать в talk tracks</li>
-                    <li><strong>Нет образовательного слоя</strong> — partnership «Bitsgap = инструмент, Veles = обучение»</li>
+                    <li><strong>Жалобы на биллинг</strong> — no-refund и demo-звонки можно контрастировать с profit-share</li>
                 </ul>
             </div>
             <div class="swot-quad t">
                 <div class="swot-title t">Threats</div>
                 <ul class="swot-list">
-                    <li><strong>«Самая чистая» репутация в нише</strong> — Capterra 4.6/5 + 0 инцидентов за 10 лет</li>
-                    <li><strong>7-дневный Pro trial без карты</strong> — лучший trial-оффер в сегменте</li>
+                    <li><strong>RU + агрессивные продажи</strong> — прямая борьба за русскоязычную аудиторию (Threat Medium-High)</li>
+                    <li><strong>DEX-лидерство</strong> — Evedex/AsterDEX + Hyperliquid на подходе; non-custodial направление</li>
+                    <li><strong>Масштаб $9.46B / 800K+</strong> — крупнейший AUM и база пользователей в нише</li>
                     <li><strong>AI Portfolio Mode</strong> — может быть «достаточным», чтобы пользователь не искал обучение</li>
-                    <li><strong>17 DEX-интеграций</strong> — лидер по non-custodial direction</li>
                 </ul>
             </div>
         </div>
@@ -2714,12 +2882,17 @@
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент хочет попробовать без риска</div>
-            <div class="script">«У Bitsgap есть 7-дневный триал, потом — подписка без возврата. Если продукт не подошёл — деньги потеряны. У нас вы начинаете бесплатно с полным доступом. Первая плата — только когда бот заработает прибыль. Нулевой финансовый риск на старте.»</div>
+            <div class="script">«У Bitsgap есть бесплатный тариф, но платные подписки — без возврата (strict no-refund), плюс жалобы на агрессивные demo-звонки. У нас вы начинаете бесплатно с полным доступом, а первая плата — только когда бот заработает прибыль. Нулевой финансовый риск на старте и никаких навязчивых звонков.»</div>
+        </div>
+
+        <div class="talk-track">
+            <div class="scenario">Сценарий: Клиента интересует AI</div>
+            <div class="script">«AI Portfolio Mode у Bitsgap доступен только на тарифе Pro за $149/мес — $1788 в год. Мы даём русскоязычные гайды и обучение под AI-инструменты без привязки к премиум-подписке. Вы платите за результат, а не за доступ к AI-функции.»</div>
         </div>
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент — продвинутый трейдер</div>
-            <div class="script">«Bitsgap предлагает интересные боты — COMBO, LOOP. Но наш маркетплейс со 100k+ ботов даёт доступ к стратегиям, проверенным реальными трейдерами. Плюс наш бэктест на 1-минутных данных точнее, чем бэктест Bitsgap на длинных таймфреймах.»</div>
+            <div class="script">«Bitsgap развивает DEX-направление — Evedex, AsterDEX, QFL-бот, Hyperliquid на подходе. Но всё это в подписке $149/мес. Наш маркетплейс со 100k+ ботов даёт доступ к стратегиям от реальных трейдеров, а бэктест на 1-минутных данных точнее, чем на длинных таймфреймах.»</div>
         </div>
     </div>
 
@@ -2747,9 +2920,9 @@
     <div class="card">
         <div class="card-header"><span class="icon">💣</span> Вопросы-мины</div>
         <div class="landmine">«Что будет, если я захочу отменить подписку Bitsgap? Есть ли возврат?» (Нет — strict no-refund)</div>
-        <div class="landmine">«Сколько стоит QFL бот Bitsgap?» (Только в Pro за $149/мес)</div>
-        <div class="landmine">«Какие крупные обновления продукта выпустил Bitsgap за последний квартал? Есть ли рост команды?» (Нет найма — стагнация)</div>
-        <div class="landmine">«Как боты Bitsgap ведут себя при резких обвалах рынка?» (Жалобы на нестабильность при волатильности)</div>
+        <div class="landmine">«На каком тарифе доступен AI Portfolio Mode?» (Только на Pro за $149/мес)</div>
+        <div class="landmine">«Будут ли мне звонить с предложениями после регистрации?» (Жалобы на агрессивные demo-звонки)</div>
+        <div class="landmine">«Есть ли у Bitsgap русскоязычное обучение, а не только интерфейс?» (RU-локализация есть, но образовательный слой ограничен)</div>
     </div>
 </section>
 
@@ -2773,19 +2946,23 @@
             </div>
             <div class="profile-item">
                 <div class="profile-label">Биржи</div>
-                <div class="profile-value">18+ (Hyperliquid через WalletConnect)</div>
+                <div class="profile-value">18+ (Hyperliquid без подписки, builder fee 0.035%)</div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Trustpilot</div>
                 <div class="profile-value">4.0/5 (128 отзывов на wunderbit.co)</div>
             </div>
             <div class="profile-item">
-                <div class="profile-label">Соцсети</div>
-                <div class="profile-value" style="color:var(--accent-orange)">X 4 660 / TG ~1 126 (мало)</div>
+                <div class="profile-label">AI / MCP</div>
+                <div class="profile-value" style="color:var(--lose)">MCP Server — GA (полностью только Premium; demo на младших тарифах) <a class="src" href="https://wundertrading.com/en/mcp" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
-                <div class="profile-label">Трафик (Semrush, апр 2026)</div>
-                <div class="profile-value">122K/мес (с 302K в сен 2025)</div>
+                <div class="profile-label">RU-поддержка</div>
+                <div class="profile-value" style="color:var(--accent-orange)">Да — русскоязычная поддержка</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Угроза для Veles</div>
+                <div class="profile-value" style="color:var(--lose)">High (RU + низкая цена + MCP GA)</div>
             </div>
         </div>
     </div>
@@ -2795,10 +2972,10 @@
         <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
         <ul class="strength-list they-win">
             <li><strong>Самая низкая цена входа в нише</strong> — $4.95/мес (Starter) vs $15 у 3Commas и $29 у Coinrule</li>
-            <li><strong>MCP Server (бета, май 2026)</strong> — первопроходцы: 14 инструментов для Claude/ChatGPT/Cursor через JSON-конфиг</li>
-            <li><strong>Crypto Impact Awards 2025 — Best Crypto Trading Bot</strong> (30K голосов) — сильное соц.доказательство</li>
-            <li><strong>Hyperliquid через WalletConnect</strong> — без API-ключей, Premium бесплатно при комиссии 0.035%/сделка</li>
-            <li><strong>Партнёрство с Bitget</strong> (янв 2026) + челлендж с 20–200 USDT бонусами для новых юзеров</li>
+            <li><strong>MCP Server — GA</strong> — вышел из беты; полный набор инструментов для Claude/ChatGPT/Cursor (полностью только на Premium, demo на младших тарифах) <a class="src" href="https://wundertrading.com/en/mcp" target="_blank" rel="noopener noreferrer">источник</a></li>
+            <li><strong>RU-поддержка</strong> — русскоязычная поддержка; прямая конкуренция за нашу аудиторию</li>
+            <li><strong>Hyperliquid без подписки</strong> — торговля без API-ключей, builder fee 0.035%/сделка</li>
+            <li><strong>Crypto Impact Awards 2025 — Best Crypto Trading Bot</strong> — сильное соц.доказательство</li>
             <li><strong>Сильная TradingView/Pine Script-интеграция</strong> + бесплатный Udemy-курс на каждом платном плане</li>
         </ul>
     </div>
@@ -2807,61 +2984,56 @@
     <div class="card">
         <div class="card-header"><span class="icon">🏆</span> Где мы выигрываем</div>
         <ul class="strength-list">
-            <li><strong>Образовательный слой</strong> — у WunderTrading только 1 Udemy-курс и Help Center; нет обучения торговым стратегиям и риск-менеджменту</li>
-            <li><strong>Поддержка на русском</strong> — у WunderTrading жалобы на 48+ часов ответа, шаблонные ответы (19.5% одной звезды на Trustpilot)</li>
-            <li><strong>Profit-share $50/мес максимум</strong> vs пожизненная подписка — клиент WunderTrading платит даже при «AI бот ищет сделки 4 дня»</li>
-            <li><strong>Telegram-комьюнити на русском</strong> — у WunderTrading TG всего ~1 126 при 210K юзеров (несоразмерно мало)</li>
-            <li><strong>Прозрачная коммуникация про AI</strong> — Trustpilot фиксирует жалобы на потери до 25% за 2 недели в AI-боте</li>
-            <li><strong>Образовательные партнёрства (онлайн-школы)</strong> — у WunderTrading нет edu-каналов дистрибуции</li>
+            <li><strong>RU-обучение, а не только RU-поддержка</strong> — у WunderTrading есть русскоязычная поддержка, но нет обучения стратегиям и риск-менеджменту на русском</li>
+            <li><strong>Снижение риска сложных AI/MCP-инструментов</strong> — WunderTrading вывел MCP в GA, но без обучающего слоя; мы учим безопасно работать с AI-агентами и API</li>
+            <li><strong>Profit-share $50/мес максимум</strong> vs подписка — клиент WunderTrading платит по подписке независимо от результата бота</li>
+            <li><strong>Telegram-комьюнити на русском</strong> — активное русскоязычное комьюнити как канал дистрибуции</li>
+            <li><strong>No-code конструктор + маркетплейс 100k+ ботов</strong> — готовые стратегии от комьюнити</li>
+            <li><strong>Образовательные партнёрства (онлайн-школы)</strong> — edu-каналы дистрибуции под русскоязычную аудиторию</li>
         </ul>
     </div>
 
     <!-- SWOT-анализ -->
     <div class="card">
-        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ WunderTrading<span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено июнь 2026</span></div>
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ WunderTrading<span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено 19 июля 2026</span></div>
         <div class="swot-grid">
             <div class="swot-quad s">
                 <div class="swot-title s">Strengths</div>
                 <ul class="swot-list">
-                    <li><strong>Самая низкая цена входа</strong> — $4.95/мес Starter; бесплатный пожизненный план</li>
-                    <li><strong>18+ бирж + Hyperliquid</strong> — Premium бесплатно для Hyperliquid-трейдеров</li>
-                    <li><strong>🆕 MCP Server (май 2026 beta)</strong> — execution-layer для LLM-агентов: 14 tools (place/edit/cancel/close)</li>
-                    <li><strong>Best Crypto Trading Bot 2025</strong> (Crypto Impact Awards) — социальное доказательство</li>
-                    <li><strong>Рост базы 98K → 210K за 1.5 года</strong> + $1 млрд+ 30-дневного объёма</li>
-                    <li><strong>Non-custodial</strong> + Pine Script automation в один клик (2026)</li>
+                    <li><strong>Самая низкая цена входа</strong> — $4.95/мес Starter; бесплатный план; годовая скидка до 25%</li>
+                    <li><strong>210K+ трейдеров, 70K+ ботов, $1B+ 30-дневного объёма</strong> — крупная активная база</li>
+                    <li><strong>18+ бирж + Hyperliquid без подписки</strong> — builder fee 0.035%/сделка</li>
+                    <li><strong>MCP Server — GA</strong> — вышел из беты; полный набор на Premium, demo на младших тарифах</li>
+                    <li><strong>RU-поддержка</strong> — русскоязычная поддержка; прямая конкуренция за нашу аудиторию</li>
+                    <li><strong>Best Crypto Trading Bot 2025</strong> (Crypto Impact Awards) + сильная TradingView/Pine Script-интеграция</li>
                 </ul>
             </div>
             <div class="swot-quad w">
                 <div class="swot-title w">Weaknesses</div>
                 <ul class="swot-list">
-                    <li><strong style="color:var(--accent-orange);">⚠️ Поддержка 48+ часов</strong> — 19.5% 1-звёздочных отзывов, шаблонные ответы</li>
-                    <li><strong style="color:var(--accent-orange);">📉 Трафик 302K → 122K за 7 месяцев</strong> (Semrush) — почти −60%</li>
-                    <li><strong>AI-бот разочаровывает</strong> — жалобы на потери 25%+ и «ищет сделки 4 дня» (Trustpilot, авг 2024)</li>
-                    <li><strong>Нет iOS-приложения</strong>, Android 2.8–4.3/5 — нельзя создавать ботов в app</li>
-                    <li><strong>X 4 660 / TG ~1 126</strong> — несоразмерно мало для 210K юзеров; нет community-стратегии</li>
-                    <li><strong>Signal Trading лагает</strong> при быстрых сигналах TradingView (Reddit, Trustpilot)</li>
-                    <li><strong>Trustpilot путаница</strong> — профиль под wunderbit.co с жалобами на «скам» из-за ребрендинга</li>
+                    <li><strong>Полный MCP только на Premium $89.95/мес</strong> — на младших тарифах лишь demo</li>
+                    <li><strong>Нет обучающего слоя под AI/MCP</strong> — инструмент есть, но нет обучения безопасной работе с агентами</li>
+                    <li><strong>Подписка независимо от результата</strong> — оплата вне зависимости от прибыльности ботов</li>
+                    <li><strong>Trustpilot 4.0/5 (128 отзывов)</strong> — профиль под доменом wunderbit.co (ребрендинг), путаница у пользователей</li>
                 </ul>
             </div>
             <div class="swot-quad o">
                 <div class="swot-title o">Opportunities for Veles</div>
                 <ul class="swot-list">
-                    <li><strong>🆕 Образование vs «бот сам торгует»</strong> — пользователи WunderTrading регулярно теряют деньги в AI-боте без понимания механики</li>
-                    <li><strong>Русскоязычный рынок</strong> — есть локализация wundertrading.com/ru, но нет активных РУ-кампаний и партнёрств</li>
-                    <li><strong>Telegram-комьюнити</strong> — ~1 126 подписчиков при 210K юзеров = core канал Veles</li>
-                    <li><strong>Поддержка как differentiator</strong> — боль №1 у WunderTrading; ответы 48+ часов — окно для перехвата по reviews</li>
-                    <li><strong>iOS-приложение</strong> — WunderTrading не закрывает этот сегмент; возможный охват мобильной аудитории</li>
-                    <li><strong>Edu-партнёрства (онлайн-школы)</strong> — WunderTrading работает только через биржи (Bitget), не через образовательные каналы</li>
+                    <li><strong>RU-обучение под AI/MCP</strong> — WunderTrading даёт инструмент (MCP GA), но не обучение на русском</li>
+                    <li><strong>Снижение риска сложных инструментов</strong> — обучающий слой по безопасной работе с AI-агентами и API</li>
+                    <li><strong>Profit-share vs подписка</strong> — контраст «платишь за результат» против фиксированной подписки</li>
+                    <li><strong>Telegram-комьюнити на русском</strong> — активный core-канал Veles</li>
+                    <li><strong>Edu-партнёрства (онлайн-школы)</strong> — WunderTrading работает через биржи, не через образовательные каналы</li>
                 </ul>
             </div>
             <div class="swot-quad t">
                 <div class="swot-title t">Threats</div>
                 <ul class="swot-list">
+                    <li><strong>RU + низкая цена $4.95 + MCP GA</strong> — совокупно даёт Threat High: прямая борьба за нашу аудиторию</li>
                     <li><strong>MCP/AI-нарратив</strong> — может перехватить tech-savvy аудиторию: «Connect Claude or GPT to live execution»</li>
-                    <li><strong>Цена $4.95</strong> — трудно конкурировать у новичков без бесплатного плана с аналогичными лимитами</li>
-                    <li><strong>18+ бирж</strong> + Hyperliquid с нулевой комиссией платформы — широкий охват площадок</li>
-                    <li><strong>«Best Crypto Trading Bot 2025»</strong> — сильная социальная валидация в любом продающем материале</li>
-                    <li><strong>Партнёрство с Bitget</strong> = дистрибуция через глобальную биржу</li>
+                    <li><strong>18+ бирж + Hyperliquid без подписки</strong> — широкий охват площадок</li>
+                    <li><strong>«Best Crypto Trading Bot 2025»</strong> — сильная социальная валидация в продающих материалах</li>
                 </ul>
             </div>
         </div>
@@ -2872,18 +3044,18 @@
         <div class="card-header"><span class="icon">💬</span> Talk Tracks</div>
 
         <div class="talk-track">
-            <div class="scenario">Сценарий: Клиент хочет «AI-бота, который сам зарабатывает»</div>
-            <div class="script">«AI-бот WunderTrading звучит красиво, но Trustpilot и Reddit полны историй вроде «потерял 25% за 2 недели» и «бот 4 дня ищет сделки». У нас другой подход: сначала вы понимаете, как работает Grid и DCA, а потом запускаете. Это не магия, а навык — и поэтому он повторяется.»</div>
+            <div class="scenario">Сценарий: Клиента интересует MCP / AI-агенты</div>
+            <div class="script">«WunderTrading вывел MCP Server в GA — можно подключить Claude или GPT к исполнению сделок. Технически сильно, но полный набор только на Premium $89.95/мес, и нет обучения тому, как безопасно отдавать управление AI-агенту. Мы даём русскоязычные гайды по MCP/AI-агентам и безопасности API — вы понимаете риски до того, как подключите бота к живым деньгам.»</div>
         </div>
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент клюёт на цену $4.95</div>
-            <div class="script">«На Starter за $4.95 у WunderTrading 1 Signal Bot, 1 Grid и 1 DCA — это в точности бесплатный план 3Commas. Чтобы получить нормальное число ботов и AI, нужен Premium $89.95/мес или $540/год. У нас profit-share максимум $50/мес и только когда есть прибыль. Считайте: год пользования при стабильной прибыли — экономия более $500.»</div>
+            <div class="script">«На Starter за $4.95 у WunderTrading базовый набор ботов. Чтобы получить полный MCP и продвинутые функции, нужен Premium $89.95/мес. У нас profit-share максимум $50/мес и только когда есть прибыль. Считайте: год пользования при стабильной прибыли — существенная экономия, и вы не платите в убыточные периоды.»</div>
         </div>
 
         <div class="talk-track">
-            <div class="scenario">Сценарий: Клиент пришёл из TradingView</div>
-            <div class="script">«TradingView-интеграция у WunderTrading сильная, но Signal Trading лагает на быстрых сигналах — это их собственная жалоба от пользователей. Если вы скальпите или работаете с быстрыми тайм-фреймами — это критично. У нас исполнение — KPI №1, и нет жалоб на потерянные алёрты.»</div>
+            <div class="scenario">Сценарий: Клиент выбирает между RU-платформами</div>
+            <div class="script">«У WunderTrading есть русскоязычная поддержка — это правда. Но поддержка отвечает на вопросы, а не учит торговать. У нас — обучающий слой на русском: стратегии, риск-менеджмент, безопасная работа с AI-инструментами. Плюс profit-share вместо подписки: платите за результат, а не за доступ.»</div>
         </div>
     </div>
 
@@ -2898,23 +3070,22 @@
 
         <div class="objection">
             <div class="obj-q">«Они победили в Crypto Impact Awards 2025 — значит, лучший продукт»</div>
-            <div class="obj-a">Награда — это маркетинг, а не продукт. На Trustpilot у WunderTrading 4.0/5 и почти 20% одной звезды — пользователи жалуются на поддержку, AI-бот и баги. Награды раздают по голосованию пользователей, которым отправили промо-письмо. Реальная картина — на reviews.</div>
+            <div class="obj-a">Награда — это маркетинг, а не продукт. На Trustpilot у WunderTrading 4.0/5 (128 отзывов) — награды раздают по голосованию пользователей, которым отправили промо-письмо. Мы предлагаем не награду, а обучение на русском и profit-share — то, что напрямую влияет на ваш результат.</div>
         </div>
 
         <div class="objection">
-            <div class="obj-q">«MCP Server — это будущее, у вас этого нет»</div>
-            <div class="obj-a">MCP — это интерфейс для LLM-агентов, и он в бете уже больше месяца — без публичных кейсов реального заработка. Когда вокруг этого появятся проверенные сценарии, мы оценим, нужен ли нам MCP или достаточно нашего API. Пока что 99% наших пользователей хотят понимать свою стратегию, а не передавать управление Claude.</div>
+            <div class="obj-q">«MCP Server у WunderTrading — это будущее, у вас этого нет»</div>
+            <div class="obj-a">MCP у WunderTrading вышел в GA — это сильный шаг. Но полный набор только на Premium $89.95/мес, и подключение AI-агента к живым деньгам без понимания рисков опасно. Мы даём русскоязычные гайды по MCP/AI-агентам и безопасности API: сначала вы понимаете, как это работает, потом подключаете. Инструмент без обучения — это риск, а не преимущество.</div>
         </div>
     </div>
 
     <!-- Вопросы-мины -->
     <div class="card">
         <div class="card-header"><span class="icon">💣</span> Вопросы-мины</div>
-        <div class="landmine">«Сколько времени AI-бот WunderTrading ищет первую сделку?» (Жалобы: 4+ дня без позиции)</div>
-        <div class="landmine">«Какой средний результат AI-бота за квартал?» (Trustpilot: −25% за 2 недели)</div>
-        <div class="landmine">«Сколько времени отвечает поддержка WunderTrading на платном плане?» (До 48+ часов, шаблонные ответы)</div>
-        <div class="landmine">«Есть ли у WunderTrading iOS-приложение?» (Нет, только Android)</div>
-        <div class="landmine">«Почему отзывы Trustpilot ведутся под доменом wunderbit.co, а не wundertrading.com?» (Ребрендинг 2022 года, профиль не перенесён; в отзывах путаница со «скамом»)</div>
+        <div class="landmine">«На каком тарифе доступен полный MCP Server?» (Полностью только на Premium $89.95/мес; на младших — demo)</div>
+        <div class="landmine">«Есть ли у WunderTrading обучение безопасной работе с AI-агентами на русском?» (RU-поддержка есть, обучающего слоя под MCP/AI — нет)</div>
+        <div class="landmine">«Платит ли клиент подписку, даже если бот в убытке?» (Да — оплата вне зависимости от результата)</div>
+        <div class="landmine">«Почему отзывы Trustpilot ведутся под доменом wunderbit.co, а не wundertrading.com?» (Ребрендинг, профиль не перенесён; путаница у пользователей)</div>
     </div>
 </section>
 
@@ -2931,27 +3102,31 @@
         <div class="profile-grid">
             <div class="profile-item">
                 <div class="profile-label">Ценообразование</div>
-                <div class="profile-value">Free → $29.99 → $59.99 → $749/мес (Fund)</div>
+                <div class="profile-value">Starter Free → Investor $29.99 → Trader $59.99 → Fund $749/мес (годовые $359 / $719 / $8 988) <a class="src" href="https://coinrule.com/pricing" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Пользователи</div>
-                <div class="profile-value">402K+ аккаунтов, 1.74M стратегий, 1.2M+ правил/мес</div>
+                <div class="profile-value">402 368 аккаунтов; стратегии: 1 742 913 (для обучения AI) vs 1 395 960 (счётчик на сайте) <a class="src" href="https://coinrule.com" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Биржи / брокеры</div>
-                <div class="profile-value">30+ крипто + 8 фондовых брокеров (E*TRADE, Webull)</div>
+                <div class="profile-value">20+ крипто + 7 фондовых брокеров (Trading 212, Tradier, E*TRADE, tastytrade, Public, Webull, TradeStation) + DeFi on-chain (Hyperliquid/Base/Arbitrum) <a class="src" href="https://coinrule.com/supported-exchanges" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
                 <div class="profile-label">Trustpilot</div>
-                <div class="profile-value">4.3/5 (140 отзывов); G2 — 0 отзывов</div>
+                <div class="profile-value">4.3/5 (140 отзывов; снимок 14.02.2025)</div>
             </div>
             <div class="profile-item">
-                <div class="profile-label">Соцсети</div>
-                <div class="profile-value" style="color:var(--accent-orange)">X 8 056 / TG ~600 (мало для 400K)</div>
+                <div class="profile-label">AI</div>
+                <div class="profile-value" style="color:var(--tie)">Agentic Mode + AI Cloud + AI Credits (500 / 5 000 / 50 000 на платных); overage $0.02/кредит <a class="src" href="https://cloud.coinrule.com" target="_blank" rel="noopener noreferrer">источник</a></div>
             </div>
             <div class="profile-item">
-                <div class="profile-label">Бэкинг</div>
-                <div class="profile-value">Y Combinator (YC S21), Лондон, 2018</div>
+                <div class="profile-label">RU-поддержка</div>
+                <div class="profile-value" style="color:var(--win)">Нет — только английский</div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">Угроза для Veles</div>
+                <div class="profile-value" style="color:var(--tie)">Medium</div>
             </div>
         </div>
     </div>
@@ -2960,10 +3135,10 @@
     <div class="card">
         <div class="card-header"><span class="icon">⚡</span> Где они выигрывают</div>
         <ul class="strength-list they-win">
-            <li><strong>Лучший no-code UX в категории</strong> — IFTTT-конструктор «If This Then That»; 350+ шаблонов стратегий</li>
-            <li><strong>Бэкинг Y Combinator (YC S21)</strong> — легитимность на западном рынке, лондонская регистрация</li>
-            <li><strong>1.74M стратегий пользователей</strong> — крупнейший датасет для обучения AI Agentic Trading (запуск 25 фев 2026)</li>
-            <li><strong>30+ бирж + 8 брокеров акций/ETF</strong> — единственный кросс-рынок в нише (Trading 212, E*TRADE, tastytrade, Webull, Alpaca, Public)</li>
+            <li><strong>Лучший no-code UX в категории</strong> — IFTTT-конструктор «If This Then That»; библиотека шаблонов стратегий</li>
+            <li><strong>Agentic Mode + Coinrule AI Cloud</strong> — AI-агенты на платных тарифах; AI Credits 500 / 5 000 / 50 000, pay-per-credit на cloud.coinrule.com <a class="src" href="https://cloud.coinrule.com" target="_blank" rel="noopener noreferrer">источник</a></li>
+            <li><strong>Кросс-рынок: 20+ крипто + 7 фондовых брокеров</strong> — Trading 212, Tradier, E*TRADE, tastytrade, Public, Webull, TradeStation</li>
+            <li><strong>DeFi on-chain</strong> — Hyperliquid, Base, Arbitrum; охват децентрализованного сегмента</li>
             <li><strong>Flat-fee без % от объёма</strong> — преимущество для крупных трейдеров vs платформы с volume-fees</li>
             <li><strong>Демо-биржа на live-данных Binance</strong> — полноценная песочница без риска</li>
         </ul>
@@ -2973,62 +3148,56 @@
     <div class="card">
         <div class="card-header"><span class="icon">🏆</span> Где мы выигрываем</div>
         <ul class="strength-list">
-            <li><strong>Образовательный слой</strong> — Coinrule сам признаёт: «платформа исполняет правила, но не создаёт прибыльную стратегию, если её у вас нет» (uwuu.ai, июнь 2026)</li>
-            <li><strong>Надёжность исполнения</strong> — Trustpilot и Reddit фиксируют систематические сбои Coinrule в bull-циклах: стоп-лоссы не срабатывают, пользователи теряют 20–30%</li>
-            <li><strong>Русскоязычный продукт</strong> — Coinrule только английский: интерфейс, поддержка, сообщество</li>
-            <li><strong>Profit-share $50/мес максимум</strong> vs прыжок Coinrule с $59.99 (Trader) до $749 (Fund) — 12.5×</li>
-            <li><strong>Telegram-комьюнити</strong> — у Coinrule TG ~600 и Discord только для платных; у нас core-канал</li>
-            <li><strong>Прозрачность про AI</strong> — Coinrule брендирует IFTTT-правила как «AI Agentic Trading»; мы не вводим пользователей в заблуждение хайповыми терминами</li>
+            <li><strong>Русскоязычный продукт и обучение</strong> — Coinrule только английский: интерфейс, поддержка, сообщество; RU не поддерживается</li>
+            <li><strong>Снижение риска сложных AI-инструментов</strong> — Coinrule даёт Agentic Mode и AI Credits, но без обучающего слоя на русском</li>
+            <li><strong>Profit-share $50/мес максимум</strong> vs прыжок Coinrule с $59.99 (Trader) до $749 (Fund) — 12.5×, без промежуточного плана</li>
+            <li><strong>Понятная модель оплаты</strong> — AI Credits с overage $0.02/кредит на cloud.coinrule.com = переменные расходы; у нас profit-share без доплат за кредиты</li>
+            <li><strong>No-code конструктор + маркетплейс 100k+ ботов</strong> — готовые стратегии с реальной историей</li>
+            <li><strong>Telegram-комьюнити на русском</strong> — активный core-канал дистрибуции</li>
         </ul>
     </div>
 
     <!-- SWOT-анализ -->
     <div class="card">
-        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Coinrule<span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено июнь 2026</span></div>
+        <div class="card-header"><span class="icon">🧭</span> SWOT-анализ Coinrule<span style="font-size:0.7rem;color:var(--text-muted);font-weight:400;margin-left:0.5rem;">• обновлено 19 июля 2026</span></div>
         <div class="swot-grid">
             <div class="swot-quad s">
                 <div class="swot-title s">Strengths</div>
                 <ul class="swot-list">
-                    <li><strong>Лучший no-code UX в нише</strong> — признан Coin Bureau, uwuu.ai, DecrypteBot</li>
-                    <li><strong>Y Combinator (YC S21)</strong> + Лондон — credibility на западном рынке</li>
-                    <li><strong>402K+ аккаунтов, 1.74M стратегий</strong> — массивный датасет для AI</li>
-                    <li><strong>🆕 AI Agentic Trading (25 фев 2026)</strong> — обучен на 1.74M стратегиях; human-in-the-loop vs полная автономия Robinhood (27 мая) и Coinbase (11 июня 2026)</li>
-                    <li><strong>30+ бирж + 8 фондовых брокеров</strong> — самый широкий охват рынков</li>
-                    <li><strong>Flat-fee без % от объёма</strong> + 14-дневная гарантия возврата денег</li>
+                    <li><strong>Лучший no-code UX в нише</strong> — IFTTT-конструктор «If This Then That»</li>
+                    <li><strong>402 368 аккаунтов + массивный датасет стратегий</strong> — сырьё для обучения AI-агентов</li>
+                    <li><strong>Agentic Mode + AI Cloud + AI Credits</strong> — AI-агенты на платных тарифах (500 / 5 000 / 50 000 кредитов)</li>
+                    <li><strong>Кросс-рынок</strong> — 20+ крипто + 7 фондовых брокеров + DeFi on-chain (Hyperliquid/Base/Arbitrum)</li>
+                    <li><strong>Trustpilot 4.3/5</strong> (140 отзывов, снимок 14.02.2025) — высокий рейтинг</li>
+                    <li><strong>Flat-fee без % от объёма</strong> — преимущество для крупных трейдеров</li>
                 </ul>
             </div>
             <div class="swot-quad w">
                 <div class="swot-title w">Weaknesses</div>
                 <ul class="swot-list">
-                    <li><strong style="color:var(--accent-orange);">⚠️ Ненадёжное исполнение в bull-циклах</strong> — стоп-лоссы не срабатывают, потери 20–30% (Trustpilot, Reddit, окт 2024)</li>
-                    <li><strong style="color:var(--accent-orange);">📉 Трафик −24.31% m/m</strong> — 104K (фев 2025) → 27K (май 2025); тревожный сигнал</li>
-                    <li><strong>Pricing-ловушка</strong> — прыжок Trader $59.99 → Fund $749 (12.5×), нет среднего «Pro» плана</li>
-                    <li><strong>G2 = 0 отзывов</strong> — критическая B2B-слепая зона</li>
-                    <li><strong>Соцсети крошечные</strong> — X 8 056 / TG ~600 / Discord только для платных при 400K юзеров</li>
-                    <li><strong>Мобильное приложение — только мониторинг</strong> (4.0/5, 72 отзыва); создать/изменить правило с телефона нельзя</li>
-                    <li><strong>Нет встроенного бэктестинга</strong> — нужен внешний TradingView (только Trader+)</li>
-                    <li><strong>Утечка email</strong> — жалоба на фишинг с аккаунт-only адреса (Trustpilot UK)</li>
+                    <li><strong>Расхождение в метриках</strong> — 1 742 913 стратегий (для обучения AI) vs 1 395 960 (счётчик на сайте); вопрос к прозрачности</li>
+                    <li><strong>Pricing-ловушка</strong> — прыжок Trader $59.99 → Fund $749 (12.5×), нет промежуточного «Pro» плана</li>
+                    <li><strong>AI Credits с overage $0.02/кредит</strong> — переменные расходы поверх подписки при активном использовании AI</li>
+                    <li><strong>Нет RU-локализации</strong> — только английский: интерфейс, поддержка, сообщество</li>
+                    <li><strong>Trustpilot снимок 14.02.2025</strong> — рейтинг не свежий, отражает старое состояние</li>
                 </ul>
             </div>
             <div class="swot-quad o">
                 <div class="swot-title o">Opportunities for Veles</div>
                 <ul class="swot-list">
-                    <li><strong>🆕 «AI washing»-нарратив</strong> — Coinrule называет IFTTT-правила «AI Agentic»; рынок перегрет, есть запрос на честность</li>
-                    <li><strong>Pain-кейсы для контента</strong> — реальные истории «потерял 30% потому что стоп-лосс не сработал» — материал для антикейсов</li>
-                    <li><strong>Русскоязычный рынок</strong> — Coinrule никогда не работал с СНГ; ноль контента/поддержки/комьюнити на русском</li>
-                    <li><strong>Образовательный гэп</strong> — пользователи Coinrule теряют деньги из-за непонимания индикаторов (RSI, MACD); идеальная точка перехвата</li>
-                    <li><strong>Ниша $30–60/мес</strong> — пользователи Investor/Trader, которым «Fund $749» нерелевантен, но нужен следующий уровень — у Veles нет такого ценового скачка</li>
-                    <li><strong>Заполнение G2/Capterra</strong> — Coinrule отсутствует на ведущей B2B-платформе обзоров; окно для проактивного review-маркетинга</li>
+                    <li><strong>Русскоязычный рынок</strong> — Coinrule не работает с СНГ; ноль контента/поддержки/комьюнити на русском</li>
+                    <li><strong>Образовательный слой под AI-агентов</strong> — Coinrule даёт Agentic Mode, но не учит безопасно им пользоваться на русском</li>
+                    <li><strong>Ниша $30–60/мес</strong> — пользователи Investor/Trader, которым «Fund $749» нерелевантен; у Veles нет такого ценового скачка</li>
+                    <li><strong>Понятная модель оплаты</strong> — контраст «profit-share без доплат» против AI Credits с overage</li>
                 </ul>
             </div>
             <div class="swot-quad t">
                 <div class="swot-title t">Threats</div>
                 <ul class="swot-list">
-                    <li><strong>Y Combinator-бренд</strong> = легитимность для технической аудитории; сложно бить лбом</li>
-                    <li><strong>Кросс-рынок (крипто+акции)</strong> — если стратегия сработает, Coinrule станет «universal trading bot» и сожмёт нишевых игроков</li>
-                    <li><strong>1.74M стратегий как moat</strong> — датасет для AI, который трудно реплицировать</li>
-                    <li><strong>Robinhood Agentic (27 мая) и Coinbase AI Agent (11 июня 2026)</strong> — интегрированные решения брокеров могут вытеснить и Coinrule, и Veles одновременно</li>
-                    <li><strong>14-дневная гарантия возврата</strong> + бесплатный план без карты = низкий риск пробы для пользователя</li>
+                    <li><strong>Agentic AI становится стандартом рынка</strong> — Robinhood (10 июля) и Kraken (11 июля 2026) выкатили агентские сценарии; Coinrule в тренде</li>
+                    <li><strong>Кросс-рынок (крипто + акции + DeFi)</strong> — если сработает, Coinrule станет «universal trading bot» и сожмёт нишевых игроков</li>
+                    <li><strong>Массивный датасет стратегий как moat</strong> — сырьё для AI, которое трудно реплицировать</li>
+                    <li><strong>Trustpilot 4.3/5</strong> — высокий рейтинг = credibility для западной аудитории</li>
                 </ul>
             </div>
         </div>
@@ -3039,18 +3208,18 @@
         <div class="card-header"><span class="icon">💬</span> Talk Tracks</div>
 
         <div class="talk-track">
-            <div class="scenario">Сценарий: Клиент хочет «no-code AI Agentic Trading»</div>
-            <div class="script">«AI Agentic у Coinrule звучит футуристично, но по факту это IFTTT-правила, которые вы сами задаёте. Если вы не понимаете, что такое RSI или MA crossover, ваш «AI агент» будет сливать деньги по правилам, которые вы неправильно настроили. У нас сначала — понимание индикатора, потом — автоматизация. Это разница между «бот теряет 30%» и «бот зарабатывает».»</div>
+            <div class="scenario">Сценарий: Клиента интересует Agentic Mode</div>
+            <div class="script">«Agentic Mode у Coinrule — сильная функция, но она работает на английском и без обучающего слоя. Если вы не понимаете, как агент принимает решения и где его границы, вы отдаёте деньги под управление чёрного ящика. Мы даём русскоязычные гайды по AI-агентам и безопасности: сначала понимание, потом автоматизация.»</div>
         </div>
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент сравнивает цены</div>
-            <div class="script">«У Coinrule бесплатный план — это $3K объёма и 2 правила, фактически демо. Investor за $30 — 7 правил. Если у вас счёт $3 000, подписка $360 в год = 12% headwind до первой прибыльной сделки (это считают сами обзорщики, uwuu.ai). У нас profit-share максимум $50/мес и только при прибыли. Без прибыли — без оплаты.»</div>
+            <div class="script">«У Coinrule подписки Investor $29.99 и Trader $59.99, а следующий уровень — сразу Fund $749/мес, промежуточного плана нет. Плюс AI Credits с доплатой $0.02 за кредит при активном использовании AI. У нас profit-share максимум $50/мес и только при прибыли — без доплат за кредиты и без ценового скачка в 12.5×.»</div>
         </div>
 
         <div class="talk-track">
             <div class="scenario">Сценарий: Клиент пришёл с фондового рынка</div>
-            <div class="script">«Coinrule только что добавил Trading 212, E*TRADE, Webull — это интересно, но они пока не закрыли проблему с надёжностью даже на крипте: Trustpilot фиксирует, что стоп-лоссы не срабатывают в bull-циклах. Мы фокусируемся на крипте и делаем это надёжно. Если вам нужны акции — оставайтесь у брокера; если крипта — мы делаем её правильно.»</div>
+            <div class="script">«Coinrule — кросс-рынок: 20+ крипто-бирж, 7 фондовых брокеров, DeFi on-chain. Широко, но всё на английском и без обучения под русскоязычную аудиторию. Мы фокусируемся на крипте, делаем это надёжно и учим на русском. Если вам нужна глубина в крипте и обучение — это к нам.»</div>
         </div>
     </div>
 
@@ -3060,29 +3229,28 @@
 
         <div class="objection">
             <div class="obj-q">«У Coinrule интерфейс проще»</div>
-            <div class="obj-a">UX у Coinrule действительно отполированный — независимые обзоры это признают. Но удобный конструктор бесполезен, если правила не исполняются. На Trustpilot человек пишет: «второй месяц подряд система падает в bull-цикле, я в минусе на 30%». У нас исполнение — KPI №1, а конструктор закрывает 95% сценариев новичка.</div>
+            <div class="obj-a">UX у Coinrule действительно отполированный. Но он на английском и без обучения: удобный конструктор бесполезен, если вы не понимаете, какую стратегию строите. У нас no-code конструктор закрывает 95% сценариев новичка плюс обучающий слой на русском — вы понимаете, что запускаете, а не просто кликаете шаблоны.</div>
         </div>
 
         <div class="objection">
-            <div class="obj-q">«Y Combinator же — значит серьёзная компания»</div>
-            <div class="obj-a">YC — отличный фильтр на старте, но не гарантия продукта спустя 7 лет. На G2 у Coinrule 0 отзывов — это критическая B2B-слепая зона. Twitter 8K при 400K юзеров — это сигнал, что комьюнити нет. Сравните с любой биржей, с которой мы партнёры официально, — там сотни тысяч активных трейдеров и постоянная коммуникация.</div>
+            <div class="obj-q">«У Coinrule есть Agentic Mode и AI Cloud — это будущее»</div>
+            <div class="obj-a">Agentic Mode — сильная функция, но она на английском и с оплатой AI Credits (overage $0.02/кредит поверх подписки). Отдавать деньги AI-агенту без понимания его логики и границ — это риск. Мы даём русскоязычные гайды по AI-агентам и безопасности API: инструмент без обучения — это риск, а не преимущество.</div>
         </div>
 
         <div class="objection">
-            <div class="obj-q">«350+ шаблонов — этого хватит на любую стратегию»</div>
-            <div class="obj-a">350 шаблонов звучит впечатляюще, но Free даёт только 10, Investor — 50, нужный Trader — 200+ за $60/мес. И главное: шаблон не равен прибыль. Сам Coinrule в отзывах объясняет, что «платформа исполняет правила, но не создаёт стратегию с edge». У нас — маркетплейс 100K+ ботов с реальной историей и образование, чтобы вы понимали, что запускаете.</div>
+            <div class="obj-q">«У Coinrule шаблоны и кросс-рынок — этого хватит»</div>
+            <div class="obj-a">Библиотека шаблонов и охват (20+ крипто, 7 брокеров, DeFi) — это широта, но шаблон не равен прибыль. У нас маркетплейс 100K+ ботов с реальной историей и обучение на русском, чтобы вы понимали механику. Плюс profit-share вместо подписки $59.99 с прыжком до $749.</div>
         </div>
     </div>
 
     <!-- Вопросы-мины -->
     <div class="card">
         <div class="card-header"><span class="icon">💣</span> Вопросы-мины</div>
-        <div class="landmine">«Что было с Coinrule в октябре 2024 в bull-цикле?» (Систематический сбой 2 месяца подряд, стоп-лоссы не сработали)</div>
-        <div class="landmine">«Сколько шаблонов доступно на Free-плане?» (10 из 350+ — всё остальное за подписку)</div>
+        <div class="landmine">«Сколько стоят AI Credits сверх лимита плана?» (Overage $0.02/кредит на cloud.coinrule.com — переменные расходы поверх подписки)</div>
         <div class="landmine">«Чем отличается Trader $59.99 от Fund $749?» (Прыжок 12.5× без промежуточного Pro-плана)</div>
-        <div class="landmine">«Сколько отзывов у Coinrule на G2?» (0 — отсутствуют на ведущей B2B-площадке)</div>
-        <div class="landmine">«Можно ли создать правило в мобильном приложении?» (Нет — только мониторинг)</div>
-        <div class="landmine">«Есть ли встроенный бэктестинг?» (Нет — нужен внешний TradingView, доступен с Trader $59.99/мес)</div>
+        <div class="landmine">«Есть ли у Coinrule русскоязычный интерфейс и поддержка?» (Нет — только английский)</div>
+        <div class="landmine">«Почему на сайте счётчик стратегий 1.40M, а для обучения AI указано 1.74M?» (Расхождение в метриках — вопрос к прозрачности)</div>
+        <div class="landmine">«Есть ли обучение безопасной работе с Agentic Mode на русском?» (Нет — инструмент есть, обучающего слоя нет)</div>
     </div>
 </section>
 
@@ -3091,19 +3259,19 @@
 <!-- TAB 9: СТРАТЕГИЧЕСКИЕ ВЫВОДЫ -->
 <!-- ================================================================== -->
 <section id="strategy" class="tab-content">
-    <h2>Стратегические выводы по конкурентам — июнь 2026</h2>
+    <h2>Стратегические выводы по конкурентам — 19 июля 2026</h2>
 
     <!-- TL;DR -->
     <div class="card">
-        <div class="card-header"><span class="icon">📌</span> TL;DR — ключевые выводы (обновлено июнь 2026)</div>
+        <div class="card-header"><span class="icon">📌</span> TL;DR — ключевые выводы (обновлено 19 июля 2026)</div>
         <ul class="strength-list">
-            <li><strong>AI-гонка перешла в коммерческую фазу</strong> — 3Commas запускает QuantPilot Arena Season 1 ($3k USDC prize, финал ~20 июня) + QuanScript (Pine Script-аналог) + SSO с 3Commas. Коммерческий запуск QuantPilot — июнь, CEX-расширение — август-сентябрь 2026. Veles нужна AI-позиция в течение 3 месяцев.</li>
-            <li><strong>Cryptohopper открывает фронт AI-агентов</strong> — Market Data MCP Server (27 мая) позволяет Claude/Cursor/ChatGPT подключаться к live-данным; trade-execution MCP — на дорожной карте до конца 2026. Это качественный сдвиг: продукт пивотится в developer/AI-инфраструктуру.</li>
-            <li><strong>Pionex входит в pre-IPO synthetic перпы</strong> — SpaceX (21 мая) и OpenAI (26 мая) через BVI-офшор; высокий регуляторный риск, но новый сегмент аудитории «купи акции до IPO». 80+ xStocks, #1 рейтинг по US tokenized stocks.</li>
-            <li><strong>Bitsgap скрыто поднял годовые цены на +22%</strong> (Basic $23→$28, Advanced $55→$67, Pro $119→$146); monthly без изменений. Trustpilot 4.1→3.9, Android-приложение не обновлялось 11 месяцев — продукт явно заморожен. Идеальное окно для миграционного оффера на renewal.</li>
-            <li><strong>🆕 Новые баттлкарды: WunderTrading и Coinrule</strong> — WunderTrading запустил MCP Server (май 2026, beta) — второй после Cryptohopper, и стал самым дешёвым в нише ($4.95). Coinrule выпустил AI Agentic Trading (25 фев), обученный на 1.74M стратегиях, и расширился на акции/ETF через 7 фондовых брокеров. Оба — прямая угроза на tech-savvy и no-code сегменты.</li>
-            <li><strong>5 из 6 имеют серьёзные security/repute проблемы</strong> — 3Commas (3 инцидента + Freeman class action), Cryptohopper (Trustpilot 3.6/5 + задержки affiliate), Pionex (Trustpilot 2.4/5 + AMF blacklist), WunderTrading (Trustpilot 4.0/5 но 19.5% 1-звёздочных + жалобы на AI-бот), Coinrule (сбои в bull-циклах + G2 0 отзывов). Bitsgap — чистая запись, но фундамент сдвигается.</li>
-            <li><strong>Никто из 6 не имеет образовательного слоя</strong> — это остаётся основным дифференциатором Veles. 3Commas явно пишет «not for beginners»; Coinrule сам признаёт «platform executes rules but cannot create a strategy with edge»; WunderTrading даёт лишь 1 Udemy-курс по Pine Script. Все остальные — pure tools.</li>
+            <li><strong>Agentic AI стал стандартом рынка</strong> — за инструментами последовали брокеры/биржи: Robinhood (10 июля) и Kraken (11 июля 2026) выкатили агентские сценарии. У конкурентов: 3Commas QuantPilot, Cryptohopper MCP, Coinrule Agentic Mode, WunderTrading MCP (GA). Veles нужна чёткая AI-позиция сейчас.</li>
+            <li><strong>3Commas — QuantPilot как главный agentic-вектор</strong> — natural-language, AI Research, Hyperliquid Terminal, QuantPilot Arena; early access, Lifetime VIP $5,000. Тарифы «финализируются». Угроза Medium.</li>
+            <li><strong>Cryptohopper форсирует MCP/AI-стек</strong> — MCP Server + Trading API (26 июня, страница обновлена 8 июля): Claude/Cursor, orderbook, wall detection. Технологическая угроза растёт, но нет RU-продукта и высокий порог сложности. Угроза Medium.</li>
+            <li><strong>Pionex пивотится в брокера/токенизированные активы</strong> — Pionex Card (cashback до 5%), 24/7 NVDA/SPCX/TSLA, токенизированные US-акции/ETF/RWA (280+ инструментов, до 50x), SKHX ADR, TON→GRAM. Прямой риск Medium-Low, но RWA стратегически важен для нашей ЦА.</li>
+            <li><strong>RU-окно сужается</strong> — Bitsgap (RU-локализация + DEX, Threat Medium-High) и WunderTrading (RU-поддержка + низкая цена + MCP GA, Threat High) — приоритетные угрозы за русскоязычную аудиторию.</li>
+            <li><strong>Мультиактивная экспансия</strong> — Coinrule (20+ крипто + 7 фондовых брокеров + DeFi on-chain) и Pionex (токенизированные акции/ETF/RWA) выходят за пределы крипты. Пересечение с ЦА Veles растёт.</li>
+            <li><strong>Новый дифференциатор Veles</strong> — не «единственные с обучением», а <strong>RU-обучение + снижение риска сложных AI-инструментов</strong>: учим безопасно работать с MCP/AI-агентами, API и токенизированными активами на русском. Инструменты у всех есть, обучающего слоя под них — нет.</li>
         </ul>
     </div>
 
@@ -3112,67 +3280,63 @@
         <div class="card-header"><span class="icon">⚡</span> ТОП-5 приоритетных действий (ranked by impact)</div>
 
         <div class="priority-card">
-            <div class="priority-title"><span class="priority-num">1</span>Контент-серия «Почему боты не работают» — SEO + acquisition</div>
+            <div class="priority-title"><span class="priority-num">1</span>Quick action (30 дней): RU-гайд по MCP/AI-агентам + безопасность API</div>
             <div class="priority-body">
-                У всех 4 конкурентов есть системные боли, которые Veles может раскрыть через образовательный контент:
+                Cryptohopper (MCP + Trading API) и WunderTrading (MCP GA) выводят агентскую торговлю в mainstream, но без обучения на русском. Закрываем пробел: как безопасно подключать Claude/агентов, права API-ключей, границы автономии.
                 <ul>
-                    <li><strong>3Commas</strong>: скрытые лимиты AI + «short-time discount» $200→$60 на 3 дня (Trustpilot, паттерн с июня)</li>
-                    <li><strong>Cryptohopper</strong>: бот молчит месяцами + задержки affiliate-выплат (coinspot.io, 2 июня 2026)</li>
-                    <li><strong>Pionex</strong>: Futures Moon Bot — «no fees», но фактически 20% от grid profit + 20% от trend PnL (Reddit, 3 июня 2026)</li>
-                    <li><strong>Bitsgap</strong>: annual-pricing +22% на renewal без анонса; Android не обновлялся 11 месяцев</li>
+                    <li>Серия «AI-агент и ваши деньги»: что такое MCP, какие риски, как настроить права API-ключа</li>
+                    <li>Чек-лист безопасности API (IP-whitelist, запрет вывода, отзыв ключей)</li>
+                    <li>Позиционирование: снижение риска сложных AI-инструментов, а не хайп</li>
                 </ul>
-                Позиционирует Veles как «честный голос», а не очередной инструмент.
-                <span class="priority-metric">Метрика: органический трафик +30% за 3 месяца</span>
+                <span class="priority-metric">Guardrails: CAC ≤ $27–28; ROAS ≥ 3.5; LTV/CAC ≥ 4; отток 1-го мес &lt; 10%</span>
             </div>
         </div>
 
         <div class="priority-card">
-            <div class="priority-title"><span class="priority-num">2</span>Миграционный оффер: 3Commas + Cryptohopper + Bitsgap renewal</div>
+            <div class="priority-title"><span class="priority-num">2</span>Quick action (30 дней): RU-контент про токенизированные US-акции</div>
             <div class="priority-body">
-                Тройной триггер оттока: 3Commas (Freeman class action на пересмотре в District Court + трафик -24.7% в апреле); Cryptohopper (Trustpilot 3.6/5 + задержки affiliate); <strong>Bitsgap annual-pricing +22% на renewal</strong> — пользователи получат ценовой шок при продлении.
+                Pionex пивотится в токенизированные US-акции/ETF/RWA (280+ инструментов, до 50x), 24/7 NVDA/SPCX/TSLA, Pionex Card. Тема новая для русскоязычной аудитории и почти без качественного RU-контента.
                 <ul>
-                    <li>Landing «Переходите с 3Commas/Cryptohopper/Bitsgap — первые 2 месяца со скидкой 50%»</li>
-                    <li>Retargeting на Reddit r/3Commas_io, r/CryptoHopper, r/Bitsgap</li>
-                    <li>Партнёрство с инфлюенсерами, освещающими скандалы и ценовые повышения</li>
-                    <li><strong>NEW</strong>: таргет на 2 874 подписчиков Telegram Bitsgap News — прямая аудитория со снижающейся вовлечённостью</li>
+                    <li>Объясняющий контент: что такое токенизированные акции/RWA, чем отличаются от реальных, где риски</li>
+                    <li>Разбор механики 24/7-торговли и плеча до 50x — без хайпа, с фокусом на риск</li>
+                    <li>Отстройка: обучение под новые инструменты, которого нет у Pionex на русском</li>
                 </ul>
-                <span class="priority-metric">Метрика: CAC ≤ $20 (с текущих $27–28); ROAS guardrail > 3.5</span>
+                <span class="priority-metric">Guardrails: CAC ≤ $27–28; ROAS ≥ 3.5; LTV/CAC ≥ 4; отток 1-го мес &lt; 10%</span>
             </div>
         </div>
 
         <div class="priority-card">
-            <div class="priority-title"><span class="priority-num">3</span>Захватить нишу «образование + инструмент»</div>
+            <div class="priority-title"><span class="priority-num">3</span>Quick action (30 дней): кампания-сравнение vs Bitsgap + WunderTrading с инфлюенсерами</div>
             <div class="priority-body">
-                Все 4 конкурента — pure trading tools без обучающего слоя. Позиционирование Veles: <strong>«Первая платформа, которая учит вас торговать, а не просто автоматизирует торговлю»</strong>.
-                <span class="priority-metric">Метрика: NPS > 50; early churn 1го месяца с 10–16% → &lt; 7%</span>
-            </div>
-        </div>
-
-        <div class="priority-card">
-            <div class="priority-title"><span class="priority-num">4</span>Атаковать мобильную и Telegram-аудиторию Pionex/Bitsgap</div>
-            <div class="priority-body">
-                <strong>Pionex Telegram обвалился: 96 675 → 32 783 (-66% по Telemetr.me)</strong> — массовый отток. Bitsgap Telegram 3 316 → 2 874. Огромный gap.
+                Приоритетные RU-угрозы: Bitsgap (RU-локализация + DEX, Threat Medium-High) и WunderTrading (RU-поддержка + $4.95 + MCP GA, Threat High). Образовательная кампания-сравнение с русскоязычными инфлюенсерами.
                 <ul>
-                    <li>Telegram-инфлюенсеры с контентом об ошибках пользователей Pionex/Bitsgap → Veles</li>
-                    <li>Серия мини-курсов: «7 ошибок пользователей Grid Bot» + «Pionex Futures Moon: где скрыты 20%+20%» → lead generation</li>
-                    <li>CPA-партнёрства с крипто-Telegram каналами (15K–30K) — core канал Veles</li>
-                    <li><strong>NEW</strong>: контент про регуляторный риск Pionex pre-IPO перпов (SpaceX/OpenAI через BVI) — отстройка от рисковой позиции</li>
+                    <li>Landing-сравнения «Veles vs Bitsgap» и «Veles vs WunderTrading» — profit-share vs подписка, обучение на русском</li>
+                    <li>Инфлюенсеры в крипто-Telegram/YouTube на русском: честное сравнение, а не агрессивный отток</li>
+                    <li>Акцент: у них инструмент, у нас инструмент + обучение + profit-share</li>
                 </ul>
-                <span class="priority-metric">Метрика: +500 новых юзеров/мес из Telegram; CAC ≤ $15</span>
+                <span class="priority-metric">Guardrails: CAC ≤ $27–28; ROAS ≥ 3.5; LTV/CAC ≥ 4; отток 1-го мес &lt; 10%</span>
             </div>
         </div>
 
         <div class="priority-card">
-            <div class="priority-title"><span class="priority-num">5</span>Восстановить LTV до $160+ через product-led onboarding</div>
+            <div class="priority-title"><span class="priority-num">4</span>Захватить нишу «RU-обучение + снижение риска AI-инструментов»</div>
             <div class="priority-body">
-                Текущий early churn 10–16% в первый месяц. Инсайт из SWOT: пользователи уходят «не понимаю что происходит». Onboarding должен закрыть это:
+                У всех 6 конкурентов есть инструменты (боты, MCP, Agentic Mode, токенизированные активы), но нет обучающего слоя на русском. Позиционирование Veles: <strong>«Учим безопасно пользоваться современными инструментами, а не просто даём их»</strong>.
+                <span class="priority-metric">Guardrails: LTV/CAC ≥ 4; отток 1-го мес &lt; 10%</span>
+            </div>
+        </div>
+
+        <div class="priority-card">
+            <div class="priority-title"><span class="priority-num">5</span>Product-led onboarding под новые инструменты</div>
+            <div class="priority-body">
+                Инсайт из SWOT: пользователи уходят «не понимаю, что происходит». Onboarding закрывает это, включая новые темы (AI-агенты, токенизированные активы):
                 <ul>
                     <li><strong>Day 1</strong>: «Ваш первый бот» — guided setup за 10 минут</li>
-                    <li><strong>Day 3</strong>: «Почему ваш бот ещё не торгует» — превентивный FAQ (боль №1 Cryptohopper)</li>
+                    <li><strong>Day 3</strong>: «Почему ваш бот ещё не торгует» — превентивный FAQ</li>
                     <li><strong>Day 7</strong>: «Ваши первые результаты» — осмысленный отчёт</li>
                     <li><strong>Day 14</strong>: «Что делать при выходе из диапазона» — retain перед кризисом</li>
                 </ul>
-                <span class="priority-metric">Метрика: early churn &lt; 7%; LTV $155–160 (с $107–142)</span>
+                <span class="priority-metric">Guardrails: отток 1-го мес &lt; 10%; LTV/CAC ≥ 4</span>
             </div>
         </div>
     </div>
@@ -3181,25 +3345,25 @@
     <div class="card">
         <div class="card-header"><span class="icon">🎯</span> Свободные ниши (где конкуренты слабы)</div>
         <ul class="strength-list">
-            <li><strong>Образовательный слой при торговых инструментах</strong> — ни у одного из 6 конкурентов. Особенно остро у Coinrule («AI Agentic» = IFTTT-правила) и WunderTrading (AI-бот = ML-Grid без обучения).</li>
-            <li><strong>Русскоязычный рынок СНГ</strong> — 5 из 6 конкурентов англоязычны. WunderTrading имеет wundertrading.com/ru, но без активных РУ-кампаний. Coinrule — только английский. Полноценной СНГ-стратегии нет ни у кого.</li>
-            <li><strong>Прозрачность vs «чёрный ящик»</strong> — конкуренты продают обещание («бот зарабатывает»), не объясняя механику. Ниша «честного» продукта с объяснением рисков свободна.</li>
+            <li><strong>RU-обучение под современные инструменты</strong> — инструменты есть у всех (MCP, Agentic Mode, токенизированные активы), но обучающего слоя на русском нет ни у одного из 6.</li>
+            <li><strong>RU-education vs просто RU-интерфейс</strong> — Bitsgap (RU-локализация) и WunderTrading (RU-поддержка) закрывают язык, но не обучают торговле и риск-менеджменту. 3Commas, Cryptohopper, Pionex, Coinrule — только английский.</li>
+            <li><strong>Снижение риска сложных AI-инструментов</strong> — конкуренты продают доступ к MCP/агентам, не объясняя риски автономной торговли и безопасность API. Ниша «безопасного входа» свободна.</li>
+            <li><strong>Обучение под токенизированные активы/RWA</strong> — Pionex и Coinrule расширяются в мультиактив, но без RU-контента об этих инструментах.</li>
             <li><strong>Education-first onboarding</strong> — ни у кого нет guided первых 30 дней. Первый бот запускается «как придётся» → высокий churn.</li>
-            <li><strong>Сегмент $10–20/мес с реальным функционалом</strong> — Cryptohopper Pioneer без автоматизации, 3Commas Starter $20 = 5 ботов, Pionex — кастодиальный риск, Bitsgap Basic $23 — бэктест 30 дней. Качественный продукт за $15–20 — незанятая позиция.</li>
         </ul>
     </div>
 
     <!-- Угрозы рынка -->
     <div class="card">
-        <div class="card-header"><span class="icon">⚠️</span> Угрозы рынка (12–18 месяцев) — обновлено июнь 2026</div>
+        <div class="card-header"><span class="icon">⚠️</span> Угрозы рынка (12–18 месяцев) — обновлено 19 июля 2026</div>
         <ul class="strength-list they-win">
-            <li><strong>🔴 MCP-инфраструктура растёт (уже двое игроков)</strong> — Cryptohopper Market Data MCP (27 мая 2026) + WunderTrading MCP Server execution-layer (май 2026 beta, 14 tools). До конца 2026 это станет table stakes. Veles рискует остаться в «human UI»-парадигме.</li>
-            <li><strong>🔴 AI Agentic Trading входит в мейнстрим</strong> — Coinrule (25 фев 2026, обучен на 1.74M стратегиях), Robinhood (27 мая), Coinbase (11 июня). Интегрированные AI-решения брокеров могут вытеснить отдельных бот-вендоров. Veles должен иметь чёткий нарратив «зачем нам, если есть Robinhood AI».</li>
-            <li><strong>🔴 QuanScript как стандарт</strong> — 3Commas запустил собственный язык стратегий (Pine Script-аналог) + SSO QuantPilot↔3Commas. Если QuanScript наберёт траекцию — экосистемный замок.</li>
-            <li><strong>AI-гонка ускоряется</strong> — QuantPilot Arena Season 1 (премии, маркетинг через турниры), Bitsgap AI Portfolio Mode, PionexGPT (всё ещё GPT-3.5). Через 12–18 месяцев AI = table stakes. Veles должен сформулировать AI-позицию в ближайшие 3 месяца.</li>
-            <li><strong>RWA-экспансия Pionex</strong> — 80+ xStocks, «Trump portfolio» (18 мая), pre-IPO SpaceX/OpenAI, Ondo Stocks. Если токенизированные активы станут mainstream — пересечение с ЦА Veles.</li>
-            <li><strong>Регуляторное давление</strong> — MiCA, Philippines SEC, AMF blacklist, BVI-офшор Pionex для pre-IPO перпов. Оффшорные платформы будут вынуждены перестраиваться; для Veles — окно «compliant alternative».</li>
-            <li><strong>Рост CAC в платном</strong> — ROAS Veles просел до 2.7–2.9x. Конкуренты с аффилиаткой перегревают аукцион. BTC -21% drawdown (3 июня) добавляет давления на retention.</li>
+            <li><strong>🔴 Agentic AI стал стандартом рынка</strong> — за инструментами последовали брокеры/биржи: Robinhood (10 июля) и Kraken (11 июля 2026). Интегрированные AI-решения могут вытеснить отдельных бот-вендоров. Veles нужен чёткий нарратив «зачем мы, если есть агент брокера».</li>
+            <li><strong>🔴 MCP-инфраструктура растёт</strong> — Cryptohopper MCP Server + Trading API (26 июня, страница обновлена 8 июля) + WunderTrading MCP Server (GA). Агентская торговля становится table stakes; Veles рискует остаться в «human UI»-парадигме без обучающего слоя.</li>
+            <li><strong>🔴 3Commas QuantPilot</strong> — natural-language, AI Research, Hyperliquid Terminal, QuantPilot Arena; early access, Lifetime VIP $5,000, тарифы «финализируются». Agentic-вектор укрепляется.</li>
+            <li><strong>Coinrule Agentic Mode + AI Cloud</strong> — AI-агенты на платных тарифах (AI Credits), обучены на массивном датасете стратегий. Мультиактив (крипто + акции + DeFi) расширяет охват.</li>
+            <li><strong>RWA/токенизация: пивот Pionex</strong> — токенизированные US-акции/ETF/RWA (280+ инструментов, до 50x), 24/7 NVDA/SPCX/TSLA, Pionex Card, SKHX ADR, TON→GRAM. Если токенизированные активы станут mainstream — прямое пересечение с ЦА Veles.</li>
+            <li><strong>RU-окно сужается</strong> — Bitsgap (RU-локализация + DEX, Medium-High) и WunderTrading (RU-поддержка + $4.95 + MCP GA, High) усиливают борьбу за русскоязычную аудиторию.</li>
+            <li><strong>Рост CAC в платном</strong> — конкуренты с аффилиаткой перегревают аукцион. Держим guardrails: CAC ≤ $27–28, ROAS ≥ 3.5, LTV/CAC ≥ 4, отток 1-го мес &lt; 10%.</li>
         </ul>
     </div>
 
@@ -3208,28 +3372,28 @@
         <div class="card-header"><span class="icon">💥</span> Killer-аргументы Veles (готовые формулировки)</div>
 
         <div class="killer-card">
-            <div class="killer-quote">«Мы единственные, кто объясняет, а не просто автоматизирует»</div>
-            <div class="killer-evidence">Против позиционирования всех 4 конкурентов как pure tools. 3Commas: «not suitable for beginners» → Veles: «designed for beginners who want to become confident».</div>
+            <div class="killer-quote">«Мы учим безопасно пользоваться AI, а не просто даём агента»</div>
+            <div class="killer-evidence">Против позиционирования конкурентов: у всех есть инструменты (Cryptohopper MCP, WunderTrading MCP GA, Coinrule Agentic Mode, 3Commas QuantPilot), но нет обучающего слоя. Veles: RU-обучение + снижение риска сложных AI-инструментов.</div>
         </div>
 
         <div class="killer-card">
-            <div class="killer-quote">«Ваши деньги на вашей бирже — мы не хранили чужих API и не теряли их»</div>
-            <div class="killer-evidence">3Commas: 3 инцидента (2022, 2023, 2026), class action. Cryptohopper: 2 инцидента (2020, 2024). Pionex: кастодиальная биржа. Только Bitsgap с чистой записью.</div>
+            <div class="killer-quote">«Ваши деньги на вашей бирже — profit-share, а не подписка»</div>
+            <div class="killer-evidence">Максимум $50/мес и только при прибыли, против подписок конкурентов (Bitsgap Pro $149, WunderTrading Premium $89.95, Coinrule Fund $749), которые платятся независимо от результата бота.</div>
         </div>
 
         <div class="killer-card">
-            <div class="killer-quote">«Один месяц с Veles заменяет 7 месяцев платежей за молчащий бот»</div>
-            <div class="killer-evidence">Прямая отсылка к цитате с Trustpilot Cryptohopper: «7 months, 0 trades, $900 wasted». Эффективный conversion-copy для landing pages.</div>
+            <div class="killer-quote">«Обучение на русском, а не только русский интерфейс»</div>
+            <div class="killer-evidence">Bitsgap (RU-локализация) и WunderTrading (RU-поддержка) закрывают язык, но не обучают стратегиям и риск-менеджменту. 3Commas, Cryptohopper, Pionex, Coinrule — только английский.</div>
         </div>
 
         <div class="killer-card">
-            <div class="killer-quote">«Мы не прячем лимиты в мелкий шрифт»</div>
-            <div class="killer-evidence">Против 3Commas (скрытый лимит 1M токенов AI), Cryptohopper (НДС не включён, «15 ботов» = 15 пар одного бота), Pionex (10-дневный фриз ACH).</div>
+            <div class="killer-quote">«Понятная цена без доплат за AI-кредиты»</div>
+            <div class="killer-evidence">Против Coinrule (AI Credits, overage $0.02/кредит поверх подписки), ценового прыжка Trader $59.99 → Fund $749 (12.5×) и премиум-AI только на Bitsgap Pro $149. У нас profit-share без скрытых доплат.</div>
         </div>
 
         <div class="killer-card">
-            <div class="killer-quote">«Сообщество, которое отвечает на вопросы, а не чат с объявлениями»</div>
-            <div class="killer-evidence">Bitsgap Telegram: 2 874 подписчиков при 800K+ юзеров (0.35% penetration, падает). Pionex Telegram: 96 675 → 32 783 (-66%) за месяц. Cryptohopper: задержки поддержки до 1 недели. Veles: живое сообщество с экспертами = loyalty driver.</div>
+            <div class="killer-quote">«RU-контент про новые инструменты, которого нет у конкурентов»</div>
+            <div class="killer-evidence">Pionex пивотится в токенизированные US-акции/ETF/RWA (280+ инструментов, до 50x), но без RU-обучения. Veles закрывает пробел: объясняем механику и риски токенизированных активов на русском.</div>
         </div>
     </div>
 
@@ -3243,40 +3407,40 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>3Commas</strong></td>
-                    <td>Безопасность + profit-share вместо подписки</td>
-                    <td>Недовольные ростом цен Pro $50→$140; жертвы class action</td>
-                    <td>0–3 мес (пик окна)</td>
+                    <td><strong>WunderTrading</strong> <span class="badge badge-lose">High</span></td>
+                    <td>RU-обучение + profit-share против MCP GA и подписки</td>
+                    <td>Русскоязычные и tech-savvy: интересуются MCP/AI-агентами, но без обучения безопасности</td>
+                    <td>0–3 мес (приоритет)</td>
                 </tr>
                 <tr>
-                    <td><strong>Cryptohopper</strong></td>
-                    <td>Образование + гарантия «бот работает»</td>
-                    <td>«$900 потрачено впустую»; покупавшие убыточные стратегии</td>
+                    <td><strong>Bitsgap</strong> <span class="badge badge-tie">Medium-High</span></td>
+                    <td>RU-обучение + profit-share против премиум-AI на Pro $149</td>
+                    <td>Русскоязычные пользователи Bitsgap; те, кому AI-функции нужны без подписки $149</td>
+                    <td>0–3 мес (приоритет)</td>
+                </tr>
+                <tr>
+                    <td><strong>3Commas</strong> <span class="badge badge-tie">Medium</span></td>
+                    <td>Profit-share + RU-обучение против QuantPilot и подписки</td>
+                    <td>Чувствительные к цене ($20/$50/$140 + Custom от $223); интересующиеся agentic-AI</td>
                     <td>0–6 мес</td>
                 </tr>
                 <tr>
-                    <td><strong>Pionex</strong></td>
-                    <td>Свобода биржи + обучение механике ботов</td>
-                    <td>Пострадавшие от «призрачных ликвидаций»; русскоязычные пользователи</td>
-                    <td>3–12 мес</td>
-                </tr>
-                <tr>
-                    <td><strong>Bitsgap</strong></td>
-                    <td>Образование как layer; партнёрство, а не лобовая атака</td>
-                    <td>Мобильная аудитория (Android 3.3/5); Telegram-сегмент</td>
-                    <td>6–12 мес</td>
-                </tr>
-                <tr>
-                    <td><strong>WunderTrading</strong></td>
-                    <td>Образование + РУ-поддержка против «AI-бот ищет сделки 4 дня»</td>
-                    <td>Пользователи wundertrading.com/ru; жертвы AI-бота (Trustpilot −25% за 2 недели)</td>
+                    <td><strong>Cryptohopper</strong> <span class="badge badge-tie">Medium</span></td>
+                    <td>RU-обучение под MCP/AI + понятная цена против реструктуризации</td>
+                    <td>Русскоязычные, кому сложен порог MCP; неопределённость с ценами «$9.99–$99.99»</td>
                     <td>0–6 мес</td>
                 </tr>
                 <tr>
-                    <td><strong>Coinrule</strong></td>
-                    <td>Надёжное исполнение + честный AI vs «AI washing» и сбои в bull-циклах</td>
-                    <td>Investor/Trader (жертвы прыжка $60→$749); новички без понимания RSI/MACD</td>
-                    <td>0–6 мес (боль свежая)</td>
+                    <td><strong>Coinrule</strong> <span class="badge badge-tie">Medium</span></td>
+                    <td>RU-обучение + profit-share без доплат за AI Credits</td>
+                    <td>Investor/Trader (прыжок $59.99 → $749); англоязычный Agentic Mode без RU</td>
+                    <td>0–6 мес</td>
+                </tr>
+                <tr>
+                    <td><strong>Pionex</strong> <span class="badge badge-neutral">Medium-Low</span></td>
+                    <td>RU-обучение под токенизированные активы/RWA + свобода биржи</td>
+                    <td>Интересующиеся токенизированными US-акциями/ETF; русскоязычные без RU-контента</td>
+                    <td>3–12 мес (RWA стратегически)</td>
                 </tr>
             </tbody>
         </table>
@@ -3288,7 +3452,7 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    Veles Finance Intelligence Dashboard v3.1 | Обновлено: 24 июня 2026 | Конкурентная разведка + SWOT (6 баттлкардов)
+    Veles Finance Intelligence Dashboard v3.2 | Обновлено: 19 июля 2026 | Конкурентная разведка + SWOT (6 баттлкардов)
 </footer>
 
 <script>
